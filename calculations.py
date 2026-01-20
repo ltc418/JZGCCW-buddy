@@ -230,6 +230,11 @@ class InvestmentCalculator:
         # 专利权（不含税，Excel中：0）
         asset.patent_intangible_asset.total = inv.patent_fee_no_tax
 
+        # 销售地产土地权（用于销售的土地使用权摊销）
+        # 原值 = 土地使用权总值 × 销售比例
+        # Excel中：6505.72 × 25% = 1626.43
+        asset.sales_land_intangible_asset.total = asset.land_intangible_asset.total * self.input.asset_sales_plan.land_sell_ratio
+
         # 其他资产
         # 开办费不含税（Excel中：294.1029）
         asset.other_asset.total = preparation_fee_no_tax
@@ -393,6 +398,322 @@ class DepreciationCalculator:
             if self.yg.is_operation_year(year_num):
                 result[year] = total_yearly_amortization
         
+        return result
+
+    def get_detailed_depreciation_data(self) -> Dict[str, Dict]:
+        """
+        获取详细的折旧摊销数据（按照5-4折旧表结构）
+
+        Returns:
+            dict: 包含建筑物、机器设备、销售固定资产和合计的详细数据
+        """
+        years = self.yg.generate_year_names()
+        asset = self.input.asset_formation
+        sales_plan = self.input.asset_sales_plan
+
+        # 资产原值
+        building_value = asset.building_fixed_asset.total  # 建筑物原值
+        equipment_value = asset.equipment_fixed_asset.total  # 机器设备原值
+
+        # 销售固定资产成本（直接使用指定的成本值）
+        sales_assets_cost = sales_plan.sales_assets_cost
+
+        # 初始化结果字典
+        result = {
+            "building": {
+                "original_value": [],
+                "depreciation": [],
+                "net_value": []
+            },
+            "equipment": {
+                "original_value": [],
+                "depreciation": [],
+                "net_value": []
+            },
+            "sales_assets": {
+                "cost": [],
+                "amortization": [],
+                "remaining": []
+            },
+            "total": {
+                "original_value": [],
+                "depreciation_amortization": [],
+                "net_value": []
+            }
+        }
+
+        # 建筑物年折旧额
+        building_annual_depr = building_value / asset.building_fixed_asset.depreciation_years if asset.building_fixed_asset.depreciation_years > 0 else 0
+
+        # 机器设备年折旧额
+        equipment_annual_depr = equipment_value / asset.equipment_fixed_asset.depreciation_years if asset.equipment_fixed_asset.depreciation_years > 0 else 0
+
+        # 销售资产摊销规则：第1年10%，第2-3年各30%，剩余30%期末回收
+        sales_amortization = {
+            1: 0.10,
+            2: 0.30,
+            3: 0.30
+        }
+
+        # 计算各年数据
+        cumulative_sales_amortization = 0.0
+
+        for year in years:
+            year_num = self.yg.get_year_index(year)
+            is_construction = self.yg.is_construction_year(year_num)
+            op_year = year_num - self.yg.construction_period if not is_construction else 0
+
+            # 建筑物数据
+            if is_construction:
+                result["building"]["original_value"].append(0.0)
+                result["building"]["depreciation"].append(0.0)
+                result["building"]["net_value"].append(0.0)
+            elif op_year == 1:
+                # 运营期第1年：原值计入
+                result["building"]["original_value"].append(building_value)
+                result["building"]["depreciation"].append(building_annual_depr)
+                result["building"]["net_value"].append(building_value - building_annual_depr)
+            else:
+                # 运营期第2年及以后
+                result["building"]["original_value"].append(0.0)
+                result["building"]["depreciation"].append(building_annual_depr)
+                # 净值 = 原值 - 累计折旧
+                cumulative_depr = op_year * building_annual_depr
+                result["building"]["net_value"].append(max(0, building_value - cumulative_depr))
+
+            # 机器设备数据
+            if is_construction:
+                result["equipment"]["original_value"].append(0.0)
+                result["equipment"]["depreciation"].append(0.0)
+                result["equipment"]["net_value"].append(0.0)
+            elif op_year == 1:
+                result["equipment"]["original_value"].append(equipment_value)
+                result["equipment"]["depreciation"].append(equipment_annual_depr)
+                result["equipment"]["net_value"].append(equipment_value - equipment_annual_depr)
+            else:
+                result["equipment"]["original_value"].append(0.0)
+                result["equipment"]["depreciation"].append(equipment_annual_depr)
+                cumulative_depr = op_year * equipment_annual_depr
+                result["equipment"]["net_value"].append(max(0, equipment_value - cumulative_depr))
+
+            # 销售固定资产数据
+            if is_construction:
+                result["sales_assets"]["cost"].append(0.0)
+                result["sales_assets"]["amortization"].append(0.0)
+                result["sales_assets"]["remaining"].append(0.0)
+            elif op_year == 1:
+                # 运营期第1年：成本计入，摊销10%
+                amort = sales_assets_cost * sales_amortization.get(1, 0)
+                result["sales_assets"]["cost"].append(sales_assets_cost)
+                result["sales_assets"]["amortization"].append(amort)
+                cumulative_sales_amortization += amort
+                result["sales_assets"]["remaining"].append(sales_assets_cost - cumulative_sales_amortization)
+            elif op_year in [2, 3]:
+                # 运营期第2-3年：摊销30%
+                amort = sales_assets_cost * sales_amortization.get(op_year, 0)
+                result["sales_assets"]["cost"].append(0.0)
+                result["sales_assets"]["amortization"].append(amort)
+                cumulative_sales_amortization += amort
+                result["sales_assets"]["remaining"].append(sales_assets_cost - cumulative_sales_amortization)
+            else:
+                # 运营期第4年及以后：摊销完成
+                result["sales_assets"]["cost"].append(0.0)
+                result["sales_assets"]["amortization"].append(0.0)
+                result["sales_assets"]["remaining"].append(0.0)
+
+            # 合计数据
+            if op_year == 1:
+                # 运营期第1年：原值合计
+                result["total"]["original_value"].append(building_value + equipment_value + sales_assets_cost)
+            else:
+                result["total"]["original_value"].append(0.0)
+
+            # 当期折旧摊销合计
+            idx = len(result["building"]["depreciation"]) - 1
+            result["total"]["depreciation_amortization"].append(
+                result["building"]["depreciation"][idx] +
+                result["equipment"]["depreciation"][idx] +
+                result["sales_assets"]["amortization"][idx]
+            )
+
+            # 净值合计
+            result["total"]["net_value"].append(
+                result["building"]["net_value"][idx] +
+                result["equipment"]["net_value"][idx] +
+                result["sales_assets"]["remaining"][idx]
+            )
+
+        return result
+
+    def get_detailed_amortization_data(self) -> Dict[str, Dict]:
+        """
+        获取详细的摊销数据（按照5-5摊销表结构）
+
+        Returns:
+            dict: 包含土地使用权、专利权、其他资产、销售地产土地权摊销和合计的详细数据
+        """
+        years = self.yg.generate_year_names()
+        asset = self.input.asset_formation
+
+        # 各资产原值
+        land_value = asset.land_intangible_asset.total  # 土地使用权原值
+        patent_value = asset.patent_intangible_asset.total  # 专利权原值
+        other_asset_value = asset.other_asset.total  # 其他资产原值
+        sales_land_value = asset.sales_land_intangible_asset.total  # 销售地产土地权原值
+
+        # 初始化结果字典
+        result = {
+            "land": {
+                "original_value": [],
+                "amortization": [],
+                "net_value": []
+            },
+            "patent": {
+                "original_value": [],
+                "amortization": [],
+                "net_value": []
+            },
+            "other_asset": {
+                "original_value": [],
+                "amortization": [],
+                "net_value": []
+            },
+            "sales_land": {
+                "original_value": [],
+                "amortization": [],
+                "net_value": []
+            },
+            "total": {
+                "original_value": [],
+                "amortization": [],
+                "net_value": []
+            }
+        }
+
+        # 计算各资产年摊销额
+        land_annual_amort = land_value / asset.land_intangible_asset.amortization_years if asset.land_intangible_asset.amortization_years > 0 else 0
+        patent_annual_amort = patent_value / asset.patent_intangible_asset.amortization_years if asset.patent_intangible_asset.amortization_years > 0 else 0
+        other_asset_annual_amort = other_asset_value / asset.other_asset.amortization_years if asset.other_asset.amortization_years > 0 else 0
+
+        # 销售地产土地权摊销规则：第1年10%，第2-4年各30%
+        sales_land_amortization = {
+            1: 0.10,
+            2: 0.30,
+            3: 0.30,
+            4: 0.30
+        }
+
+        # 计算各年数据
+        cumulative_land_amort = 0.0
+        cumulative_patent_amort = 0.0
+        cumulative_other_amort = 0.0
+        cumulative_sales_land_amort = 0.0
+
+        for year in years:
+            year_num = self.yg.get_year_index(year)
+            is_construction = self.yg.is_construction_year(year_num)
+            op_year = year_num - self.yg.construction_period if not is_construction else 0
+
+            # 土地使用权数据（50年摊销）
+            if is_construction:
+                result["land"]["original_value"].append(0.0)
+                result["land"]["amortization"].append(0.0)
+                result["land"]["net_value"].append(0.0)
+            elif op_year == 1:
+                # 运营期第1年：原值计入
+                result["land"]["original_value"].append(land_value)
+                result["land"]["amortization"].append(land_annual_amort)
+                cumulative_land_amort += land_annual_amort
+                result["land"]["net_value"].append(max(0, land_value - cumulative_land_amort))
+            else:
+                # 运营期第2年及以后
+                result["land"]["original_value"].append(0.0)
+                result["land"]["amortization"].append(land_annual_amort)
+                cumulative_land_amort += land_annual_amort
+                result["land"]["net_value"].append(max(0, land_value - cumulative_land_amort))
+
+            # 专利权数据（6年摊销）
+            if is_construction:
+                result["patent"]["original_value"].append(0.0)
+                result["patent"]["amortization"].append(0.0)
+                result["patent"]["net_value"].append(0.0)
+            elif op_year == 1:
+                result["patent"]["original_value"].append(patent_value)
+                result["patent"]["amortization"].append(patent_annual_amort)
+                cumulative_patent_amort += patent_annual_amort
+                result["patent"]["net_value"].append(max(0, patent_value - cumulative_patent_amort))
+            else:
+                result["patent"]["original_value"].append(0.0)
+                result["patent"]["amortization"].append(patent_annual_amort)
+                cumulative_patent_amort += patent_annual_amort
+                result["patent"]["net_value"].append(max(0, patent_value - cumulative_patent_amort))
+
+            # 其他资产数据（5年摊销）
+            if is_construction:
+                result["other_asset"]["original_value"].append(0.0)
+                result["other_asset"]["amortization"].append(0.0)
+                result["other_asset"]["net_value"].append(0.0)
+            elif op_year == 1:
+                result["other_asset"]["original_value"].append(other_asset_value)
+                result["other_asset"]["amortization"].append(other_asset_annual_amort)
+                cumulative_other_amort += other_asset_annual_amort
+                result["other_asset"]["net_value"].append(max(0, other_asset_value - cumulative_other_amort))
+            else:
+                result["other_asset"]["original_value"].append(0.0)
+                result["other_asset"]["amortization"].append(other_asset_annual_amort)
+                cumulative_other_amort += other_asset_annual_amort
+                result["other_asset"]["net_value"].append(max(0, other_asset_value - cumulative_other_amort))
+
+            # 销售地产土地权数据（4年摊销，第1年10%，第2-4年各30%）
+            if is_construction:
+                result["sales_land"]["original_value"].append(0.0)
+                result["sales_land"]["amortization"].append(0.0)
+                result["sales_land"]["net_value"].append(0.0)
+            elif op_year == 1:
+                # 运营期第1年：成本计入，摊销10%
+                amort = sales_land_value * sales_land_amortization.get(1, 0)
+                result["sales_land"]["original_value"].append(sales_land_value)
+                result["sales_land"]["amortization"].append(amort)
+                cumulative_sales_land_amort += amort
+                result["sales_land"]["net_value"].append(max(0, sales_land_value - cumulative_sales_land_amort))
+            elif 1 < op_year <= 4:
+                # 运营期第2-4年：摊销30%
+                amort = sales_land_value * sales_land_amortization.get(op_year, 0)
+                result["sales_land"]["original_value"].append(0.0)
+                result["sales_land"]["amortization"].append(amort)
+                cumulative_sales_land_amort += amort
+                result["sales_land"]["net_value"].append(max(0, sales_land_value - cumulative_sales_land_amort))
+            else:
+                # 运营期第5年及以后：摊销完成
+                result["sales_land"]["original_value"].append(0.0)
+                result["sales_land"]["amortization"].append(0.0)
+                result["sales_land"]["net_value"].append(0.0)
+
+            # 合计数据
+            if op_year == 1:
+                # 运营期第1年：原值合计
+                result["total"]["original_value"].append(land_value + patent_value + other_asset_value + sales_land_value)
+            else:
+                result["total"]["original_value"].append(0.0)
+
+        # 计算摊销费合计和净值合计
+        for idx in range(len(years)):
+            # 摊销费合计
+            result["total"]["amortization"].append(
+                result["land"]["amortization"][idx] +
+                result["patent"]["amortization"][idx] +
+                result["other_asset"]["amortization"][idx] +
+                result["sales_land"]["amortization"][idx]
+            )
+
+            # 净值合计
+            result["total"]["net_value"].append(
+                result["land"]["net_value"][idx] +
+                result["patent"]["net_value"][idx] +
+                result["other_asset"]["net_value"][idx] +
+                result["sales_land"]["net_value"][idx]
+            )
+
         return result
 
 

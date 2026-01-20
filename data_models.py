@@ -128,6 +128,12 @@ class AssetFormation:
         amortization_years=6
     ))
 
+    # 销售地产土地权无形资产（用于销售的土地使用权摊销）
+    sales_land_intangible_asset: IntangibleAssetDetail = field(default_factory=lambda: IntangibleAssetDetail(
+        asset_name="销售地产土地权",
+        amortization_years=4  # 4年摊销：第1年10%，第2-4年各30%
+    ))
+
     # 其他资产
     other_asset: OtherAssetDetail = field(default_factory=lambda: OtherAssetDetail(
         asset_name="开办费",
@@ -153,13 +159,16 @@ class AssetSalesPlan:
     asset_sell_ratio: float = 0.25       # 出售固定资产占比（%）
     land_sell_ratio: float = 0.25        # 出售土地使用权占比（%）
     self_hold_ratio: float = 0.75       # 自持占比（%）
-    
+
+    # 销售固定资产成本（用于销售的建设投资部分）
+    sales_assets_cost: float = 0.0       # 销售固定资产成本（万元）
+
     # 年度销售数据
     annual_sales_ratios: List[float] = field(default_factory=list)  # 年度销售比例 [0.1, 0.3, 0.3, 0.3]
     annual_sales_revenue: Dict[str, float] = field(default_factory=dict)  # 年度销售收入
     annual_sales_cost: Dict[str, float] = field(default_factory=dict)    # 年度销售成本
     annual_land_amortization: Dict[str, float] = field(default_factory=dict)  # 年度土地摊销
-    
+
     # 总销售收入（保留向后兼容）
     asset_sales_revenue: float = 0.0    # 固定资产销售收入（含税）
 

@@ -14,6 +14,7 @@ from calculations import (
     CashFlowCalculator,
     AssetSalesCalculator
 )
+from utils import round_dataframe
 
 
 class CalculationEngine:
@@ -118,7 +119,7 @@ class CalculationEngine:
             ["项目总投资合计", investment_summary["项目总投资（含利息）"], ""]
         ]
 
-        return pd.DataFrame(data, columns=["项目", "金额（万元）", "说明"])
+        return round_dataframe(pd.DataFrame(data, columns=["项目", "金额（万元）", "说明"]))
 
     def _create_working_capital_table(self) -> pd.DataFrame:
         """创建流动资金估算表 - 横向展示"""
@@ -134,7 +135,7 @@ class CalculationEngine:
             else:
                 data[year] = [0.0]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_investment_plan_table(self) -> pd.DataFrame:
         """创建投资计划表 - 横向展示"""
@@ -151,7 +152,7 @@ class CalculationEngine:
             total = sum(inv.values())
             data[year] = [inv["工程费"], inv["其他费"], inv["预备费"], total]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_loan_repayment_table(self) -> pd.DataFrame:
         """创建借款还本付息计划表 - 横向展示"""
@@ -229,104 +230,111 @@ class CalculationEngine:
                 max(0, cumulative_balance)  # 期末余额
             ]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_depreciation_table(self) -> pd.DataFrame:
-        """创建折旧表 - 横向展示（根据Excel结构）"""
-        years = self.yg.generate_year_names()
-        depreciation_by_year = self.depreciation_calc.get_yearly_depreciation()
+        """
+        创建固定资产折旧费、成本摊销估算表（按照5-4折旧表结构）
 
+        表格结构：
+        - 行4-7: 建筑物（20年）- 原值、当期折旧费、净值
+        - 行8-11: 机器设备（10年）- 原值、当期折旧费、净值
+        - 行12-15: 销售固定资产 - 销售固定资产成本、固定资产成本摊销额、剩余待销售资产净值
+        - 行16-19: 合计 - 原值、当期折旧、摊销、净值
+        """
+        years = self.yg.generate_year_names()
+        depreciation_data = self.depreciation_calc.get_detailed_depreciation_data()
         asset = self.input.asset_formation
 
-        # 构建数据字典 - 按Excel Row 35-37的结构
-        data = {
-            "项目": [
-                "1 固定资产",
-                "  房屋建筑",
-                "  机械设备"
-            ]
-        }
+        # 构建表格数据
+        rows = []
 
-        # 添加原值行
-        data["说明"] = ["原值", "", ""]
-        data["折旧年限"] = [
-            "",
-            f"{asset.building_fixed_asset.depreciation_years}年",
-            f"{asset.equipment_fixed_asset.depreciation_years}年"
-        ]
+        # 1. 建筑物（20年）
+        rows.append(["1. 建筑物（20年）", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + depreciation_data["building"]["original_value"])
+        rows.append(["", "当期折旧费"] + depreciation_data["building"]["depreciation"])
+        rows.append(["", "净值"] + depreciation_data["building"]["net_value"])
 
-        # 按年份显示折旧
-        cumulative_depr = 0.0
-        for year in years:
-            annual_depr = depreciation_by_year[year]
-            cumulative_depr += annual_depr
+        # 2. 机器设备（10年）
+        rows.append(["2. 机器设备（10年）", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + depreciation_data["equipment"]["original_value"])
+        rows.append(["", "当期折旧费"] + depreciation_data["equipment"]["depreciation"])
+        rows.append(["", "净值"] + depreciation_data["equipment"]["net_value"])
 
-            # 固定资产原值
-            total_fixed_asset = asset.fixed_asset_total
+        # 3. 销售固定资产
+        rows.append(["3. 销售固定资产", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "销售固定资产成本"] + depreciation_data["sales_assets"]["cost"])
+        rows.append(["", "固定资产成本摊销额"] + depreciation_data["sales_assets"]["amortization"])
+        rows.append(["", "剩余待销售资产净值"] + depreciation_data["sales_assets"]["remaining"])
 
-            # 当年折旧
-            data[year] = [
-                annual_depr,
-                annual_depr * (asset.building_fixed_asset.total / total_fixed_asset if total_fixed_asset > 0 else 0),
-                annual_depr * (asset.equipment_fixed_asset.total / total_fixed_asset if total_fixed_asset > 0 else 0)
-            ]
+        # 4. 合计
+        rows.append(["4. 合计", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + depreciation_data["total"]["original_value"])
+        rows.append(["", "当期折旧、摊销"] + depreciation_data["total"]["depreciation_amortization"])
+        rows.append(["", "净值"] + depreciation_data["total"]["net_value"])
 
-        return pd.DataFrame(data)
+        # 构建列名
+        columns = ["项目", "说明"] + years
+
+        df = pd.DataFrame(rows, columns=columns)
+
+        # 四舍五入，保留2位小数
+        return round_dataframe(df)
 
     def _create_amortization_table(self) -> pd.DataFrame:
-        """创建摊销表 - 横向展示（根据Excel结构）"""
+        """
+        创建摊销表 - 按照5-5摊销表结构
+
+        表格结构：
+        - 行3-6: 土地使用权（50年）- 原值、当期摊销费、净值
+        - 行7-10: 专利权（6年）- 原值、当期摊销费、净值
+        - 行11-14: 其他资产（5年）- 原值、当期摊销费、净值
+        - 行15-18: 销售地产土地权摊销 - 原值、当期摊销费、净值
+        - 行19-22: 合计 - 原值、当期摊销费、净值
+        """
         years = self.yg.generate_year_names()
-        amortization_by_year = self.depreciation_calc.get_yearly_amortization()
+        amortization_data = self.depreciation_calc.get_detailed_amortization_data()
 
-        asset = self.input.asset_formation
+        # 构建表格数据
+        rows = []
 
-        # 构建数据字典 - 按Excel Row 38-40的结构
-        data = {
-            "项目": [
-                "2 无形资产",
-                "  土地使用权",
-                "  专利权",
-                "3 其他资产",
-                "  开办费"
-            ]
-        }
+        # 1. 土地使用权（50年）
+        rows.append(["1. 土地使用权（50年）", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + amortization_data["land"]["original_value"])
+        rows.append(["", "当期摊销费"] + amortization_data["land"]["amortization"])
+        rows.append(["", "净值"] + amortization_data["land"]["net_value"])
 
-        # 添加原值行
-        data["说明"] = ["原值", "", "", "", ""]
-        data["摊销年限"] = [
-            "",
-            f"{asset.land_intangible_asset.amortization_years}年",
-            f"{asset.patent_intangible_asset.amortization_years}年",
-            "",
-            f"{asset.other_asset.amortization_years}年"
-        ]
+        # 2. 专利权（6年）
+        rows.append(["2. 专利权（6年）", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + amortization_data["patent"]["original_value"])
+        rows.append(["", "当期摊销费"] + amortization_data["patent"]["amortization"])
+        rows.append(["", "净值"] + amortization_data["patent"]["net_value"])
 
-        # 按年份显示摊销
-        for year in years:
-            annual_amort = amortization_by_year[year]
+        # 3. 其他资产（5年）
+        rows.append(["3. 其他资产（5年）", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + amortization_data["other_asset"]["original_value"])
+        rows.append(["", "当期摊销费"] + amortization_data["other_asset"]["amortization"])
+        rows.append(["", "净值"] + amortization_data["other_asset"]["net_value"])
 
-            # 计算各资产摊销额
-            total_intangible = asset.intangible_asset_total
-            other_total = asset.other_asset_total
+        # 4. 销售地产土地权摊销
+        rows.append(["4. 销售地产土地权摊销", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + amortization_data["sales_land"]["original_value"])
+        rows.append(["", "当期摊销费"] + amortization_data["sales_land"]["amortization"])
+        rows.append(["", "净值"] + amortization_data["sales_land"]["net_value"])
 
-            # 土地使用权摊销
-            land_amort = annual_amort * (asset.land_intangible_asset.total / (total_intangible + other_total) if (total_intangible + other_total) > 0 else 0)
+        # 5. 合计
+        rows.append(["5. 合计", ""] + [""] * len(years))  # 标题行
+        rows.append(["", "原值"] + amortization_data["total"]["original_value"])
+        rows.append(["", "当期摊销费"] + amortization_data["total"]["amortization"])
+        rows.append(["", "净值"] + amortization_data["total"]["net_value"])
 
-            # 专利权摊销
-            patent_amort = annual_amort * (asset.patent_intangible_asset.total / (total_intangible + other_total) if (total_intangible + other_total) > 0 else 0)
+        # 构建列名
+        columns = ["项目", "说明"] + years
 
-            # 开办费摊销
-            other_amort = annual_amort * (asset.other_asset.total / (total_intangible + other_total) if (total_intangible + other_total) > 0 else 0)
+        df = pd.DataFrame(rows, columns=columns)
 
-            data[year] = [
-                annual_amort,
-                land_amort,
-                patent_amort,
-                other_amort,
-                other_amort
-            ]
-
-        return pd.DataFrame(data)
+        # 四舍五入，保留2位小数
+        return round_dataframe(df)
 
     def _create_material_cost_table(self) -> pd.DataFrame:
         """创建外购原材料费估算表 - 横向展示"""
@@ -361,7 +369,7 @@ class CalculationEngine:
         for year in years:
             data[year].append(total_row[years.index(year)])
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_fuel_cost_table(self) -> pd.DataFrame:
         """创建外购燃料及动力费估算表 - 横向展示"""
@@ -395,7 +403,7 @@ class CalculationEngine:
         for year in years:
             data[year].append(total_row[years.index(year)])
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_welfare_cost_table(self) -> pd.DataFrame:
         """创建工资及福利费估算表 - 横向展示"""
@@ -439,7 +447,7 @@ class CalculationEngine:
             else:
                 data[year] = [0.0] * 7
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_total_cost_table(self) -> pd.DataFrame:
         """创建总成本表 - 横向展示"""
@@ -470,7 +478,7 @@ class CalculationEngine:
                 total_cost
             ]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_revenue_table(self) -> pd.DataFrame:
         """创建收入表 - 横向展示"""
@@ -497,7 +505,7 @@ class CalculationEngine:
             else:
                 data[year] = [0.0, 0.0, 0.0, 0.0]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_profit_table(self) -> pd.DataFrame:
         """创建利润表 - 横向展示"""
@@ -532,7 +540,7 @@ class CalculationEngine:
             else:
                 data[year] = [0.0, 0.0, 0.0, 0.0, 0.0]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_finance_cashflow_table(self) -> pd.DataFrame:
         """创建财务现金流表 - 横向展示"""
@@ -566,7 +574,7 @@ class CalculationEngine:
 
             data[year] = [inflow, outflow, net_cf, cumulative]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_project_cashflow_table(self) -> pd.DataFrame:
         """创建项目投资现金流表 - 横向展示"""
@@ -636,7 +644,7 @@ class CalculationEngine:
             else:
                 data[year] = [0.0] * 11
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_balance_sheet_table(self) -> pd.DataFrame:
         """创建资产负债表 - 横向展示"""
@@ -744,7 +752,7 @@ class CalculationEngine:
                     revenue * 0.17 + net_value * 0.5 + accumulated_profit  # 负债及所有者权益合计
                 ]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_land_tax_table(self) -> pd.DataFrame:
         """创建土地增值税计算表 - 横向展示"""
@@ -827,7 +835,7 @@ class CalculationEngine:
             else:
                 data[year] = [0.0] * len(items)
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_property_sale_table(self) -> pd.DataFrame:
         """创建房产销售及土增表 - 横向展示"""
@@ -867,7 +875,7 @@ class CalculationEngine:
             else:
                 data[year] = [0.0] * 5
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_financial_indicators_table(self) -> pd.DataFrame:
         """创建财务指标汇总表"""
@@ -907,7 +915,7 @@ class CalculationEngine:
             ["计算期", self.yg.total_period, "年"]
         ]
 
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))
 
     def _create_asset_sales_table(self) -> pd.DataFrame:
         """创建资产销售计划表 - 横向展示"""
@@ -954,4 +962,4 @@ class CalculationEngine:
                 # 建设期无销售
                 data[year] = [0.0, 0.0, 0.0, 0.0, sales_plan.self_hold_ratio]
         
-        return pd.DataFrame(data)
+        return round_dataframe(pd.DataFrame(data))

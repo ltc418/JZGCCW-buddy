@@ -1,0 +1,28 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary analysis scripts
+analyze_*.py
+test_*.py
+check_*.py
+
+# Analysis reports (keep MD files, exclude txt/json)
+*.txt
+*.json
+
+# Excel temporary files
+*~

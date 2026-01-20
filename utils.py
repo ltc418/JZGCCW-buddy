@@ -215,3 +215,38 @@ def calculate_pv(cash_flow, discount_rate, year):
         现值
     """
     return cash_flow / ((1 + discount_rate) ** year)
+
+
+def round_dataframe(df, decimal_places=2):
+    """
+    对DataFrame进行四舍五入，保留指定小数位数
+
+    Args:
+        df: 要格式化的DataFrame
+        decimal_places: 保留的小数位数，默认为2
+
+    Returns:
+        DataFrame: 四舍五入后的DataFrame
+    """
+    # 创建副本以避免修改原DataFrame
+    df_rounded = df.copy()
+
+    # 遍历所有列
+    for col in df_rounded.columns:
+        # 尝试将列转换为数值类型
+        try:
+            # 使用pd.to_numeric处理可能的混合类型
+            numeric_values = pd.to_numeric(df_rounded[col], errors='coerce')
+
+            # 只对成功转换为数值的部分进行四舍五入
+            # 首先找出哪些是有效的数值
+            valid_mask = numeric_values.notna()
+
+            if valid_mask.any():
+                # 对有效数值进行四舍五入
+                df_rounded.loc[valid_mask, col] = numeric_values[valid_mask].round(decimal_places)
+        except (ValueError, TypeError):
+            # 如果转换失败，保持原值不变（非数值列）
+            pass
+
+    return df_rounded
