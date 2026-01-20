@@ -11,7 +11,8 @@ from calculations import (
     DepreciationCalculator,
     CostCalculator,
     ProfitCalculator,
-    CashFlowCalculator
+    CashFlowCalculator,
+    AssetSalesCalculator
 )
 
 
@@ -35,6 +36,7 @@ class CalculationEngine:
         self.cost_calc = CostCalculator(year_generator, input_data)
         self.profit_calc = ProfitCalculator(year_generator, input_data)
         self.cashflow_calc = CashFlowCalculator(year_generator, input_data)
+        self.asset_sales_calc = AssetSalesCalculator(year_generator, input_data)
 
     def run_all_calculations(self) -> Dict[str, pd.DataFrame]:
         """
@@ -88,6 +90,9 @@ class CalculationEngine:
         # 10. 土地增值税相关表格
         results["土地增值税计算"] = self._create_land_tax_table()
         results["房产销售及土增"] = self._create_property_sale_table()
+
+        # 11. 资产销售计划表
+        results["资产销售计划"] = self._create_asset_sales_table()
 
         return results
 
@@ -902,4 +907,51 @@ class CalculationEngine:
             ["计算期", self.yg.total_period, "年"]
         ]
 
+        return pd.DataFrame(data)
+
+    def _create_asset_sales_table(self) -> pd.DataFrame:
+        """创建资产销售计划表 - 横向展示"""
+        years = self.yg.generate_year_names()
+        
+        # 计算年度销售数据
+        self.asset_sales_calc.calculate_annual_sales()
+        sales_plan = self.input.asset_sales_plan
+        
+        # 构建数据字典
+        data = {
+            "项目": [
+                "固定资产销售成本",
+                "固定资产销售收入",
+                "土地摊销额",
+                "销售比例",
+                "自持比例"
+            ]
+        }
+        
+        for year in years:
+            year_num = self.yg.get_year_index(year)
+            
+            if self.yg.is_operation_year(year_num):
+                # 运营期显示销售数据
+                sales_cost = sales_plan.annual_sales_cost.get(year, 0.0)
+                sales_revenue = sales_plan.annual_sales_revenue.get(year, 0.0)
+                land_amort = sales_plan.annual_land_amortization.get(year, 0.0)
+                
+                # 计算当年销售比例
+                if sales_plan.asset_sales_revenue > 0:
+                    sales_ratio = sales_revenue / sales_plan.asset_sales_revenue
+                else:
+                    sales_ratio = 0.0
+                
+                data[year] = [
+                    sales_cost,
+                    sales_revenue,
+                    land_amort,
+                    sales_ratio,
+                    sales_plan.self_hold_ratio
+                ]
+            else:
+                # 建设期无销售
+                data[year] = [0.0, 0.0, 0.0, 0.0, sales_plan.self_hold_ratio]
+        
         return pd.DataFrame(data)

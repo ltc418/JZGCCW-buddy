@@ -310,8 +310,97 @@ with st.sidebar:
         with col4:
             st.info("可抵扣进项税：8716.82 万元")
 
-    # 4. 产品销售收入（按年）
-    with st.expander("4️⃣ 产品销售收入（万元）"):
+    # 4. 资产销售计划
+    with st.expander("4️⃣ 资产销售计划"):
+        st.markdown("### 固定资产销售设置")
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            asset_sell_ratio = st.number_input(
+                "出售固定资产占比（%）",
+                min_value=0.0,
+                max_value=100.0,
+                value=25.0,
+                format="%.2f",
+                key="asset_sell_ratio",
+                help="出售固定资产占总资产的比例"
+            )
+
+        with col2:
+            land_sell_ratio = st.number_input(
+                "出售土地使用权占比（%）",
+                min_value=0.0,
+                max_value=100.0,
+                value=25.0,
+                format="%.2f",
+                key="land_sell_ratio",
+                help="出售土地使用权占总土地的比例"
+            )
+
+        with col3:
+            self_hold_ratio = st.number_input(
+                "自持占比（%）",
+                min_value=0.0,
+                max_value=100.0,
+                value=75.0,
+                format="%.2f",
+                key="self_hold_ratio",
+                help="自持资产占总资产的比例"
+            )
+
+        st.markdown("---")
+        st.markdown("### 年度销售比例")
+
+        # 年度销售比例输入
+        year_generator = YearGenerator(new_construction, new_operation)
+        years = year_generator.generate_year_names()
+
+        annual_sales_ratios = []
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        cols = [col1, col2, col3, col4]
+        for i, col in enumerate(cols):
+            with col:
+                if i < len(years) and year_generator.is_operation_year(year_generator.get_year_index(years[i])):
+                    ratio = st.number_input(
+                        f"{years[i]} 销售比例",
+                        min_value=0.0,
+                        max_value=1.0,
+                        value=0.3 if i > 0 else 0.1,
+                        format="%.2f",
+                        key=f"sales_ratio_{i}",
+                        help="该年销售比例"
+                    )
+                    annual_sales_ratios.append(ratio)
+
+        st.markdown("---")
+        st.markdown("### 资产销售预测")
+
+        # 显示销售预测表
+        if annual_sales_ratios:
+            st.write("年度销售分配（万元）：")
+
+            # 计算销售成本
+            fixed_asset_cost = 106057.38 * (asset_sell_ratio / 100)
+            sales_revenue = fixed_asset_cost * 2.5
+
+            # 显示年度分配
+            for i, (year, ratio) in enumerate(zip(years, annual_sales_ratios)):
+                if year_generator.is_operation_year(year_generator.get_year_index(year)):
+                    year_revenue = sales_revenue * ratio
+                    year_cost = fixed_asset_cost * ratio
+                    year_land_amort = 6505.72 * (land_sell_ratio / 100) * ratio
+
+                    col1, col2, col3, col4 = st.columns(4)
+                    col1.info(f"{year} 销售比例：{ratio*100:.1f}%")
+                    col2.info(f"销售收入：{year_revenue:.2f} 万")
+                    col3.info(f"销售成本：{year_cost:.2f} 万")
+                    col4.info(f"土地摊销：{year_land_amort:.2f} 万")
+
+    # 5. 产品销售收入（按年）
+    with st.expander("5️⃣ 产品销售收入（万元）"):
         st.markdown("### 年度销售收入")
 
         year_generator = YearGenerator(new_construction, new_operation)
@@ -328,8 +417,8 @@ with st.sidebar:
             else:
                 sales_revenue[year] = st.number_input(year, value=10000.0, format="%.2f", key=f"sales_{year}")
 
-    # 5. 外购材料成本（按年）
-    with st.expander("5️⃣ 外购材料成本（万元）"):
+    # 6. 外购材料成本（按年）
+    with st.expander("6️⃣ 外购材料成本（万元）"):
         st.markdown("### 年度材料成本")
 
         # 完整计算期年限（建设期 + 运营期）
@@ -354,8 +443,8 @@ with st.sidebar:
                         mat_7 = st.number_input("材料7", value=110.0, format="%.2f", key=f"mat7_{year}")
                         mat_8 = st.number_input("材料8", value=80.0, format="%.2f", key=f"mat8_{year}")
 
-    # 6. 外购燃料及动力（按年）
-    with st.expander("6️⃣ 外购燃料及动力（万元）"):
+    # 7. 外购燃料及动力（按年）
+    with st.expander("7️⃣ 外购燃料及动力（万元）"):
         st.markdown("### 年度燃料及动力成本")
 
         # 完整计算期年限（建设期 + 运营期）
@@ -380,8 +469,8 @@ with st.sidebar:
                         fuel_7 = st.number_input("燃料动力7", value=45.0, format="%.2f", key=f"fuel7_{year}")
                         fuel_8 = st.number_input("燃料动力8", value=75.0, format="%.2f", key=f"fuel8_{year}")
 
-    # 7. 工资福利成本
-    with st.expander("7️⃣ 工资福利成本（万元）"):
+    # 8. 工资福利成本
+    with st.expander("8️⃣ 工资福利成本（万元）"):
         st.markdown("### 人员构成及工资")
 
         col1, col2 = st.columns(2)
@@ -410,8 +499,8 @@ with st.sidebar:
 
         welfare_rate = st.number_input("福利费率（%）", value=14.0, format="%.2f", key="welfare_rate")
 
-    # 8. 修理费及其他费用
-    with st.expander("8️⃣ 修理费及其他费用"):
+    # 9. 修理费及其他费用
+    with st.expander("9️⃣ 修理费及其他费用"):
         st.markdown("### 费用率设置（%）")
 
         col1, col2 = st.columns(2)
@@ -425,8 +514,8 @@ with st.sidebar:
             other_mgt_rate = st.number_input("其他管理费率", value=1.5, format="%.2f", key="other_mgt_rate")
             other_sales_rate = st.number_input("其他营业费率", value=1.0, format="%.2f", key="other_sales_rate")
 
-    # 9. 税收参数
-    with st.expander("9️⃣ 税收参数"):
+    # 10. 税收参数
+    with st.expander("🔟 税收参数"):
         st.markdown("### 税费设置")
 
         col1, col2 = st.columns(2)
@@ -439,8 +528,8 @@ with st.sidebar:
             education_tax_rate = st.number_input("教育税附加及地方教育税附加税率（%）", value=5.0, format="%.2f", key="education_tax_rate")
             discount_rate = st.number_input("净现值内部收益率 ic", value=6.0, format="%.2f", key="discount_rate")
 
-    # 10. 投融资计划
-    with st.expander("🔟 投融资计划（按年）"):
+    # 11. 投融资计划
+    with st.expander("1️⃣1️⃣ 投融资计划（按年）"):
         st.markdown("### 建设期资金投入")
 
         investment_years = years[:new_construction]  # 只显示建设期年份
@@ -455,8 +544,8 @@ with st.sidebar:
             with col2:
                 loan_input = st.number_input("借款金额（万元）", value=5000.0, format="%.2f", key=f"loan_{year}")
 
-    # 11. 银行借款计划
-    with st.expander("1️⃣1️⃣ 银行借款计划"):
+    # 12. 银行借款计划
+    with st.expander("1️⃣2️⃣ 银行借款计划"):
         st.markdown("### 借款参数")
 
         col1, col2 = st.columns(2)
@@ -474,8 +563,8 @@ with st.sidebar:
         for year in investment_years:
             yearly_loan = st.number_input(f"{year}借款金额（万元）", value=5000.0, format="%.2f", key=f"yearly_loan_{year}")
 
-    # 12. 其他参数
-    with st.expander("1️⃣2️⃣ 其他参数"):
+    # 13. 其他参数
+    with st.expander("1️⃣3️⃣ 其他参数"):
         st.markdown("### 利润分配参数")
 
         col1, col2 = st.columns(2)

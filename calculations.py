@@ -324,84 +324,75 @@ class DepreciationCalculator:
 
     def get_yearly_depreciation(self) -> Dict[str, float]:
         """
-        获取各年折旧额
+        获取各年折旧额（考虑资产销售，只计算自持部分）
 
         Returns:
             dict: 各年折旧额
         """
         result = self.yg.initialize_year_data_dict(default_value=0.0)
-
+        
         asset = self.input.asset_formation
-
-        # 计算各类固定资产的年度折旧
-        # 房屋建筑折旧
+        self_hold_ratio = self.input.asset_sales_plan.self_hold_ratio
+        
+        # 计算自持资产的年度折旧
         building_depreciation = self.calculate_depreciation(
-            asset.building_fixed_asset.total,
+            asset.building_fixed_asset.total * self_hold_ratio,  # 只计算自持部分
             asset.building_fixed_asset.depreciation_years,
             asset.building_fixed_asset.salvage_rate
         )
-
-        # 机械设备折旧
+        
         equipment_depreciation = self.calculate_depreciation(
-            asset.equipment_fixed_asset.total,
+            asset.equipment_fixed_asset.total * self_hold_ratio,
             asset.equipment_fixed_asset.depreciation_years,
             asset.equipment_fixed_asset.salvage_rate
         )
-
-        # 总折旧额
+        
         total_yearly_depreciation = building_depreciation + equipment_depreciation
-
+        
         # 固定资产从运营期开始折旧
         for year in self.yg.generate_year_names():
             year_num = self.yg.get_year_index(year)
             if self.yg.is_operation_year(year_num):
                 result[year] = total_yearly_depreciation
-
+        
         return result
 
     def get_yearly_amortization(self) -> Dict[str, float]:
         """
-        获取各年摊销额
+        获取各年摊销额（考虑资产销售，只计算自持部分）
 
         Returns:
             dict: 各年摊销额
         """
         result = self.yg.initialize_year_data_dict(default_value=0.0)
-
+        
         asset = self.input.asset_formation
-
-        # 计算各类无形资产的年度摊销
-        # 土地使用权摊销
+        self_hold_ratio = self.input.asset_sales_plan.self_hold_ratio
+        
+        # 计算自持无形资产的年度摊销
         land_amortization = self.calculate_amortization(
-            asset.land_intangible_asset.total,
+            asset.land_intangible_asset.total * self_hold_ratio,
             asset.land_intangible_asset.amortization_years
         )
-
-        # 专利权摊销
+        
         patent_amortization = self.calculate_amortization(
-            asset.patent_intangible_asset.total,
+            asset.patent_intangible_asset.total * self_hold_ratio,
             asset.patent_intangible_asset.amortization_years
         )
-
-        # 其他资产摊销
+        
         other_amortization = self.calculate_amortization(
-            asset.other_asset.total,
+            asset.other_asset.total * self_hold_ratio,
             asset.other_asset.amortization_years
         )
-
-        # 总摊销额
-        total_yearly_amortization = (
-            land_amortization +
-            patent_amortization +
-            other_amortization
-        )
-
+        
+        total_yearly_amortization = land_amortization + patent_amortization + other_amortization
+        
         # 无形资产从运营期开始摊销
         for year in self.yg.generate_year_names():
             year_num = self.yg.get_year_index(year)
             if self.yg.is_operation_year(year_num):
                 result[year] = total_yearly_amortization
-
+        
         return result
 
 
@@ -535,6 +526,21 @@ class ProfitCalculator:
         """
         self.yg = year_generator
         self.input = input_data
+    
+    def calculate_total_revenue(self, year: str) -> float:
+        """
+        计算总收入（包括产品销售收入和固定资产销售收入）
+
+        Args:
+            year: 年份
+
+        Returns:
+            float: 总收入
+        """
+        product_revenue = self.input.sales_revenue.annual_revenue.get(year, 0.0)
+        asset_sales_revenue = self.input.asset_sales_plan.annual_sales_revenue.get(year, 0.0)
+        
+        return product_revenue + asset_sales_revenue
 
     def calculate_gross_profit(self, revenue: float, cost: float) -> float:
         """
@@ -678,3 +684,67 @@ class CashFlowCalculator:
             if cum_cf >= 0:
                 return i + 1
         return len(cumulative_cash_flows)
+
+
+class AssetSalesCalculator:
+    """资产销售计算模块"""
+    
+    def __init__(self, year_generator: YearGenerator, input_data: InputData):
+        self.yg = year_generator
+        self.input = input_data
+    
+    def calculate_annual_sales(self):
+        """
+        计算年度资产销售数据
+        """
+        asset = self.input.asset_formation
+        sales_plan = self.input.asset_sales_plan
+        
+        # 固定资产销售成本
+        fixed_asset_cost = (
+            asset.building_fixed_asset.total + 
+            asset.equipment_fixed_asset.total
+        ) * sales_plan.asset_sell_ratio
+        
+        # 固定资产销售收入（含税），假设增值率为2.5倍
+        sales_plan.asset_sales_revenue = fixed_asset_cost * 2.5
+        
+        # 土地摊销
+        land_amortization = (
+            asset.land_intangible_asset.total * 
+            sales_plan.land_sell_ratio
+        )
+        
+        # 按年度分配
+        years = self.yg.generate_year_names()
+        operation_years = [y for y in years if self.yg.is_operation_year(self.yg.get_year_index(y))]
+        
+        # 前4年的销售比例（如果没有设置，使用默认值）
+        ratios = sales_plan.annual_sales_ratios if sales_plan.annual_sales_ratios else [0.1, 0.3, 0.3, 0.3]
+        
+        for i, year in enumerate(operation_years):
+            if i < len(ratios):
+                ratio = ratios[i]
+                sales_plan.annual_sales_revenue[year] = sales_plan.asset_sales_revenue * ratio
+                sales_plan.annual_sales_cost[year] = fixed_asset_cost * ratio
+                sales_plan.annual_land_amortization[year] = land_amortization * ratio
+    
+    def get_annual_sales_revenue(self) -> Dict[str, float]:
+        """
+        获取年度销售收入
+        
+        Returns:
+            dict: 各年固定资产销售收入
+        """
+        self.calculate_annual_sales()
+        return self.input.asset_sales_plan.annual_sales_revenue
+    
+    def get_annual_sales_cost(self) -> Dict[str, float]:
+        """
+        获取年度销售成本
+        
+        Returns:
+            dict: 各年固定资产销售成本
+        """
+        self.calculate_annual_sales()
+        return self.input.asset_sales_plan.annual_sales_cost

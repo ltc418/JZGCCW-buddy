@@ -154,7 +154,13 @@ class AssetSalesPlan:
     land_sell_ratio: float = 0.25        # 出售土地使用权占比（%）
     self_hold_ratio: float = 0.75       # 自持占比（%）
     
-    # 销售收入
+    # 年度销售数据
+    annual_sales_ratios: List[float] = field(default_factory=list)  # 年度销售比例 [0.1, 0.3, 0.3, 0.3]
+    annual_sales_revenue: Dict[str, float] = field(default_factory=dict)  # 年度销售收入
+    annual_sales_cost: Dict[str, float] = field(default_factory=dict)    # 年度销售成本
+    annual_land_amortization: Dict[str, float] = field(default_factory=dict)  # 年度土地摊销
+    
+    # 总销售收入（保留向后兼容）
     asset_sales_revenue: float = 0.0    # 固定资产销售收入（含税）
 
 

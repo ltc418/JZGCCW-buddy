@@ -62,10 +62,26 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
     # 其他资产
     asset_form.other_asset.amortization_years = st.session_state.get("other_amort_years", 5)
 
-    # 4. 销售收入
+    # 4. 资产销售计划
+    sales_plan = input_data.asset_sales_plan
+    sales_plan.asset_sell_ratio = st.session_state.get("asset_sell_ratio", 25.0) / 100
+    sales_plan.land_sell_ratio = st.session_state.get("land_sell_ratio", 25.0) / 100
+    sales_plan.self_hold_ratio = st.session_state.get("self_hold_ratio", 75.0) / 100
+    
+    # 收集年度销售比例
     yg = YearGenerator(construction_period, operation_period)
     years = yg.generate_year_names()
+    annual_sales_ratios = []
+    
+    for i, year in enumerate(years):
+        year_num = yg.get_year_index(year)
+        if yg.is_operation_year(year_num):
+            ratio = st.session_state.get(f"sales_ratio_{i}", 0.0)
+            annual_sales_ratios.append(ratio)
+    
+    sales_plan.annual_sales_ratios = annual_sales_ratios
 
+    # 5. 销售收入
     sales_rev = input_data.sales_revenue
     sales_rev.annual_revenue = {}
     for year in years:
@@ -77,7 +93,7 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
             key = f"sales_{year}"
             sales_rev.annual_revenue[year] = st.session_state.get(key, 10000.0)
 
-    # 5. 材料成本
+    # 6. 材料成本
     mat_cost = input_data.material_cost
     for year in years:
         year_num = yg.get_year_index(year)
@@ -90,7 +106,7 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
             mat_cost.material_1[year] = st.session_state.get(f"mat1_{year}", 0.0)
             mat_cost.material_2[year] = st.session_state.get(f"mat2_{year}", 0.0)
 
-    # 6. 燃料成本
+    # 7. 燃料成本
     fuel_cost = input_data.fuel_cost
     for year in years:
         year_num = yg.get_year_index(year)
@@ -100,7 +116,7 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
         else:
             fuel_cost.fuel_1[year] = st.session_state.get(f"fuel1_{year}", 0.0)
 
-    # 7. 人工成本
+    # 8. 人工成本
     labor = input_data.labor_cost
     labor.admin_persons = st.session_state.get("admin_persons", 0)
     labor.admin_salary = st.session_state.get("admin_salary", 0.0)
@@ -112,27 +128,27 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
     labor.cleaning_salary = st.session_state.get("cleaning_salary", 0.0)
     labor.welfare_rate = st.session_state.get("welfare_rate", 14.0) / 100
 
-    # 8. 其他费用
+    # 9. 其他费用
     other = input_data.other_costs
     other.repair_rate = st.session_state.get("repair_rate", 0.5) / 100
     other.other_mfg_rate = st.session_state.get("other_mfg_rate", 0.0) / 100
     other.other_mgt_rate = st.session_state.get("other_mgt_rate", 0.0) / 100
     other.other_sales_rate = st.session_state.get("other_sales_rate", 0.0) / 100
 
-    # 9. 税收参数
+    # 10. 税收参数
     tax = input_data.tax_params
     tax.corporate_tax_rate = st.session_state.get("corporate_tax_rate", 25.0) / 100
     tax.city_tax_rate = st.session_state.get("city_tax_rate", 7.0) / 100
     tax.education_tax_rate = st.session_state.get("education_tax_rate", 5.0) / 100
     tax.discount_rate = st.session_state.get("discount_rate", 6.0) / 100
 
-    # 10. 银行借款
+    # 11. 银行借款
     loan = input_data.bank_loan_plan
     loan.interest_rate = st.session_state.get("loan_interest_rate", 5.88)
     loan.repayment_years = st.session_state.get("repayment_years", 15)
     loan.repayment_method = st.session_state.get("repayment_method", "等额本金")
 
-    # 11. 其他参数
+    # 12. 其他参数
     tax.reserve_fund_rate = st.session_state.get("reserve_fund_rate", 10.0) / 100
     tax.loss_carryforward_years = st.session_state.get("loss_carryforward_years", 5)
 
