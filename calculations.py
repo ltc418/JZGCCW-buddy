@@ -158,6 +158,124 @@ class InvestmentCalculator:
             "流动资金": 90.0,  # 从Excel中读取的固定值
         }
 
+    def calculate_asset_formation(self) -> None:
+        """
+        根据Excel Row 32-45计算资产形成
+
+        计算各类资产的原值和分摊
+
+        Excel计算逻辑：
+        1. 工程费（不含税）= 各项工程费不含税之和
+        2. 固定资产其他费用（不含税）= 管理咨询费(不含税) + 技术服务费(不含税) + 配套设施(不含税)
+        3. 预备费 = (工程费不含税 + 固定资产其他费用 + 开办费不含税) × 10%
+        4. 无形资产 = 土地使用费(不含税) + 专利费(不含税)
+        5. 其他资产 = 开办费不含税
+        """
+        inv = self.input.project_investment
+
+        # 先计算不含税值
+        inv.calculate_no_tax_values()
+
+        asset = self.input.asset_formation
+
+        # 计算工程费（不含税）
+        # Excel中工程费合计(不含税) = 79732.9961
+        engineering_no_tax = (
+            inv.building_cost_no_tax +
+            inv.building_equipment_cost_no_tax +
+            inv.building_installation_cost_no_tax +
+            inv.production_equipment_cost / (1 + inv.equipment_tax_rate) +
+            inv.production_installation_cost / (1 + inv.construction_tax_rate)
+        )
+
+        # 计算固定资产其他费用（不含税，不含开办费）
+        # Excel中：10071.1211 = 2815.11 + 5674.62 + 1581.39
+        fixed_other_fees_no_tax = (
+            inv.management_fee_no_tax +
+            inv.tech_service_fee_no_tax +
+            inv.supporting_fee_no_tax
+        )
+
+        # 计算开办费（不含税）
+        preparation_fee_no_tax = inv.preparation_fee_no_tax
+
+        # 计算基本预备费（Excel中：10532.08）
+        # 预备费 = (工程费不含税 + 固定资产其他费用 + 开办费不含税) × 10%
+        # 注意：预备费计算基数不含土地使用费
+        basic_reserve = (engineering_no_tax + fixed_other_fees_no_tax + preparation_fee_no_tax) * (inv.basic_reserve_rate / 100)
+
+        # 计算建设期利息（Excel中：5721.19）
+        construction_interest = sum(self.calculate_construction_interest().values())
+
+        # 固定资产形成计算
+        # 房屋建筑固定资产
+        asset.building_fixed_asset.engineering_fee = engineering_no_tax
+        asset.building_fixed_asset.other_fixed_fee = fixed_other_fees_no_tax
+        asset.building_fixed_asset.reserve_fee = basic_reserve
+        asset.building_fixed_asset.construction_interest = construction_interest
+        asset.building_fixed_asset.total = (
+            asset.building_fixed_asset.engineering_fee +
+            asset.building_fixed_asset.other_fixed_fee +
+            asset.building_fixed_asset.reserve_fee +
+            asset.building_fixed_asset.construction_interest
+        )
+
+        # 机械设备固定资产（本项目为0）
+        asset.equipment_fixed_asset.total = 0.0
+
+        # 无形资产
+        # 土地使用费（不含税，Excel中：6505.72）
+        asset.land_intangible_asset.total = inv.land_use_fee_no_tax
+
+        # 专利权（不含税，Excel中：0）
+        asset.patent_intangible_asset.total = inv.patent_fee_no_tax
+
+        # 其他资产
+        # 开办费不含税（Excel中：294.1029）
+        asset.other_asset.total = preparation_fee_no_tax
+
+        # 可抵扣进项税（Excel中：8716.8199）
+        # 进项税 = 各项含税费用 - 各项不含税费用
+        deductible_input_tax = (
+            # 工程费进项税
+            (inv.building_cost - inv.building_cost_no_tax) +
+            (inv.building_equipment_cost - inv.building_equipment_cost_no_tax) +
+            (inv.building_installation_cost - inv.building_installation_cost_no_tax) +
+            (inv.production_equipment_cost - inv.production_equipment_cost / (1 + inv.equipment_tax_rate)) +
+            (inv.production_installation_cost - inv.production_installation_cost / (1 + inv.construction_tax_rate)) +
+            # 工程建设其他费进项税
+            (inv.management_fee - inv.management_fee_no_tax) +
+            (inv.tech_service_fee - inv.tech_service_fee_no_tax) +
+            (inv.supporting_fee - inv.supporting_fee_no_tax) +
+            (inv.patent_fee - inv.patent_fee_no_tax) +
+            (inv.preparation_fee - inv.preparation_fee_no_tax)
+        )
+
+        asset.deductible_input_tax = deductible_input_tax
+
+        # 汇总
+        asset.fixed_asset_total = asset.building_fixed_asset.total + asset.equipment_fixed_asset.total
+        asset.intangible_asset_total = (
+            asset.land_intangible_asset.total +
+            asset.patent_intangible_asset.total
+        )
+        asset.other_asset_total = asset.other_asset.total
+
+        # 投资合计 = 固定资产 + 无形资产 + 其他资产 + 进项税
+        asset.investment_total = (
+            asset.fixed_asset_total +
+            asset.intangible_asset_total +
+            asset.other_asset_total +
+            asset.deductible_input_tax
+        )
+
+        # 固定资产原值（不含建设期利息）
+        asset.fixed_asset_original_value = (
+            asset.building_fixed_asset.engineering_fee +
+            asset.building_fixed_asset.other_fixed_fee +
+            asset.building_fixed_asset.reserve_fee
+        )
+
 
 class DepreciationCalculator:
     """折旧摊销计算模块"""
@@ -213,25 +331,31 @@ class DepreciationCalculator:
         """
         result = self.yg.initialize_year_data_dict(default_value=0.0)
 
-        asset_formation = self.input.asset_formation
+        asset = self.input.asset_formation
 
-        # 固定资产折旧
-        fixed_asset_value = (
-            asset_formation.building_asset +
-            asset_formation.equipment_asset
+        # 计算各类固定资产的年度折旧
+        # 房屋建筑折旧
+        building_depreciation = self.calculate_depreciation(
+            asset.building_fixed_asset.total,
+            asset.building_fixed_asset.depreciation_years,
+            asset.building_fixed_asset.salvage_rate
         )
 
-        yearly_depreciation = self.calculate_depreciation(
-            fixed_asset_value,
-            asset_formation.depreciation_years,
-            asset_formation.salvage_rate
+        # 机械设备折旧
+        equipment_depreciation = self.calculate_depreciation(
+            asset.equipment_fixed_asset.total,
+            asset.equipment_fixed_asset.depreciation_years,
+            asset.equipment_fixed_asset.salvage_rate
         )
+
+        # 总折旧额
+        total_yearly_depreciation = building_depreciation + equipment_depreciation
 
         # 固定资产从运营期开始折旧
         for year in self.yg.generate_year_names():
             year_num = self.yg.get_year_index(year)
             if self.yg.is_operation_year(year_num):
-                result[year] = yearly_depreciation
+                result[year] = total_yearly_depreciation
 
         return result
 
@@ -244,24 +368,39 @@ class DepreciationCalculator:
         """
         result = self.yg.initialize_year_data_dict(default_value=0.0)
 
-        asset_formation = self.input.asset_formation
+        asset = self.input.asset_formation
 
-        # 无形资产摊销
-        intangible_asset_value = (
-            asset_formation.land_asset +
-            asset_formation.patent_asset
+        # 计算各类无形资产的年度摊销
+        # 土地使用权摊销
+        land_amortization = self.calculate_amortization(
+            asset.land_intangible_asset.total,
+            asset.land_intangible_asset.amortization_years
         )
 
-        yearly_amortization = self.calculate_amortization(
-            intangible_asset_value,
-            asset_formation.amortization_years
+        # 专利权摊销
+        patent_amortization = self.calculate_amortization(
+            asset.patent_intangible_asset.total,
+            asset.patent_intangible_asset.amortization_years
+        )
+
+        # 其他资产摊销
+        other_amortization = self.calculate_amortization(
+            asset.other_asset.total,
+            asset.other_asset.amortization_years
+        )
+
+        # 总摊销额
+        total_yearly_amortization = (
+            land_amortization +
+            patent_amortization +
+            other_amortization
         )
 
         # 无形资产从运营期开始摊销
         for year in self.yg.generate_year_names():
             year_num = self.yg.get_year_index(year)
             if self.yg.is_operation_year(year_num):
-                result[year] = yearly_amortization
+                result[year] = total_yearly_amortization
 
         return result
 
@@ -357,7 +496,7 @@ class CostCalculator:
         # 固定成本
         annual_labor_cost = self.calculate_labor_cost()
         asset_formation = self.input.asset_formation
-        fixed_asset_value = asset_formation.building_asset + asset_formation.equipment_asset
+        fixed_asset_value = asset_formation.fixed_asset_total
         annual_repair_cost = self.calculate_repair_cost(fixed_asset_value)
 
         for year in years:

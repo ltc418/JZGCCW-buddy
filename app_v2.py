@@ -120,67 +120,195 @@ with st.sidebar:
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            building_cost = st.number_input("建筑工程费", value=67062.86, format="%.2f", key="building_cost")
+            building_cost = st.number_input("建筑工程费", value=67062.86, format="%.2f", key="building_cost",
+                                            help="主体建筑工程的费用")
 
         with col2:
-            building_equipment = st.number_input("建筑设备费", value=2360.38, format="%.2f", key="building_equipment")
+            building_equipment = st.number_input("建筑设备费", value=2360.38, format="%.2f", key="building_equipment",
+                                                help="设备采购的费用")
 
         with col3:
-            building_install = st.number_input("建筑设备安装费", value=18299.19, format="%.2f", key="building_install")
+            building_install = st.number_input("建筑设备安装费", value=18299.19, format="%.2f", key="building_install",
+                                              help="设备安装工程的费用")
 
         st.markdown("### 工程建设其他费（万元）")
 
         col1, col2 = st.columns(2)
 
         with col1:
-            management_fee = st.number_input("项目管理咨询费", value=2994.8, format="%.2f", key="management_fee")
-            tech_service_fee = st.number_input("项目建设技术服务费", value=6036.83, format="%.2f", key="tech_service_fee")
+            management_fee = st.number_input("项目管理咨询费", value=2994.8, format="%.2f", key="management_fee",
+                                            help="项目管理和咨询相关费用")
+            tech_service_fee = st.number_input("项目建设技术服务费", value=6036.83, format="%.2f", key="tech_service_fee",
+                                              help="技术勘察、设计等服务费用")
 
         with col2:
-            supporting_fee = st.number_input("配套设施等其他费用", value=1737.79, format="%.2f", key="supporting_fee")
-            land_use_fee = st.number_input("土地使用费", value=6505.72, format="%.2f", key="land_use_fee")
+            supporting_fee = st.number_input("配套设施等其他费用", value=1737.79, format="%.2f", key="supporting_fee",
+                                           help="配套设施及其他相关费用")
+            land_use_fee = st.number_input("土地使用费", value=6505.72, format="%.2f", key="land_use_fee",
+                                         help="土地使用权相关费用")
+
+        # 计算工程费合计
+        engineering_fee_total = building_cost + building_equipment + building_install
+        other_fee_total = management_fee + tech_service_fee + supporting_fee + land_use_fee
+        total_engineering = engineering_fee_total + other_fee_total
 
         st.markdown("### 预备费")
+
+        # 费率基数说明
+        st.info("""
+        **预备费计算基数说明：**
+        - 基数 = 工程费合计 + 工程建设其他费用
+        """)
 
         col1, col2 = st.columns(2)
 
         with col1:
-            basic_reserve_rate = st.number_input("基本预备费率(%)", value=10.0, format="%.2f", key="basic_reserve_rate")
+            basic_reserve_rate = st.number_input("基本预备费率(%)", value=10.0, format="%.2f", key="basic_reserve_rate",
+                                                help="按工程费和工程建设其他费用的百分比计算")
 
         with col2:
-            price_reserve_rate = st.number_input("涨价预备费率(%)", value=0.0, format="%.2f", key="price_reserve_rate")
+            price_reserve_rate = st.number_input("涨价预备费率(%)", value=0.0, format="%.2f", key="price_reserve_rate",
+                                                help="按工程费和工程建设其他费用的百分比计算")
 
-    # 3. 资产形成
+        # 计算预备费
+        basic_reserve_fee = total_engineering * basic_reserve_rate / 100
+        price_reserve_fee = total_engineering * price_reserve_rate / 100
+        total_reserve_fee = basic_reserve_fee + price_reserve_fee
+
+        # 项目投资总计
+        total_investment = total_engineering + total_reserve_fee
+        st.divider()
+        st.success(f"""
+        **项目静态总投资：{total_investment:.2f}万元**
+
+        计算公式：
+        - 工程费合计 = {engineering_fee_total:.2f}万元（建筑工程费 + 设备费 + 安装费）
+        - 工程建设其他费用 = {other_fee_total:.2f}万元
+        - 工程费+其他费用 = {total_engineering:.2f}万元
+        - 预备费合计 = {total_reserve_fee:.2f}万元
+        - 项目静态总投资 = {total_engineering:.2f} + {total_reserve_fee:.2f} = {total_investment:.2f}万元
+        """)
+
+    # 3. 资产形成（根据Excel Row 32-45）
     with st.expander("3️⃣ 资产形成"):
+        st.markdown("### 固定资产")
+
+        # 房屋建筑
+        st.markdown("#### 房屋建筑")
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            depreciation_years = st.number_input(
-                "固定资产折旧年限（年）",
+            building_depr_years = st.number_input(
+                "房屋建筑折旧年限（年）",
                 min_value=1,
                 max_value=50,
                 value=20,
-                key="depreciation_years"
+                key="building_depr_years"
             )
 
         with col2:
-            salvage_rate = st.number_input(
-                "残值率（%）",
+            building_salvage_rate = st.number_input(
+                "房屋建筑残值率（%）",
                 min_value=0.0,
                 max_value=100.0,
                 value=5.0,
                 format="%.2f",
-                key="salvage_rate"
+                key="building_salvage_rate"
             )
 
         with col3:
-            amortization_years = st.number_input(
-                "无形资产摊销年限（年）",
+            st.info("房屋建筑原值：106057.38 万元")
+
+        # 机械设备
+        st.markdown("#### 机械设备")
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            equipment_depr_years = st.number_input(
+                "机械设备折旧年限（年）",
                 min_value=1,
                 max_value=50,
                 value=10,
-                key="amortization_years"
+                key="equipment_depr_years"
             )
+
+        with col2:
+            equipment_salvage_rate = st.number_input(
+                "机械设备残值率（%）",
+                min_value=0.0,
+                max_value=100.0,
+                value=5.0,
+                format="%.2f",
+                key="equipment_salvage_rate"
+            )
+
+        with col3:
+            st.info("机械设备原值：0.00 万元")
+
+        st.markdown("### 无形资产")
+
+        # 土地使用权
+        col1, col2 = st.columns(2)
+
+        with col1:
+            land_amort_years = st.number_input(
+                "土地使用权摊销年限（年）",
+                min_value=1,
+                max_value=50,
+                value=50,
+                key="land_amort_years"
+            )
+
+        with col2:
+            st.info("土地使用权：6505.72 万元")
+
+        # 专利权
+        col1, col2 = st.columns(2)
+
+        with col1:
+            patent_amort_years = st.number_input(
+                "专利权摊销年限（年）",
+                min_value=1,
+                max_value=50,
+                value=6,
+                key="patent_amort_years"
+            )
+
+        with col2:
+            st.info("专利权：0.00 万元")
+
+        st.markdown("### 其他资产")
+
+        # 开办费
+        col1, col2 = st.columns(2)
+
+        with col1:
+            other_amort_years = st.number_input(
+                "其他资产摊销年限（年）",
+                min_value=1,
+                max_value=50,
+                value=5,
+                key="other_amort_years"
+            )
+
+        with col2:
+            st.info("开办费等其他资产：294.10 万元")
+
+        st.markdown("---")
+        st.markdown("### 资产形成汇总")
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            st.info("固定资产合计：106057.38 万元")
+
+        with col2:
+            st.info("无形资产合计：6505.72 万元")
+
+        with col3:
+            st.info("其他资产合计：294.10 万元")
+
+        with col4:
+            st.info("可抵扣进项税：8716.82 万元")
 
     # 4. 产品销售收入（按年）
     with st.expander("4️⃣ 产品销售收入（万元）"):

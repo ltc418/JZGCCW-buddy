@@ -42,11 +42,25 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
     inv.basic_reserve_rate = st.session_state.get("basic_reserve_rate", 0.0)
     inv.price_reserve_rate = st.session_state.get("price_reserve_rate", 0.0)
 
-    # 3. 资产形成
+    # 3. 资产形成（根据Excel Row 32-45）
     asset_form = input_data.asset_formation
-    asset_form.depreciation_years = st.session_state.get("depreciation_years", 20)
-    asset_form.salvage_rate = st.session_state.get("salvage_rate", 5.0)
-    asset_form.amortization_years = st.session_state.get("amortization_years", 10)
+
+    # 固定资产 - 房屋建筑
+    asset_form.building_fixed_asset.depreciation_years = st.session_state.get("building_depr_years", 20)
+    asset_form.building_fixed_asset.salvage_rate = st.session_state.get("building_salvage_rate", 5.0)
+
+    # 固定资产 - 机械设备
+    asset_form.equipment_fixed_asset.depreciation_years = st.session_state.get("equipment_depr_years", 10)
+    asset_form.equipment_fixed_asset.salvage_rate = st.session_state.get("equipment_salvage_rate", 5.0)
+
+    # 无形资产 - 土地使用权
+    asset_form.land_intangible_asset.amortization_years = st.session_state.get("land_amort_years", 50)
+
+    # 无形资产 - 专利权
+    asset_form.patent_intangible_asset.amortization_years = st.session_state.get("patent_amort_years", 6)
+
+    # 其他资产
+    asset_form.other_asset.amortization_years = st.session_state.get("other_amort_years", 5)
 
     # 4. 销售收入
     yg = YearGenerator(construction_period, operation_period)

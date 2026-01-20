@@ -40,10 +40,13 @@ asset_form = input_data.asset_formation
 asset_form.depreciation_years = 20
 asset_form.salvage_rate = 5.0
 asset_form.amortization_years = 10
-asset_form.building_asset = 80000.0
-asset_form.equipment_asset = 20000.0
-asset_form.land_asset = 6505.72
-asset_form.patent_asset = 0.0
+# 使用新的资产形成结构
+asset_form.building_fixed_asset.total = 100000.0
+asset_form.equipment_fixed_asset.total = 0.0
+asset_form.land_intangible_asset.total = 6505.72
+asset_form.patent_intangible_asset.total = 0.0
+asset_form.fixed_asset_total = 100000.0
+asset_form.intangible_asset_total = 6505.72
 
 # 销售收入
 years = year_generator.generate_year_names()

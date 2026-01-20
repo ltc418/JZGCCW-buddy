@@ -93,6 +93,8 @@ class CalculationEngine:
 
     def _create_investment_table(self) -> pd.DataFrame:
         """创建建设投资估算表"""
+        # 先计算资产形成
+        self.investment_calc.calculate_asset_formation()
         investment_summary = self.investment_calc.get_investment_summary()
 
         data = [
@@ -225,48 +227,99 @@ class CalculationEngine:
         return pd.DataFrame(data)
 
     def _create_depreciation_table(self) -> pd.DataFrame:
-        """创建折旧表 - 横向展示"""
+        """创建折旧表 - 横向展示（根据Excel结构）"""
         years = self.yg.generate_year_names()
         depreciation_by_year = self.depreciation_calc.get_yearly_depreciation()
 
-        asset_formation = self.input.asset_formation
-        fixed_asset = asset_formation.building_asset + asset_formation.equipment_asset
-        cumulative_depr = 0.0
+        asset = self.input.asset_formation
 
-        # 构建数据字典
+        # 构建数据字典 - 按Excel Row 35-37的结构
         data = {
-            "项目": ["固定资产原值", "年度折旧额", "累计折旧", "净值"]
+            "项目": [
+                "1 固定资产",
+                "  房屋建筑",
+                "  机械设备"
+            ]
         }
 
+        # 添加原值行
+        data["说明"] = ["原值", "", ""]
+        data["折旧年限"] = [
+            "",
+            f"{asset.building_fixed_asset.depreciation_years}年",
+            f"{asset.equipment_fixed_asset.depreciation_years}年"
+        ]
+
+        # 按年份显示折旧
+        cumulative_depr = 0.0
         for year in years:
             annual_depr = depreciation_by_year[year]
             cumulative_depr += annual_depr
-            net_value = fixed_asset - cumulative_depr
 
-            data[year] = [fixed_asset, annual_depr, cumulative_depr, max(0, net_value)]
+            # 固定资产原值
+            total_fixed_asset = asset.fixed_asset_total
+
+            # 当年折旧
+            data[year] = [
+                annual_depr,
+                annual_depr * (asset.building_fixed_asset.total / total_fixed_asset if total_fixed_asset > 0 else 0),
+                annual_depr * (asset.equipment_fixed_asset.total / total_fixed_asset if total_fixed_asset > 0 else 0)
+            ]
 
         return pd.DataFrame(data)
 
     def _create_amortization_table(self) -> pd.DataFrame:
-        """创建摊销表 - 横向展示"""
+        """创建摊销表 - 横向展示（根据Excel结构）"""
         years = self.yg.generate_year_names()
         amortization_by_year = self.depreciation_calc.get_yearly_amortization()
 
-        asset_formation = self.input.asset_formation
-        intangible_asset = asset_formation.land_asset + asset_formation.patent_asset
-        cumulative_amort = 0.0
+        asset = self.input.asset_formation
 
-        # 构建数据字典
+        # 构建数据字典 - 按Excel Row 38-40的结构
         data = {
-            "项目": ["无形资产原值", "年度摊销额", "累计摊销", "净值"]
+            "项目": [
+                "2 无形资产",
+                "  土地使用权",
+                "  专利权",
+                "3 其他资产",
+                "  开办费"
+            ]
         }
 
+        # 添加原值行
+        data["说明"] = ["原值", "", "", "", ""]
+        data["摊销年限"] = [
+            "",
+            f"{asset.land_intangible_asset.amortization_years}年",
+            f"{asset.patent_intangible_asset.amortization_years}年",
+            "",
+            f"{asset.other_asset.amortization_years}年"
+        ]
+
+        # 按年份显示摊销
         for year in years:
             annual_amort = amortization_by_year[year]
-            cumulative_amort += annual_amort
-            net_value = intangible_asset - cumulative_amort
 
-            data[year] = [intangible_asset, annual_amort, cumulative_amort, max(0, net_value)]
+            # 计算各资产摊销额
+            total_intangible = asset.intangible_asset_total
+            other_total = asset.other_asset_total
+
+            # 土地使用权摊销
+            land_amort = annual_amort * (asset.land_intangible_asset.total / (total_intangible + other_total) if (total_intangible + other_total) > 0 else 0)
+
+            # 专利权摊销
+            patent_amort = annual_amort * (asset.patent_intangible_asset.total / (total_intangible + other_total) if (total_intangible + other_total) > 0 else 0)
+
+            # 开办费摊销
+            other_amort = annual_amort * (asset.other_asset.total / (total_intangible + other_total) if (total_intangible + other_total) > 0 else 0)
+
+            data[year] = [
+                annual_amort,
+                land_amort,
+                patent_amort,
+                other_amort,
+                other_amort
+            ]
 
         return pd.DataFrame(data)
 
@@ -658,7 +711,7 @@ class CalculationEngine:
             else:
                 # 运营期
                 revenue = self.input.sales_revenue.annual_revenue.get(year, 0.0)
-                fixed_asset = asset_formation.building_asset + asset_formation.equipment_asset
+                fixed_asset = asset_formation.fixed_asset_total
                 net_value = max(0, fixed_asset - cumulative_depr[year])
                 accumulated_profit = revenue * 0.2  # 简化：累计未分配利润
 

@@ -110,7 +110,8 @@ class InputForms:
                     "建筑工程费（万元）",
                     value=module_data.get("建筑工程费", 0.0),
                     format="%.2f",
-                    key="building_cost"
+                    key="building_cost",
+                    help="主体建筑工程的费用"
                 )
 
             with col2:
@@ -118,7 +119,8 @@ class InputForms:
                     "安装工程费（万元）",
                     value=module_data.get("安装工程费", 0.0),
                     format="%.2f",
-                    key="installation_cost"
+                    key="installation_cost",
+                    help="设备安装工程的费用"
                 )
 
             with col3:
@@ -126,35 +128,123 @@ class InputForms:
                     "工程建设其他费用（万元）",
                     value=module_data.get("工程建设其他费用", 0.0),
                     format="%.2f",
-                    key="other_cost"
+                    key="other_cost",
+                    help="包括土地使用费、勘察设计费等工程建设相关费用"
+                )
+
+            # 工程费汇总显示
+            st.divider()
+            st.markdown("### 📊 工程费汇总")
+
+            engineering_fee_total = building_cost + installation_cost
+            total_engineering = engineering_fee_total + other_cost
+
+            col1, col2, col3, col4 = st.columns(4)
+            with col1:
+                st.metric(
+                    "建筑工程费",
+                    f"{building_cost:.2f}万元",
+                    help="主体建筑工程费用"
+                )
+            with col2:
+                st.metric(
+                    "安装工程费",
+                    f"{installation_cost:.2f}万元",
+                    help="设备安装工程费用"
+                )
+            with col3:
+                st.metric(
+                    "工程费合计",
+                    f"{engineering_fee_total:.2f}万元",
+                    help="建筑工程费 + 安装工程费"
+                )
+            with col4:
+                st.metric(
+                    "工程费+其他费用",
+                    f"{total_engineering:.2f}万元",
+                    help="工程费合计 + 工程建设其他费用"
                 )
 
             st.markdown("### 预备费")
 
+            # 费率基数说明
+            st.info("""
+            **预备费计算基数说明：**
+            - **基本预备费基数** = 建筑工程费 + 安装工程费 + 工程建设其他费用
+            - **涨价预备费基数** = 建筑工程费 + 安装工程费 + 工程建设其他费用
+            """)
+
             col1, col2 = st.columns(2)
 
             with col1:
-                basic_reserve = st.number_input(
+                basic_reserve_rate = st.number_input(
                     "基本预备费率（%）",
                     value=module_data.get("基本预备费率", 0.0),
                     format="%.2f",
-                    key="basic_reserve_rate"
+                    key="basic_reserve_rate",
+                    help="按工程费和工程建设其他费用的百分比计算"
                 )
 
             with col2:
-                price_reserve = st.number_input(
+                price_reserve_rate = st.number_input(
                     "涨价预备费率（%）",
                     value=module_data.get("涨价预备费率", 0.0),
                     format="%.2f",
-                    key="price_reserve_rate"
+                    key="price_reserve_rate",
+                    help="按工程费和工程建设其他费用的百分比计算"
                 )
+
+            # 实时显示预备费结果
+            basic_reserve_fee = total_engineering * basic_reserve_rate / 100
+            price_reserve_fee = total_engineering * price_reserve_rate / 100
+            total_reserve_fee = basic_reserve_fee + price_reserve_fee
+
+            st.divider()
+            st.markdown("### 💰 预备费计算结果")
+
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.metric(
+                    "基本预备费",
+                    f"{basic_reserve_fee:.2f}万元",
+                    help=f"{total_engineering:.2f} × {basic_reserve_rate:.2f}%"
+                )
+            with col2:
+                st.metric(
+                    "涨价预备费",
+                    f"{price_reserve_fee:.2f}万元",
+                    help=f"{total_engineering:.2f} × {price_reserve_rate:.2f}%"
+                )
+            with col3:
+                st.metric(
+                    "预备费合计",
+                    f"{total_reserve_fee:.2f}万元",
+                    help="基本预备费 + 涨价预备费"
+                )
+
+            # 投资总计
+            total_investment = total_engineering + total_reserve_fee
+            st.divider()
+            st.success(f"""
+            **项目总投资：{total_investment:.2f}万元**
+
+            计算公式：
+            - 工程费 + 其他费用 = {total_engineering:.2f}万元
+            - 预备费合计 = {total_reserve_fee:.2f}万元
+            - 项目总投资 = {total_engineering:.2f} + {total_reserve_fee:.2f} = {total_investment:.2f}万元
+            """)
 
             self.input_data["2. 项目投资"] = {
                 "建筑工程费": building_cost,
                 "安装工程费": installation_cost,
                 "工程建设其他费用": other_cost,
-                "基本预备费率": basic_reserve,
-                "涨价预备费率": price_reserve
+                "基本预备费率": basic_reserve_rate,
+                "涨价预备费率": price_reserve_rate,
+                # 计算结果也保存
+                "基本预备费": basic_reserve_fee,
+                "涨价预备费": price_reserve_fee,
+                "预备费合计": total_reserve_fee,
+                "项目总投资": total_investment
             }
 
     def render_module_3_asset_formation(self, module_data):
@@ -191,7 +281,7 @@ class InputForms:
                     "无形资产摊销年限（年）",
                     min_value=1,
                     max_value=50,
-                    value=int(module_data.get("无形资产摊销年限", 10)),
+                    value=int(module_data.get("无形资产摊销年限", 50)),  # Excel中为50
                     key="amortization_years"
                 )
 

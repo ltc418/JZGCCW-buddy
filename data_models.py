@@ -21,50 +21,130 @@ class BasicInfo:
 
 @dataclass
 class ProjectInvestment:
-    """项目投资估算"""
-    # 工程费
+    """项目投资估算（Excel Row 11-27）"""
+    # 工程费（含税）
     building_cost: float = 0.0           # 建筑工程费（万元）
     building_equipment_cost: float = 0.0  # 建筑设备费（万元）
     building_installation_cost: float = 0.0  # 建筑设备安装费（万元）
     production_equipment_cost: float = 0.0    # 生产设备购置费（万元）
     production_installation_cost: float = 0.0 # 生产设备安装费（万元）
-    
-    # 工程建设其他费
+
+    # 工程建设其他费（含税）
     management_fee: float = 0.0          # 项目管理咨询费（万元）
     tech_service_fee: float = 0.0        # 项目建设技术服务费（万元）
     supporting_fee: float = 0.0          # 配套设施等其他费用（万元）
     land_use_fee: float = 0.0            # 土地使用费（万元）
     patent_fee: float = 0.0              # 专利及专有技术费（万元）
     preparation_fee: float = 0.0        # 生产准备及开办费（万元）
-    
+
     # 预备费
     basic_reserve_rate: float = 0.0      # 基本预备费率（%）
     price_reserve_rate: float = 0.0      # 涨价预备费率（%）
-    
-    # 税率
+
+    # 税率（用于计算不含税金额）
     equipment_tax_rate: float = 0.13    # 设备增值税率（%）
     construction_tax_rate: float = 0.09 # 建筑税率（%）
     service_tax_rate: float = 0.06      # 服务税率（%）
     land_tax_type: str = "无形资产"      # 土地费用类型
 
+    # 不含税值（由Excel计算，或系统自动计算）
+    # 这些值会根据含税值和税率自动计算
+    building_cost_no_tax: float = 0.0           # 建筑工程费不含税（万元）
+    building_equipment_cost_no_tax: float = 0.0  # 建筑设备费不含税（万元）
+    building_installation_cost_no_tax: float = 0.0  # 建筑设备安装费不含税（万元）
+    management_fee_no_tax: float = 0.0          # 项目管理咨询费不含税（万元）
+    tech_service_fee_no_tax: float = 0.0        # 项目建设技术服务费不含税（万元）
+    supporting_fee_no_tax: float = 0.0          # 配套设施等其他费用不含税（万元）
+    land_use_fee_no_tax: float = 0.0            # 土地使用费不含税（万元）
+    patent_fee_no_tax: float = 0.0              # 专利及专有技术费不含税（万元）
+    preparation_fee_no_tax: float = 0.0        # 生产准备及开办费不含税（万元）
+
+    def calculate_no_tax_values(self):
+        """根据含税值和税率计算不含税值"""
+        self.building_cost_no_tax = self.building_cost / (1 + self.construction_tax_rate)
+        self.building_equipment_cost_no_tax = self.building_equipment_cost / (1 + self.equipment_tax_rate)
+        self.building_installation_cost_no_tax = self.building_installation_cost / (1 + self.construction_tax_rate)
+        self.management_fee_no_tax = self.management_fee / (1 + self.service_tax_rate)
+        self.tech_service_fee_no_tax = self.tech_service_fee / (1 + self.service_tax_rate)
+        self.supporting_fee_no_tax = self.supporting_fee / (1 + self.construction_tax_rate)
+        self.land_use_fee_no_tax = self.land_use_fee / (1 + 0)  # 土地税率0
+        self.patent_fee_no_tax = self.patent_fee / (1 + self.service_tax_rate)
+        self.preparation_fee_no_tax = self.preparation_fee / (1 + self.construction_tax_rate)
+
+
+@dataclass
+class FixedAssetDetail:
+    """固定资产明细"""
+    asset_name: str  # 资产名称（房屋建筑、机械设备）
+    engineering_fee: float = 0.0         # 工程费（万元）
+    other_fixed_fee: float = 0.0          # 固定资产其他费用（万元）
+    reserve_fee: float = 0.0              # 预备费（万元）
+    construction_interest: float = 0.0     # 建设期利息（万元）
+    total: float = 0.0                     # 合计（万元）
+    depreciation_years: int = 20           # 折旧年限（年）
+    salvage_rate: float = 5.0              # 残值率（%）
+
+
+@dataclass
+class IntangibleAssetDetail:
+    """无形资产明细"""
+    asset_name: str  # 资产名称（土地使用权、专利权等）
+    total: float = 0.0                     # 合计（万元）
+    amortization_years: int = 50            # 摊销年限（年）
+
+
+@dataclass
+class OtherAssetDetail:
+    """其他资产明细"""
+    asset_name: str  # 资产名称（开办费等）
+    total: float = 0.0                     # 合计（万元）
+    amortization_years: int = 5             # 摊销年限（年）
+
 
 @dataclass
 class AssetFormation:
-    """资产形成"""
-    depreciation_years: int = 20         # 固定资产折旧年限（年）
-    amortization_years: int = 10         # 无形资产摊销年限（年）
-    salvage_rate: float = 5.0            # 残值率（%）
-    
-    # 固定资产分类
-    building_asset: float = 0.0         # 房屋建筑（万元）
-    equipment_asset: float = 0.0        # 机械设备（万元）
-    
+    """
+    资产形成（根据Excel '1 建筑工程财务模型参数' Row 32-45）
+    """
+    # 固定资产
+    building_fixed_asset: FixedAssetDetail = field(default_factory=lambda: FixedAssetDetail(
+        asset_name="房屋建筑",
+        depreciation_years=20,
+        salvage_rate=5.0
+    ))
+    equipment_fixed_asset: FixedAssetDetail = field(default_factory=lambda: FixedAssetDetail(
+        asset_name="机械设备",
+        depreciation_years=10,
+        salvage_rate=5.0
+    ))
+
     # 无形资产
-    land_asset: float = 0.0              # 土地使用权（万元）
-    patent_asset: float = 0.0            # 专利权（万元）
-    
+    land_intangible_asset: IntangibleAssetDetail = field(default_factory=lambda: IntangibleAssetDetail(
+        asset_name="土地使用权",
+        amortization_years=50
+    ))
+    patent_intangible_asset: IntangibleAssetDetail = field(default_factory=lambda: IntangibleAssetDetail(
+        asset_name="专利权",
+        amortization_years=6
+    ))
+
     # 其他资产
-    other_asset: float = 0.0             # 其他资产（万元）
+    other_asset: OtherAssetDetail = field(default_factory=lambda: OtherAssetDetail(
+        asset_name="开办费",
+        amortization_years=5
+    ))
+
+    # 进项税
+    deductible_input_tax: float = 0.0  # 可抵扣建设投资进项税（万元）
+
+    # 汇总
+    fixed_asset_total: float = 0.0      # 固定资产合计（万元）
+    intangible_asset_total: float = 0.0  # 无形资产合计（万元）
+    other_asset_total: float = 0.0      # 其他资产合计（万元）
+    investment_total: float = 0.0       # 投资合计（万元）
+
+    # 固定资产原值（不含建设期利息）
+    fixed_asset_original_value: float = 0.0  # 固定资产原值（不含建设期利息）
 
 
 @dataclass
