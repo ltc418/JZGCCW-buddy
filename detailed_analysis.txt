@@ -1,0 +1,971 @@
+
+================================================================================
+Sheet: 1建设投资
+================================================================================
+Shape: (46, 19)
+
+Columns (19):
+  0: Unnamed: 0
+  1: 附表1  建设投资估算表  单位：万元
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '单位', 'Unnamed: 4': '工程量', 'Unnamed: 5': '单价\n（元）', 'Unnamed: 6': '不含税\n投资', 'Unnamed: 7': '进项税', 'Unnamed: 8': '含税\n投资', 'Unnamed: 9': '其中外币', 'Unnamed: 10': '比例', 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 1: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': 1, 'Unnamed: 2': '工程费用', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 13147, 'Unnamed: 7': 1511.23, 'Unnamed: 8': 14658.23, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': '基础资料\n1.某现代制造业项目，项目建设期2年，运营期6年（其中投产期1年，达产期5年），投产期1年达产率为50%。\n2.项目建设方案技术指标见下表。\n3.公用工程费用已写入建设投资估算表中。\n4.经市场询价，不含税项目可行性研究费用为50万元、不含税设计费为300万元、建设单位管理费按工程费的2%估算（忽略增值税），其余工程建设其他费用暂按工程费的5%估算。\n5.当地工业用地地面价格为1000元/㎡。\n6.项目需购买某专利技术，费用为6300万元。\n7.项目开办费包括员工培训费、生产办公家具购置费等，估算不含税价格为200万元。\n8.增值税率：建安工程9%（但用房的设备自行购置13%），服务费6%，专利权费6%，土地费用0%，开办费为13%，忽略预备费中增值税。\n9.预备费费率取8%。', 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 2: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': 1.1, 'Unnamed: 2': '厂房', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 11040, 'Unnamed: 7': 1313.6, 'Unnamed: 8': 12353.6, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 3: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': nan, 'Unnamed: 2': '建筑工程费', 'Unnamed: 3': '㎡', 'Unnamed: 4': 16000, 'Unnamed: 5': 1500, 'Unnamed: 6': 2400, 'Unnamed: 7': 216, 'Unnamed: 8': 2616, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 4: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': nan, 'Unnamed: 2': '设备购置费', 'Unnamed: 3': '项', 'Unnamed: 4': 1, 'Unnamed: 5': nan, 'Unnamed: 6': 8000, 'Unnamed: 7': 1040, 'Unnamed: 8': 9040, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 5: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': nan, 'Unnamed: 2': '安装工程费', 'Unnamed: 3': '万元', 'Unnamed: 4': 8000, 'Unnamed: 5': 0.08, 'Unnamed: 6': 640, 'Unnamed: 7': 57.599999999999994, 'Unnamed: 8': 697.6, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 6: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': 1.2, 'Unnamed: 2': '库房等其他', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 816, 'Unnamed: 7': 1313.6, 'Unnamed: 8': 897.44, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 7: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': nan, 'Unnamed: 2': '建筑工程费', 'Unnamed: 3': '㎡', 'Unnamed: 4': 5000, 'Unnamed: 5': 1200, 'Unnamed: 6': 600, 'Unnamed: 7': 54, 'Unnamed: 8': 654, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 8: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': nan, 'Unnamed: 2': '设备购置费', 'Unnamed: 3': '项', 'Unnamed: 4': 1, 'Unnamed: 5': nan, 'Unnamed: 6': 200, 'Unnamed: 7': 26, 'Unnamed: 8': 226, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+Row 9: {'Unnamed: 0': nan, '附表1  建设投资估算表  单位：万元': nan, 'Unnamed: 2': '安装工程费', 'Unnamed: 3': '万元', 'Unnamed: 4': 200, 'Unnamed: 5': 0.08, 'Unnamed: 6': 16, 'Unnamed: 7': 1.44, 'Unnamed: 8': 17.44, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan}
+
+================================================================================
+Sheet: 1 建筑工程财务模型参数
+================================================================================
+Shape: (100, 37)
+
+Columns (37):
+  0: Unnamed: 0
+  1: Unnamed: 1
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+  34: Unnamed: 34
+  35: Unnamed: 35
+  36: Unnamed: 36
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': '项目名称', 'Unnamed: 4': '东兴电子产业园三期项目财务分析', 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 1: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': '建设期', 'Unnamed: 4': 3, 'Unnamed: 5': '年', 'Unnamed: 6': '第', 'Unnamed: 7': 4, 'Unnamed: 8': '前', 'Unnamed: 9': 20, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 2: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': '运营期', 'Unnamed: 4': 17, 'Unnamed: 5': '年', 'Unnamed: 6': '计算期', 'Unnamed: 7': 20, 'Unnamed: 8': '年', 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 3: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 4: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 5: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': '请仅于黄色格子填写数据', 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 6: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 7: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 8: {'Unnamed: 0': nan, 'Unnamed: 1': 1.0, 'Unnamed: 2': '项目投资', 'Unnamed: 3': '项目投资估算汇总(万元）', 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+Row 9: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': '含税投资', 'Unnamed: 6': '进项税', 'Unnamed: 7': '不含税投资', 'Unnamed: 8': '进项税率', 'Unnamed: 9': '形成资产', 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan, 'Unnamed: 36': nan}
+
+================================================================================
+Sheet: 2流动资金
+================================================================================
+Shape: (20, 26)
+
+Columns (26):
+  0: Unnamed: 0
+  1: 附表2  流动资金估算表 单位：万元
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '最低周转天数', 'Unnamed: 4': '周转次数', 'Unnamed: 5': '建设期', 'Unnamed: 6': nan, 'Unnamed: 7': '运营期', 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': '计算基数'}
+Row 1: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 1, 'Unnamed: 6': 2.0, 'Unnamed: 7': 3, 'Unnamed: 8': 4.0, 'Unnamed: 9': 5.0, 'Unnamed: 10': 6.0, 'Unnamed: 11': 7.0, 'Unnamed: 12': 8.0, 'Unnamed: 13': 9.0, 'Unnamed: 14': 10.0, 'Unnamed: 15': 11.0, 'Unnamed: 16': 12.0, 'Unnamed: 17': 13.0, 'Unnamed: 18': 14.0, 'Unnamed: 19': 15.0, 'Unnamed: 20': 16.0, 'Unnamed: 21': 17.0, 'Unnamed: 22': 18.0, 'Unnamed: 23': 19.0, 'Unnamed: 24': 20.0, 'Unnamed: 25': nan}
+Row 2: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': nan, 'Unnamed: 2': '达产率', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 3: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': 1, 'Unnamed: 2': '流动资产', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': nan}
+Row 4: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': 1.1, 'Unnamed: 2': '应收账款', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': '年经营成本'}
+Row 5: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': 1.2, 'Unnamed: 2': '存货', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': nan}
+Row 6: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': nan, 'Unnamed: 2': '原材料', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': '年外购原材料费用'}
+Row 7: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': nan, 'Unnamed: 2': '燃料及动力', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': '年外购燃料费用'}
+Row 8: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': nan, 'Unnamed: 2': '其他材料', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': '年外购其他材料费用'}
+Row 9: {'Unnamed: 0': nan, '附表2  流动资金估算表 单位：万元': nan, 'Unnamed: 2': '在产品', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': '年经营成本-年其他销售、管理费用'}
+
+================================================================================
+Sheet: 3投资计划
+================================================================================
+Shape: (58, 9)
+
+Columns (9):
+  0: Unnamed: 0
+  1: 表13-1   项目总投资使用计划与资金筹措表   单位：万元       
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '投资期', 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': '比例'}
+Row 1: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3.0, 'Unnamed: 7': 4, 'Unnamed: 8': nan}
+Row 2: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': 1, 'Unnamed: 2': '总投资', 'Unnamed: 3': 121664.02577233041, 'Unnamed: 4': 48665.61030893217, 'Unnamed: 5': 36499.20773169912, 'Unnamed: 6': 36499.20773169913, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+Row 3: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': 1.1, 'Unnamed: 2': '建设投资', 'Unnamed: 3': 115852.84, 'Unnamed: 4': 47950.22583739087, 'Unnamed: 5': 34531.90043496054, 'Unnamed: 6': 33370.71372764859, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+Row 4: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': '1.1.1', 'Unnamed: 2': '工程费用', 'Unnamed: 3': 79732.9961, 'Unnamed: 4': 29829.31461757104, 'Unnamed: 5': 25641.772126802098, 'Unnamed: 6': 24261.909355626864, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+Row 5: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': '1.1.2', 'Unnamed: 2': '工程建设其他费用', 'Unnamed: 3': 16870.944000000003, 'Unnamed: 4': 10534.168440000001, 'Unnamed: 5': 3021.33633, 'Unnamed: 6': 3315.43923, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+Row 6: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': nan, 'Unnamed: 2': '固定资产其他费用', 'Unnamed: 3': 10071.1211, 'Unnamed: 4': 4028.44844, 'Unnamed: 5': 3021.33633, 'Unnamed: 6': 3021.33633, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+Row 7: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': nan, 'Unnamed: 2': '无形资产费用', 'Unnamed: 3': 6505.72, 'Unnamed: 4': 6505.72, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+Row 8: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': nan, 'Unnamed: 2': '    土地使用权', 'Unnamed: 3': 6505.72, 'Unnamed: 4': 6505.72, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+Row 9: {'Unnamed: 0': nan, '表13-1   项目总投资使用计划与资金筹措表   单位：万元       ': nan, 'Unnamed: 2': '    专利权', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': nan}
+
+================================================================================
+Sheet: 4还本付息
+================================================================================
+Shape: (59, 36)
+
+Columns (36):
+  0: Unnamed: 0
+  1: 表13-9  借款还本付息计划表  单位：万元       
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+  34: Unnamed: 34
+  35: Unnamed: 35
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': '运营期', 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 1: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3.0, 'Unnamed: 7': 4, 'Unnamed: 8': 5, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 2: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': 1, 'Unnamed: 2': '长期借款', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': '基础资料\n1.5年期以上借款利率为4.9%。\n2.1年及以内借款利率为4.35%。\n3.建设投资借款宽限期为2年。\n4.流动资金借款本金在计算末偿还。'}
+Row 3: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': 1.1, 'Unnamed: 2': '期初借款余额', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 34065.92721625252, 'Unnamed: 6': 59615.37262844191, 'Unnamed: 7': 85074.8180406313, 'Unnamed: 8': 80888.8450087978, 'Unnamed: 9': 76527.06110962729, 'Unnamed: 10': 71982.08228669161, 'Unnamed: 11': 67246.21435319264, 'Unnamed: 12': 62311.43996648671, 'Unnamed: 13': 57169.40505553913, 'Unnamed: 14': 51811.40467833175, 'Unnamed: 15': 46228.368285281664, 'Unnamed: 16': 40410.844363723474, 'Unnamed: 17': 34348.98443745984, 'Unnamed: 18': 28032.526394293134, 'Unnamed: 19': 21450.777113313427, 'Unnamed: 20': 14592.59436253257, 'Unnamed: 21': 7446.367936218919, 'Unnamed: 22': 9.367795428261161e-11, 'Unnamed: 23': 9.761242836248129e-11, 'Unnamed: 24': 1.0171215035370551e-10, 'Unnamed: 25': 1.0598406066856114e-10, 'Unnamed: 26': 1.1043539121664071e-10, 'Unnamed: 27': 1.1507367764773962e-10, 'Unnamed: 28': 1.1990677210894468e-10, 'Unnamed: 29': 1.2494285653752035e-10, 'Unnamed: 30': 1.301904565120962e-10, 'Unnamed: 31': 1.3565845568560422e-10, 'Unnamed: 32': 1.413561108243996e-10, 'Unnamed: 33': 1.4729306747902439e-10, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 4: {'Unnamed: 0': '5年期以上利率', '表13-9  借款还本付息计划表  单位：万元       ': 1.2, 'Unnamed: 2': '当期借款', 'Unnamed: 3': nan, 'Unnamed: 4': 34065.92721625252, 'Unnamed: 5': 25549.445412189383, 'Unnamed: 6': 25459.445412189387, 'Unnamed: 7': 0, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 5: {'Unnamed: 0': 0.042, '表13-9  借款还本付息计划表  单位：万元       ': 1.3, 'Unnamed: 2': '当期应计利息', 'Unnamed: 3': nan, 'Unnamed: 4': 715.384471541303, 'Unnamed: 5': 1967.307296738583, 'Unnamed: 6': 3038.4940040505376, 'Unnamed: 7': 3573.142357706515, 'Unnamed: 8': 3397.3314903695077, 'Unnamed: 9': 3214.1365666043466, 'Unnamed: 10': 3023.247456041048, 'Unnamed: 11': 2824.341002834091, 'Unnamed: 12': 2617.080478592442, 'Unnamed: 13': 2401.115012332644, 'Unnamed: 14': 2176.0789964899336, 'Unnamed: 15': 1941.59146798183, 'Unnamed: 16': 1697.255463276386, 'Unnamed: 17': 1442.6573463733134, 'Unnamed: 18': 1177.3661085603117, 'Unnamed: 19': 900.932638759164, 'Unnamed: 20': 612.888963226368, 'Unnamed: 21': 312.7474533211946, 'Unnamed: 22': 3.934474079869688e-12, 'Unnamed: 23': 4.099721991224214e-12, 'Unnamed: 24': 4.271910314855632e-12, 'Unnamed: 25': 4.451330548079568e-12, 'Unnamed: 26': 4.63828643109891e-12, 'Unnamed: 27': 4.833094461205064e-12, 'Unnamed: 28': 5.036084428575677e-12, 'Unnamed: 29': 5.247599974575855e-12, 'Unnamed: 30': 5.46799917350804e-12, 'Unnamed: 31': 5.697655138795378e-12, 'Unnamed: 32': 5.936956654624784e-12, 'Unnamed: 33': 6.186308834119024e-12, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 6: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': 1.4, 'Unnamed: 2': '当期还本付息', 'Unnamed: 3': nan, 'Unnamed: 4': 715.384471541303, 'Unnamed: 5': 1967.307296738583, 'Unnamed: 6': 3038.4940040505376, 'Unnamed: 7': 7759.115389540019, 'Unnamed: 8': 7759.115389540019, 'Unnamed: 9': 7759.115389540019, 'Unnamed: 10': 7759.115389540019, 'Unnamed: 11': 7759.115389540019, 'Unnamed: 12': 7759.115389540019, 'Unnamed: 13': 7759.115389540019, 'Unnamed: 14': 7759.115389540019, 'Unnamed: 15': 7759.115389540019, 'Unnamed: 16': 7759.115389540019, 'Unnamed: 17': 7759.115389540019, 'Unnamed: 18': 7759.115389540019, 'Unnamed: 19': 7759.115389540019, 'Unnamed: 20': 7759.115389540019, 'Unnamed: 21': 7759.115389540019, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 7: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': nan, 'Unnamed: 2': '其中：还本', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 4185.973031833504, 'Unnamed: 8': 4361.783899170512, 'Unnamed: 9': 4544.978822935673, 'Unnamed: 10': 4735.867933498972, 'Unnamed: 11': 4934.774386705929, 'Unnamed: 12': 5142.034910947577, 'Unnamed: 13': 5358.000377207376, 'Unnamed: 14': 5583.036393050086, 'Unnamed: 15': 5817.52392155819, 'Unnamed: 16': 6061.8599262636335, 'Unnamed: 17': 6316.4580431667055, 'Unnamed: 18': 6581.749280979708, 'Unnamed: 19': 6858.182750780856, 'Unnamed: 20': 7146.226426313651, 'Unnamed: 21': 7446.367936218825, 'Unnamed: 22': -3.934474079869688e-12, 'Unnamed: 23': -4.099721991224214e-12, 'Unnamed: 24': -4.271910314855632e-12, 'Unnamed: 25': -4.451330548079568e-12, 'Unnamed: 26': -4.63828643109891e-12, 'Unnamed: 27': -4.833094461205064e-12, 'Unnamed: 28': -5.036084428575677e-12, 'Unnamed: 29': -5.247599974575855e-12, 'Unnamed: 30': -5.46799917350804e-12, 'Unnamed: 31': -5.697655138795378e-12, 'Unnamed: 32': -5.936956654624784e-12, 'Unnamed: 33': -6.186308834119024e-12, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 8: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': nan, 'Unnamed: 2': '      付息', 'Unnamed: 3': nan, 'Unnamed: 4': 715.384471541303, 'Unnamed: 5': 1967.307296738583, 'Unnamed: 6': 3038.4940040505376, 'Unnamed: 7': 3573.142357706515, 'Unnamed: 8': 3397.3314903695077, 'Unnamed: 9': 3214.1365666043466, 'Unnamed: 10': 3023.247456041048, 'Unnamed: 11': 2824.341002834091, 'Unnamed: 12': 2617.080478592442, 'Unnamed: 13': 2401.115012332644, 'Unnamed: 14': 2176.0789964899336, 'Unnamed: 15': 1941.59146798183, 'Unnamed: 16': 1697.255463276386, 'Unnamed: 17': 1442.6573463733134, 'Unnamed: 18': 1177.3661085603117, 'Unnamed: 19': 900.932638759164, 'Unnamed: 20': 612.888963226368, 'Unnamed: 21': 312.7474533211946, 'Unnamed: 22': 3.934474079869688e-12, 'Unnamed: 23': 4.099721991224214e-12, 'Unnamed: 24': 4.271910314855632e-12, 'Unnamed: 25': 4.451330548079568e-12, 'Unnamed: 26': 4.63828643109891e-12, 'Unnamed: 27': 4.833094461205064e-12, 'Unnamed: 28': 5.036084428575677e-12, 'Unnamed: 29': 5.247599974575855e-12, 'Unnamed: 30': 5.46799917350804e-12, 'Unnamed: 31': 5.697655138795378e-12, 'Unnamed: 32': 5.936956654624784e-12, 'Unnamed: 33': 6.186308834119024e-12, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 9: {'Unnamed: 0': nan, '表13-9  借款还本付息计划表  单位：万元       ': 1.5, 'Unnamed: 2': '期末借款余额', 'Unnamed: 3': nan, 'Unnamed: 4': 34065.92721625252, 'Unnamed: 5': 59615.37262844191, 'Unnamed: 6': 85074.8180406313, 'Unnamed: 7': 80888.8450087978, 'Unnamed: 8': 76527.06110962729, 'Unnamed: 9': 71982.08228669161, 'Unnamed: 10': 67246.21435319264, 'Unnamed: 11': 62311.43996648671, 'Unnamed: 12': 57169.40505553913, 'Unnamed: 13': 51811.40467833175, 'Unnamed: 14': 46228.368285281664, 'Unnamed: 15': 40410.844363723474, 'Unnamed: 16': 34348.98443745984, 'Unnamed: 17': 28032.526394293134, 'Unnamed: 18': 21450.777113313427, 'Unnamed: 19': 14592.59436253257, 'Unnamed: 20': 7446.367936218919, 'Unnamed: 21': 9.367795428261161e-11, 'Unnamed: 22': 9.761242836248129e-11, 'Unnamed: 23': 1.0171215035370551e-10, 'Unnamed: 24': 1.0598406066856114e-10, 'Unnamed: 25': 1.1043539121664071e-10, 'Unnamed: 26': 1.1507367764773962e-10, 'Unnamed: 27': 1.1990677210894468e-10, 'Unnamed: 28': 1.2494285653752035e-10, 'Unnamed: 29': 1.301904565120962e-10, 'Unnamed: 30': 1.3565845568560422e-10, 'Unnamed: 31': 1.413561108243996e-10, 'Unnamed: 32': 1.4729306747902439e-10, 'Unnamed: 33': 1.534793763131434e-10, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+
+================================================================================
+Sheet: 5-1材料
+================================================================================
+Shape: (32, 26)
+
+Columns (26):
+  0: Unnamed: 0
+  1: 附表5-1 外购原材料费用估算表   单位：万元  
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 1: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2.0, 'Unnamed: 6': 3, 'Unnamed: 7': 4.0, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 2: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': nan, 'Unnamed: 2': '达产率', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 1, 'Unnamed: 7': 1.0, 'Unnamed: 8': 1.0, 'Unnamed: 9': 1.0, 'Unnamed: 10': 1.0, 'Unnamed: 11': 1.0, 'Unnamed: 12': 1.0, 'Unnamed: 13': 1.0, 'Unnamed: 14': 1.0, 'Unnamed: 15': 1.0, 'Unnamed: 16': 1.0, 'Unnamed: 17': 1.0, 'Unnamed: 18': 1.0, 'Unnamed: 19': 1.0, 'Unnamed: 20': 1.0, 'Unnamed: 21': 1.0, 'Unnamed: 22': 1.0, 'Unnamed: 23': 1.0, 'Unnamed: 24': nan, 'Unnamed: 25': '基础资料\n1.达产期\n主要原材料年用量为2000吨，预测市场价格为15000元/吨；\n辅助材料年用量为1000吨，预测市场价格为14000元/吨；\n2.各类材料的增值税率均为13%'}
+Row 3: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': 1, 'Unnamed: 2': '主要原材料费', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 4: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': 1.1, 'Unnamed: 2': '主要原材料A费用', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 5: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': nan, 'Unnamed: 2': '数量（吨）', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 6: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': nan, 'Unnamed: 2': '单价（元/吨） ', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 7: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': nan, 'Unnamed: 2': '增值税进项税', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 8: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': 1.2, 'Unnamed: 2': '主要原材料B费用', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 9: {'Unnamed: 0': nan, '附表5-1 外购原材料费用估算表   单位：万元  ': nan, 'Unnamed: 2': '数量（吨）', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+
+================================================================================
+Sheet: 5-2燃料
+================================================================================
+Shape: (23, 26)
+
+Columns (26):
+  0: Unnamed: 0
+  1: 附表5-2 外购燃料和动力费估算表   单位：万元  
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 1: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2.0, 'Unnamed: 6': 3, 'Unnamed: 7': 4.0, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 2: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': nan, 'Unnamed: 2': '达产率', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': '基础资料\n1.达产期年燃料费为400万元，增值税率为13%\n2.达产期年动力费为800万元，增值税率为9%\n'}
+Row 3: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': 1, 'Unnamed: 2': '燃料费', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 4: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': 1.1, 'Unnamed: 2': '燃料A费', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 5: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': nan, 'Unnamed: 2': '数量（吨）', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 6: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': nan, 'Unnamed: 2': '单价（元/吨） ', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 7: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': nan, 'Unnamed: 2': '增值税进项税', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 8: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': 1.2, 'Unnamed: 2': '燃料B费', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 9: {'Unnamed: 0': nan, '附表5-2 外购燃料和动力费估算表   单位：万元  ': nan, 'Unnamed: 2': '数量', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+
+================================================================================
+Sheet: 5-3工资
+================================================================================
+Shape: (22, 26)
+
+Columns (26):
+  0: Unnamed: 0
+  1: 附表5-3 工资及福利费估算表   单位：万元  
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 1: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2.0, 'Unnamed: 6': 3, 'Unnamed: 7': 4.0, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 2: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': nan, 'Unnamed: 2': '达产率', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 1, 'Unnamed: 7': 1.0, 'Unnamed: 8': 1.0, 'Unnamed: 9': 1.0, 'Unnamed: 10': 1.0, 'Unnamed: 11': 1.0, 'Unnamed: 12': 1.0, 'Unnamed: 13': 1.0, 'Unnamed: 14': 1.0, 'Unnamed: 15': 1.0, 'Unnamed: 16': 1.0, 'Unnamed: 17': 1.0, 'Unnamed: 18': 1.0, 'Unnamed: 19': 1.0, 'Unnamed: 20': 1.0, 'Unnamed: 21': 1.0, 'Unnamed: 22': 1.0, 'Unnamed: 23': 1.0, 'Unnamed: 24': nan, 'Unnamed: 25': '（1）工资及福利费：项目劳动定额共计25人。其中行政管理人员2名，人均工资5000元/月，专业技术人员3人，平均5500元/月；安保人员10名，平均3500元/月；保洁人员10名，平均3000元/月；其余保险及福利按工资总额14%计算。'}
+Row 3: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': 1, 'Unnamed: 2': '行政管理人员', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 4: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': nan, 'Unnamed: 2': '人数', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 2, 'Unnamed: 7': 2.0, 'Unnamed: 8': 2.0, 'Unnamed: 9': 2.0, 'Unnamed: 10': 2.0, 'Unnamed: 11': 2.0, 'Unnamed: 12': 2.0, 'Unnamed: 13': 2.0, 'Unnamed: 14': 2.0, 'Unnamed: 15': 2.0, 'Unnamed: 16': 2.0, 'Unnamed: 17': 2.0, 'Unnamed: 18': 2.0, 'Unnamed: 19': 2.0, 'Unnamed: 20': 2.0, 'Unnamed: 21': 2.0, 'Unnamed: 22': 2.0, 'Unnamed: 23': 2.0, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 5: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': nan, 'Unnamed: 2': '人均年工资', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 6, 'Unnamed: 7': 6.0, 'Unnamed: 8': 6.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 6.0, 'Unnamed: 11': 6.0, 'Unnamed: 12': 6.0, 'Unnamed: 13': 6.0, 'Unnamed: 14': 6.0, 'Unnamed: 15': 6.0, 'Unnamed: 16': 6.0, 'Unnamed: 17': 6.0, 'Unnamed: 18': 6.0, 'Unnamed: 19': 6.0, 'Unnamed: 20': 6.0, 'Unnamed: 21': 6.0, 'Unnamed: 22': 6.0, 'Unnamed: 23': 6.0, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 6: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': nan, 'Unnamed: 2': '工资额', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 12, 'Unnamed: 7': 12.0, 'Unnamed: 8': 12.0, 'Unnamed: 9': 12.0, 'Unnamed: 10': 12.0, 'Unnamed: 11': 12.0, 'Unnamed: 12': 12.0, 'Unnamed: 13': 12.0, 'Unnamed: 14': 12.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 12.0, 'Unnamed: 17': 12.0, 'Unnamed: 18': 12.0, 'Unnamed: 19': 12.0, 'Unnamed: 20': 12.0, 'Unnamed: 21': 12.0, 'Unnamed: 22': 12.0, 'Unnamed: 23': 12.0, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 7: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': 2, 'Unnamed: 2': '专业技术人员', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 8: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': nan, 'Unnamed: 2': '人数', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 3, 'Unnamed: 7': 3.0, 'Unnamed: 8': 3.0, 'Unnamed: 9': 3.0, 'Unnamed: 10': 3.0, 'Unnamed: 11': 3.0, 'Unnamed: 12': 3.0, 'Unnamed: 13': 3.0, 'Unnamed: 14': 3.0, 'Unnamed: 15': 3.0, 'Unnamed: 16': 3.0, 'Unnamed: 17': 3.0, 'Unnamed: 18': 3.0, 'Unnamed: 19': 3.0, 'Unnamed: 20': 3.0, 'Unnamed: 21': 3.0, 'Unnamed: 22': 3.0, 'Unnamed: 23': 3.0, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+Row 9: {'Unnamed: 0': nan, '附表5-3 工资及福利费估算表   单位：万元  ': nan, 'Unnamed: 2': '人均年工资', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 6.6, 'Unnamed: 7': 6.6, 'Unnamed: 8': 6.6, 'Unnamed: 9': 6.6, 'Unnamed: 10': 6.6, 'Unnamed: 11': 6.6, 'Unnamed: 12': 6.6, 'Unnamed: 13': 6.6, 'Unnamed: 14': 6.6, 'Unnamed: 15': 6.6, 'Unnamed: 16': 6.6, 'Unnamed: 17': 6.6, 'Unnamed: 18': 6.6, 'Unnamed: 19': 6.6, 'Unnamed: 20': 6.6, 'Unnamed: 21': 6.6, 'Unnamed: 22': 6.6, 'Unnamed: 23': 6.6, 'Unnamed: 24': nan, 'Unnamed: 25': nan}
+
+================================================================================
+Sheet: 5-4折旧
+================================================================================
+Shape: (38, 36)
+
+Columns (36):
+  0: Unnamed: 0
+  1: 13-7  固定资产折旧费、成本摊销估算表   单位：万元  
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+  34: Unnamed: 34
+  35: Unnamed: 35
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': '运营期', 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 1: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3.0, 'Unnamed: 7': 4, 'Unnamed: 8': 5, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 2: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': 1, 'Unnamed: 2': '建筑物（20年）', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': '基础资料\n折旧方式：直线法\n折旧年限：建筑物20年、机械设备10年\n残值率：建筑物5%、机械设备5%'}
+Row 3: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': nan, 'Unnamed: 2': '原值', 'Unnamed: 3': 79543.03722924783, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 79543.03722924783, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 4: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': nan, 'Unnamed: 2': '当期折旧费', 'Unnamed: 3': 3778.2942683892716, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 3778.2942683892716, 'Unnamed: 8': 3778.2942683892716, 'Unnamed: 9': 3778.2942683892716, 'Unnamed: 10': 3778.2942683892716, 'Unnamed: 11': 3778.2942683892716, 'Unnamed: 12': 3778.2942683892716, 'Unnamed: 13': 3778.2942683892716, 'Unnamed: 14': 3778.2942683892716, 'Unnamed: 15': 3778.2942683892716, 'Unnamed: 16': 3778.2942683892716, 'Unnamed: 17': 3778.2942683892716, 'Unnamed: 18': 3778.2942683892716, 'Unnamed: 19': 3778.2942683892716, 'Unnamed: 20': 3778.2942683892716, 'Unnamed: 21': 3778.2942683892716, 'Unnamed: 22': 3778.2942683892716, 'Unnamed: 23': 3778.2942683892716, 'Unnamed: 24': 3778.2942683892716, 'Unnamed: 25': 3778.2942683892716, 'Unnamed: 26': 3778.2942683892716, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 5: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': nan, 'Unnamed: 2': '净值', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 75764.74296085855, 'Unnamed: 8': 71986.44869246929, 'Unnamed: 9': 68208.15442408001, 'Unnamed: 10': 64429.86015569074, 'Unnamed: 11': 60651.56588730147, 'Unnamed: 12': 56873.2716189122, 'Unnamed: 13': 53094.977350522924, 'Unnamed: 14': 49316.683082133655, 'Unnamed: 15': 45538.38881374439, 'Unnamed: 16': 41760.09454535511, 'Unnamed: 17': 37981.80027696584, 'Unnamed: 18': 34203.50600857657, 'Unnamed: 19': 30425.211740187297, 'Unnamed: 20': 26646.917471798028, 'Unnamed: 21': 22868.62320340875, 'Unnamed: 22': 19090.328935019483, 'Unnamed: 23': 15312.034666630214, 'Unnamed: 24': 11533.740398240945, 'Unnamed: 25': 7755.446129851669, 'Unnamed: 26': 3977.151861462393, 'Unnamed: 27': 3977.1518614623915, 'Unnamed: 28': 3977.1518614623915, 'Unnamed: 29': 3977.1518614623915, 'Unnamed: 30': 3977.1518614623915, 'Unnamed: 31': 3977.1518614623915, 'Unnamed: 32': 3977.1518614623915, 'Unnamed: 33': 3977.1518614623915, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 6: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': 2, 'Unnamed: 2': '机器设备（10年）', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 7: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': nan, 'Unnamed: 2': '原值', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 8: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': nan, 'Unnamed: 2': '当期折旧费', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 9: {'Unnamed: 0': nan, '13-7  固定资产折旧费、成本摊销估算表   单位：万元  ': nan, 'Unnamed: 2': '净值', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+
+================================================================================
+Sheet: 5-5摊销
+================================================================================
+Shape: (35, 36)
+
+Columns (36):
+  0: Unnamed: 0
+  1: 附表5-5  无形资产及其他资产摊销费估算表   单位：万元  
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+  34: Unnamed: 34
+  35: Unnamed: 35
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': '运营期', 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 1: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3.0, 'Unnamed: 7': 4, 'Unnamed: 8': 5, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 2: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': 1, 'Unnamed: 2': '土地使用权（50年）', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': '基础资料\n摊销年限：土地使用权50年、专利权6年、其他资产5年\n'}
+Row 3: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': nan, 'Unnamed: 2': '原值', 'Unnamed: 3': 4879.29, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 4879.29, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 4: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': nan, 'Unnamed: 2': '当期摊销费', 'Unnamed: 3': 97.5858, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 97.5858, 'Unnamed: 8': 97.5858, 'Unnamed: 9': 97.5858, 'Unnamed: 10': 97.5858, 'Unnamed: 11': 97.5858, 'Unnamed: 12': 97.5858, 'Unnamed: 13': 97.5858, 'Unnamed: 14': 97.5858, 'Unnamed: 15': 97.5858, 'Unnamed: 16': 97.5858, 'Unnamed: 17': 97.5858, 'Unnamed: 18': 97.5858, 'Unnamed: 19': 97.5858, 'Unnamed: 20': 97.5858, 'Unnamed: 21': 97.5858, 'Unnamed: 22': 97.5858, 'Unnamed: 23': 97.5858, 'Unnamed: 24': 97.5858, 'Unnamed: 25': 97.5858, 'Unnamed: 26': 97.5858, 'Unnamed: 27': 97.5858, 'Unnamed: 28': 97.5858, 'Unnamed: 29': 97.5858, 'Unnamed: 30': 97.5858, 'Unnamed: 31': 97.5858, 'Unnamed: 32': 97.5858, 'Unnamed: 33': 97.5858, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 5: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': nan, 'Unnamed: 2': '净值', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 4781.7042, 'Unnamed: 8': 4684.1184, 'Unnamed: 9': 4586.5326, 'Unnamed: 10': 4488.9468, 'Unnamed: 11': 4391.361, 'Unnamed: 12': 4293.7752, 'Unnamed: 13': 4196.1894, 'Unnamed: 14': 4098.6036, 'Unnamed: 15': 4001.0177999999996, 'Unnamed: 16': 3903.432, 'Unnamed: 17': 3805.8462, 'Unnamed: 18': 3708.2604, 'Unnamed: 19': 3610.6746, 'Unnamed: 20': 3513.0888, 'Unnamed: 21': 3415.5029999999997, 'Unnamed: 22': 3317.9172, 'Unnamed: 23': 3220.3314, 'Unnamed: 24': 3122.7455999999997, 'Unnamed: 25': 3025.1598, 'Unnamed: 26': 2927.5739999999996, 'Unnamed: 27': 2829.9882, 'Unnamed: 28': 2732.4024, 'Unnamed: 29': 2634.8165999999997, 'Unnamed: 30': 2537.2308, 'Unnamed: 31': 2439.645, 'Unnamed: 32': 2342.0591999999997, 'Unnamed: 33': 2244.4734, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 6: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': 2, 'Unnamed: 2': '专利权（6年）', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 7: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': nan, 'Unnamed: 2': '原值', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 8: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': nan, 'Unnamed: 2': '当期摊销费', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 9: {'Unnamed: 0': nan, '附表5-5  无形资产及其他资产摊销费估算表   单位：万元  ': nan, 'Unnamed: 2': '净值', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+
+================================================================================
+Sheet: 5总成本
+================================================================================
+Shape: (31, 36)
+
+Columns (36):
+  0: Unnamed: 0
+  1: 表13-5  总成本费用估算表（生产要素法）
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+  34: Unnamed: 34
+  35: Unnamed: 35
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 1: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3, 'Unnamed: 7': 4, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 2: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': nan, 'Unnamed: 2': '达产率', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 1, 'Unnamed: 7': 1, 'Unnamed: 8': 1.0, 'Unnamed: 9': 1.0, 'Unnamed: 10': 1.0, 'Unnamed: 11': 1.0, 'Unnamed: 12': 1.0, 'Unnamed: 13': 1.0, 'Unnamed: 14': 1.0, 'Unnamed: 15': 1.0, 'Unnamed: 16': 1.0, 'Unnamed: 17': 1.0, 'Unnamed: 18': 1.0, 'Unnamed: 19': 1.0, 'Unnamed: 20': 1.0, 'Unnamed: 21': 1.0, 'Unnamed: 22': 1.0, 'Unnamed: 23': 1.0, 'Unnamed: 24': 1.0, 'Unnamed: 25': 1.0, 'Unnamed: 26': 1.0, 'Unnamed: 27': 1.0, 'Unnamed: 28': 1.0, 'Unnamed: 29': 1.0, 'Unnamed: 30': 1.0, 'Unnamed: 31': 1.0, 'Unnamed: 32': 1.0, 'Unnamed: 33': 1.0, 'Unnamed: 34': nan, 'Unnamed: 35': '基础资料\n（2）修理费：按照固定资产净值的0.5%计取。'}
+Row 3: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': 1, 'Unnamed: 2': '外购原材料费', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 4: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': 2, 'Unnamed: 2': '外购燃料及动力费', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 5: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': 3, 'Unnamed: 2': '工资及福利费', 'Unnamed: 3': 1744.1999999999994, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 102.6, 'Unnamed: 8': 102.6, 'Unnamed: 9': 102.6, 'Unnamed: 10': 102.6, 'Unnamed: 11': 102.6, 'Unnamed: 12': 102.6, 'Unnamed: 13': 102.6, 'Unnamed: 14': 102.6, 'Unnamed: 15': 102.6, 'Unnamed: 16': 102.6, 'Unnamed: 17': 102.6, 'Unnamed: 18': 102.6, 'Unnamed: 19': 102.6, 'Unnamed: 20': 102.6, 'Unnamed: 21': 102.6, 'Unnamed: 22': 102.6, 'Unnamed: 23': 102.6, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 6: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': 4, 'Unnamed: 2': '修理费', 'Unnamed: 3': 8528.576762000004, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 501.6809860000001, 'Unnamed: 8': 501.6809860000001, 'Unnamed: 9': 501.6809860000001, 'Unnamed: 10': 501.6809860000001, 'Unnamed: 11': 501.6809860000001, 'Unnamed: 12': 501.6809860000001, 'Unnamed: 13': 501.6809860000001, 'Unnamed: 14': 501.6809860000001, 'Unnamed: 15': 501.6809860000001, 'Unnamed: 16': 501.6809860000001, 'Unnamed: 17': 501.6809860000001, 'Unnamed: 18': 501.6809860000001, 'Unnamed: 19': 501.6809860000001, 'Unnamed: 20': 501.6809860000001, 'Unnamed: 21': 501.6809860000001, 'Unnamed: 22': 501.6809860000001, 'Unnamed: 23': 501.6809860000001, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 7: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': 5, 'Unnamed: 2': '其他费用', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 8: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': 5.1, 'Unnamed: 2': '其他制造费', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 9: {'Unnamed: 0': nan, '表13-5  总成本费用估算表（生产要素法）': 5.2, 'Unnamed: 2': '其他管理费用', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+
+================================================================================
+Sheet: 6收入 
+================================================================================
+Shape: (71, 34)
+
+Columns (34):
+  0: Unnamed: 0
+  1: 表13-4  营业收入、税金及附加和增值税估算表  单位：万元 
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan}
+Row 1: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3, 'Unnamed: 7': 4, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0}
+Row 2: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan}
+Row 3: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': 1, 'Unnamed: 2': '营业收入（不含销项税）', 'Unnamed: 3': 344818.80276819196, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 19395.154597470046, 'Unnamed: 8': 31557.69851631528, 'Unnamed: 9': 31557.69851631528, 'Unnamed: 10': 32828.99503700076, 'Unnamed: 11': 14585.179158732908, 'Unnamed: 12': 14585.179158732908, 'Unnamed: 13': 15983.605331486931, 'Unnamed: 14': 15983.605331486931, 'Unnamed: 15': 15983.605331486931, 'Unnamed: 16': 17521.874121516365, 'Unnamed: 17': 17521.874121516365, 'Unnamed: 18': 17521.874121516365, 'Unnamed: 19': 19213.969790548737, 'Unnamed: 20': 19213.969790548737, 'Unnamed: 21': 19213.969790548737, 'Unnamed: 22': 21075.27502648434, 'Unnamed: 23': 21075.27502648434, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 4: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': 1.1, 'Unnamed: 2': '标准厂房收入（万元）', 'Unnamed: 3': 194419.6227522936, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 9027.522935779816, 'Unnamed: 8': 9027.522935779816, 'Unnamed: 9': 9027.522935779816, 'Unnamed: 10': 9930.275229357798, 'Unnamed: 11': 9930.275229357798, 'Unnamed: 12': 9930.275229357798, 'Unnamed: 13': 10923.302752293579, 'Unnamed: 14': 10923.302752293579, 'Unnamed: 15': 10923.302752293579, 'Unnamed: 16': 12015.633027522937, 'Unnamed: 17': 12015.633027522937, 'Unnamed: 18': 12015.633027522937, 'Unnamed: 19': 13217.196330275234, 'Unnamed: 20': 13217.196330275234, 'Unnamed: 21': 13217.196330275234, 'Unnamed: 22': 14538.915963302758, 'Unnamed: 23': 14538.915963302758, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 5: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': nan, 'Unnamed: 2': '含税收入（万元）', 'Unnamed: 3': 211917.38880000002, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 9840, 'Unnamed: 8': 9840.0, 'Unnamed: 9': 9840.0, 'Unnamed: 10': 10824.0, 'Unnamed: 11': 10824.0, 'Unnamed: 12': 10824.0, 'Unnamed: 13': 11906.400000000001, 'Unnamed: 14': 11906.400000000001, 'Unnamed: 15': 11906.400000000001, 'Unnamed: 16': 13097.040000000003, 'Unnamed: 17': 13097.040000000003, 'Unnamed: 18': 13097.040000000003, 'Unnamed: 19': 14406.744000000004, 'Unnamed: 20': 14406.744000000004, 'Unnamed: 21': 14406.744000000004, 'Unnamed: 22': 15847.418400000006, 'Unnamed: 23': 15847.418400000006, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 6: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': nan, 'Unnamed: 2': '销项税额(万元）', 'Unnamed: 3': 17497.76604770642, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 812.4770642201835, 'Unnamed: 8': 812.4770642201835, 'Unnamed: 9': 812.4770642201835, 'Unnamed: 10': 893.7247706422017, 'Unnamed: 11': 893.7247706422017, 'Unnamed: 12': 893.7247706422017, 'Unnamed: 13': 983.0972477064221, 'Unnamed: 14': 983.0972477064221, 'Unnamed: 15': 983.0972477064221, 'Unnamed: 16': 1081.4069724770643, 'Unnamed: 17': 1081.4069724770643, 'Unnamed: 18': 1081.4069724770643, 'Unnamed: 19': 1189.547669724771, 'Unnamed: 20': 1189.547669724771, 'Unnamed: 21': 1189.547669724771, 'Unnamed: 22': 1308.5024366972482, 'Unnamed: 23': 1308.5024366972482, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 7: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': 1.2, 'Unnamed: 2': '配套用房招商收入（万元）', 'Unnamed: 3': 68165.4165137615, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 3165.137614678899, 'Unnamed: 8': 3165.137614678899, 'Unnamed: 9': 3165.137614678899, 'Unnamed: 10': 3481.6513761467895, 'Unnamed: 11': 3481.6513761467895, 'Unnamed: 12': 3481.6513761467895, 'Unnamed: 13': 3829.8165137614687, 'Unnamed: 14': 3829.8165137614687, 'Unnamed: 15': 3829.8165137614687, 'Unnamed: 16': 4212.798165137616, 'Unnamed: 17': 4212.798165137616, 'Unnamed: 18': 4212.798165137616, 'Unnamed: 19': 4634.077981651379, 'Unnamed: 20': 4634.077981651379, 'Unnamed: 21': 4634.077981651379, 'Unnamed: 22': 5097.485779816517, 'Unnamed: 23': 5097.485779816517, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 8: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': nan, 'Unnamed: 2': '含税收入（万元）', 'Unnamed: 3': 74300.30400000003, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 3450, 'Unnamed: 8': 3450.0, 'Unnamed: 9': 3450.0, 'Unnamed: 10': 3795.0000000000005, 'Unnamed: 11': 3795.0000000000005, 'Unnamed: 12': 3795.0000000000005, 'Unnamed: 13': 4174.500000000001, 'Unnamed: 14': 4174.500000000001, 'Unnamed: 15': 4174.500000000001, 'Unnamed: 16': 4591.950000000002, 'Unnamed: 17': 4591.950000000002, 'Unnamed: 18': 4591.950000000002, 'Unnamed: 19': 5051.145000000002, 'Unnamed: 20': 5051.145000000002, 'Unnamed: 21': 5051.145000000002, 'Unnamed: 22': 5556.259500000003, 'Unnamed: 23': 5556.259500000003, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 9: {'Unnamed: 0': nan, '表13-4  营业收入、税金及附加和增值税估算表  单位：万元 ': nan, 'Unnamed: 2': '销项税额(万元）', 'Unnamed: 3': 6134.887486238531, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 284.8623853211009, 'Unnamed: 8': 284.8623853211009, 'Unnamed: 9': 284.8623853211009, 'Unnamed: 10': 313.348623853211, 'Unnamed: 11': 313.348623853211, 'Unnamed: 12': 313.348623853211, 'Unnamed: 13': 344.6834862385321, 'Unnamed: 14': 344.6834862385321, 'Unnamed: 15': 344.6834862385321, 'Unnamed: 16': 379.1518348623854, 'Unnamed: 17': 379.1518348623854, 'Unnamed: 18': 379.1518348623854, 'Unnamed: 19': 417.067018348624, 'Unnamed: 20': 417.067018348624, 'Unnamed: 21': 417.067018348624, 'Unnamed: 22': 458.77372018348643, 'Unnamed: 23': 458.77372018348643, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+
+================================================================================
+Sheet: 7利润
+================================================================================
+Shape: (88, 36)
+
+Columns (36):
+  0: Unnamed: 0
+  1: 表13-6  利润和利润分配表
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+  34: Unnamed: 34
+  35: Unnamed: 35
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 1: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3, 'Unnamed: 7': 4, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 2: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': nan, 'Unnamed: 2': '达产率', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 1, 'Unnamed: 7': 1, 'Unnamed: 8': 1.0, 'Unnamed: 9': 1.0, 'Unnamed: 10': 1.0, 'Unnamed: 11': 1.0, 'Unnamed: 12': 1.0, 'Unnamed: 13': 1.0, 'Unnamed: 14': 1.0, 'Unnamed: 15': 1.0, 'Unnamed: 16': 1.0, 'Unnamed: 17': 1.0, 'Unnamed: 18': 1.0, 'Unnamed: 19': 1.0, 'Unnamed: 20': 1.0, 'Unnamed: 21': 1.0, 'Unnamed: 22': 1.0, 'Unnamed: 23': 1.0, 'Unnamed: 24': 1.0, 'Unnamed: 25': 1.0, 'Unnamed: 26': 1.0, 'Unnamed: 27': 1.0, 'Unnamed: 28': 1.0, 'Unnamed: 29': 1.0, 'Unnamed: 30': 1.0, 'Unnamed: 31': 1.0, 'Unnamed: 32': 1.0, 'Unnamed: 33': 1.0, 'Unnamed: 34': nan, 'Unnamed: 35': '基础资料\n1.所得税税率25%，享受两免三减半优惠政策\n2.采用最大能力还款法偿还建设投资借款、用偿债备付率1.3控制每年还本资金额度及偿债风险；\n3.每年剩余利润在当年即向股东进行分配，有两个股东甲和乙，出资比例分别为80%和20%'}
+Row 3: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': 1, 'Unnamed: 2': '营业收入', 'Unnamed: 3': 344818.80276819196, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 19395.154597470046, 'Unnamed: 8': 31557.69851631528, 'Unnamed: 9': 31557.69851631528, 'Unnamed: 10': 32828.99503700076, 'Unnamed: 11': 14585.179158732908, 'Unnamed: 12': 14585.179158732908, 'Unnamed: 13': 15983.605331486931, 'Unnamed: 14': 15983.605331486931, 'Unnamed: 15': 15983.605331486931, 'Unnamed: 16': 17521.874121516365, 'Unnamed: 17': 17521.874121516365, 'Unnamed: 18': 17521.874121516365, 'Unnamed: 19': 19213.969790548737, 'Unnamed: 20': 19213.969790548737, 'Unnamed: 21': 19213.969790548737, 'Unnamed: 22': 21075.27502648434, 'Unnamed: 23': 21075.27502648434, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 4: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': 2, 'Unnamed: 2': '    税金及附加', 'Unnamed: 3': 8777.234264398505, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 613.3147572056741, 'Unnamed: 8': 1839.944271617024, 'Unnamed: 9': 1839.944271617024, 'Unnamed: 10': 2033.1320064896431, 'Unnamed: 11': 155.7865009520512, 'Unnamed: 12': 155.7865009520512, 'Unnamed: 13': 170.71616022156826, 'Unnamed: 14': 170.71616022156826, 'Unnamed: 15': 170.71616022156826, 'Unnamed: 16': 187.13878541803706, 'Unnamed: 17': 187.13878541803706, 'Unnamed: 18': 187.13878541803706, 'Unnamed: 19': 205.20367313415275, 'Unnamed: 20': 205.20367313415275, 'Unnamed: 21': 205.20367313415275, 'Unnamed: 22': 225.07504962187994, 'Unnamed: 23': 225.07504962187994, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 5: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': 3, 'Unnamed: 2': '    总成本费用', 'Unnamed: 3': 135913.30937016933, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 10929.981566404049, 'Unnamed: 8': 16378.545847683563, 'Unnamed: 9': 16195.350923918402, 'Unnamed: 10': 16004.461813355103, 'Unnamed: 11': 7363.322637223362, 'Unnamed: 12': 7097.241532981713, 'Unnamed: 13': 6881.276066721915, 'Unnamed: 14': 6656.240050879205, 'Unnamed: 15': 6421.752522371101, 'Unnamed: 16': 6177.416517665657, 'Unnamed: 17': 5922.818400762584, 'Unnamed: 18': 5657.527162949583, 'Unnamed: 19': 5381.093693148435, 'Unnamed: 20': 5093.050017615639, 'Unnamed: 21': 4792.9085077104655, 'Unnamed: 22': 4480.161054389275, 'Unnamed: 23': 4480.161054389276, 'Unnamed: 24': 4.271910314855632e-12, 'Unnamed: 25': 4.451330548079568e-12, 'Unnamed: 26': 4.63828643109891e-12, 'Unnamed: 27': 4.833094461205064e-12, 'Unnamed: 28': 5.036084428575677e-12, 'Unnamed: 29': 5.247599974575855e-12, 'Unnamed: 30': 5.46799917350804e-12, 'Unnamed: 31': 5.697655138795378e-12, 'Unnamed: 32': 5.936956654624784e-12, 'Unnamed: 33': 6.186308834119024e-12, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 6: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': 3.1, 'Unnamed: 2': '    其中：经营成本', 'Unnamed: 3': 10272.776762, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 604.2809860000001, 'Unnamed: 8': 604.2809860000001, 'Unnamed: 9': 604.2809860000001, 'Unnamed: 10': 604.2809860000001, 'Unnamed: 11': 604.2809860000001, 'Unnamed: 12': 604.2809860000001, 'Unnamed: 13': 604.2809860000001, 'Unnamed: 14': 604.2809860000001, 'Unnamed: 15': 604.2809860000001, 'Unnamed: 16': 604.2809860000001, 'Unnamed: 17': 604.2809860000001, 'Unnamed: 18': 604.2809860000001, 'Unnamed: 19': 604.2809860000001, 'Unnamed: 20': 604.2809860000001, 'Unnamed: 21': 604.2809860000001, 'Unnamed: 22': 604.2809860000001, 'Unnamed: 23': 604.2809860000001, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 7: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': 3.2, 'Unnamed: 2': '          折旧费', 'Unnamed: 3': 90745.34830570024, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 6429.728842697533, 'Unnamed: 8': 11732.597991314055, 'Unnamed: 9': 11732.597991314055, 'Unnamed: 10': 11732.597991314055, 'Unnamed: 11': 3778.2942683892716, 'Unnamed: 12': 3778.2942683892716, 'Unnamed: 13': 3778.2942683892716, 'Unnamed: 14': 3778.2942683892716, 'Unnamed: 15': 3778.2942683892716, 'Unnamed: 16': 3778.2942683892716, 'Unnamed: 17': 3778.2942683892716, 'Unnamed: 18': 3778.2942683892716, 'Unnamed: 19': 3778.2942683892716, 'Unnamed: 20': 3778.2942683892716, 'Unnamed: 21': 3778.2942683892716, 'Unnamed: 22': 3778.2942683892716, 'Unnamed: 23': 3778.2942683892716, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 8: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': 3.3, 'Unnamed: 2': '          摊销费', 'Unnamed: 3': 3579.491499999998, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 319.04938000000004, 'Unnamed: 8': 644.33538, 'Unnamed: 9': 644.33538, 'Unnamed: 10': 644.33538, 'Unnamed: 11': 156.40638, 'Unnamed: 12': 97.5858, 'Unnamed: 13': 97.5858, 'Unnamed: 14': 97.5858, 'Unnamed: 15': 97.5858, 'Unnamed: 16': 97.5858, 'Unnamed: 17': 97.5858, 'Unnamed: 18': 97.5858, 'Unnamed: 19': 97.5858, 'Unnamed: 20': 97.5858, 'Unnamed: 21': 97.5858, 'Unnamed: 22': 97.5858, 'Unnamed: 23': 97.5858, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+Row 9: {'Unnamed: 0': nan, '表13-6  利润和利润分配表': 3.4, 'Unnamed: 2': '          财务费用', 'Unnamed: 3': 31315.692802469155, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 3576.9223577065154, 'Unnamed: 8': 3397.3314903695077, 'Unnamed: 9': 3214.1365666043466, 'Unnamed: 10': 3023.247456041048, 'Unnamed: 11': 2824.341002834091, 'Unnamed: 12': 2617.080478592442, 'Unnamed: 13': 2401.115012332644, 'Unnamed: 14': 2176.0789964899336, 'Unnamed: 15': 1941.59146798183, 'Unnamed: 16': 1697.255463276386, 'Unnamed: 17': 1442.6573463733134, 'Unnamed: 18': 1177.3661085603117, 'Unnamed: 19': 900.932638759164, 'Unnamed: 20': 612.888963226368, 'Unnamed: 21': 312.7474533211946, 'Unnamed: 22': 3.934474079869688e-12, 'Unnamed: 23': 4.099721991224214e-12, 'Unnamed: 24': 4.271910314855632e-12, 'Unnamed: 25': 4.451330548079568e-12, 'Unnamed: 26': 4.63828643109891e-12, 'Unnamed: 27': 4.833094461205064e-12, 'Unnamed: 28': 5.036084428575677e-12, 'Unnamed: 29': 5.247599974575855e-12, 'Unnamed: 30': 5.46799917350804e-12, 'Unnamed: 31': 5.697655138795378e-12, 'Unnamed: 32': 5.936956654624784e-12, 'Unnamed: 33': 6.186308834119024e-12, 'Unnamed: 34': nan, 'Unnamed: 35': nan}
+
+================================================================================
+Sheet: 8财务现金
+================================================================================
+Shape: (51, 34)
+
+Columns (34):
+  0: Unnamed: 0
+  1: 表13-3  财务计划现金流量表  单位：万元
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan}
+Row 1: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3, 'Unnamed: 7': 4, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0}
+Row 2: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': nan, 'Unnamed: 2': '达产率', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 1, 'Unnamed: 7': 1, 'Unnamed: 8': 1.0, 'Unnamed: 9': 1.0, 'Unnamed: 10': 1.0, 'Unnamed: 11': 1.0, 'Unnamed: 12': 1.0, 'Unnamed: 13': 1.0, 'Unnamed: 14': 1.0, 'Unnamed: 15': 1.0, 'Unnamed: 16': 1.0, 'Unnamed: 17': 1.0, 'Unnamed: 18': 1.0, 'Unnamed: 19': 1.0, 'Unnamed: 20': 1.0, 'Unnamed: 21': 1.0, 'Unnamed: 22': 1.0, 'Unnamed: 23': 1.0, 'Unnamed: 24': 1.0, 'Unnamed: 25': 1.0, 'Unnamed: 26': 1.0, 'Unnamed: 27': 1.0, 'Unnamed: 28': 1.0, 'Unnamed: 29': 1.0, 'Unnamed: 30': 1.0, 'Unnamed: 31': 1.0, 'Unnamed: 32': 1.0, 'Unnamed: 33': 1.0}
+Row 3: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': 1, 'Unnamed: 2': '经营活动净现金流量（1.1-1.2）', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 17947.026124099895, 'Unnamed: 8': 28605.73195044126, 'Unnamed: 9': 28559.93321949997, 'Unnamed: 10': 27823.99821992815, 'Unnamed: 11': 12058.594166641484, 'Unnamed: 12': 11992.073890581072, 'Unnamed: 13': 12975.704909129501, 'Unnamed: 14': 12919.445905168825, 'Unnamed: 15': 12860.824023041798, 'Unnamed: 16': 13941.124645490157, 'Unnamed: 17': 13877.47511626439, 'Unnamed: 18': 13811.15230681114, 'Unnamed: 19': 14997.56702534805, 'Unnamed: 20': 14925.55610646485, 'Unnamed: 21': 14850.520728988557, 'Unnamed: 22': 16153.409260244165, 'Unnamed: 23': 16153.409260244165, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 4: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': 1.1, 'Unnamed: 2': '现金流入', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 21127.586435770652, 'Unnamed: 8': 34384.75930731196, 'Unnamed: 9': 34384.75930731196, 'Unnamed: 10': 35769.15930731196, 'Unnamed: 11': 15883.400000000001, 'Unnamed: 12': 15883.400000000001, 'Unnamed: 13': 17406.24, 'Unnamed: 14': 17406.24, 'Unnamed: 15': 17406.24, 'Unnamed: 16': 19081.364000000005, 'Unnamed: 17': 19081.364000000005, 'Unnamed: 18': 19081.364000000005, 'Unnamed: 19': 20924.00040000001, 'Unnamed: 20': 20924.00040000001, 'Unnamed: 21': 20924.00040000001, 'Unnamed: 22': 22950.90044000001, 'Unnamed: 23': 22950.90044000001, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 5: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': '1.1.1', 'Unnamed: 2': '营业收入', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 19395.154597470046, 'Unnamed: 8': 31557.69851631528, 'Unnamed: 9': 31557.69851631528, 'Unnamed: 10': 32828.99503700076, 'Unnamed: 11': 14585.179158732908, 'Unnamed: 12': 14585.179158732908, 'Unnamed: 13': 15983.605331486931, 'Unnamed: 14': 15983.605331486931, 'Unnamed: 15': 15983.605331486931, 'Unnamed: 16': 17521.874121516365, 'Unnamed: 17': 17521.874121516365, 'Unnamed: 18': 17521.874121516365, 'Unnamed: 19': 19213.969790548737, 'Unnamed: 20': 19213.969790548737, 'Unnamed: 21': 19213.969790548737, 'Unnamed: 22': 21075.27502648434, 'Unnamed: 23': 21075.27502648434, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 6: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': '1.1.2', 'Unnamed: 2': '增值税销项税额', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 1732.4318383006062, 'Unnamed: 8': 2827.0607909966766, 'Unnamed: 9': 2827.0607909966766, 'Unnamed: 10': 2940.1642703111993, 'Unnamed: 11': 1298.2208412670934, 'Unnamed: 12': 1298.2208412670934, 'Unnamed: 13': 1422.6346685130688, 'Unnamed: 14': 1422.6346685130688, 'Unnamed: 15': 1422.6346685130688, 'Unnamed: 16': 1559.489878483642, 'Unnamed: 17': 1559.489878483642, 'Unnamed: 18': 1559.489878483642, 'Unnamed: 19': 1710.0306094512728, 'Unnamed: 20': 1710.0306094512728, 'Unnamed: 21': 1710.0306094512728, 'Unnamed: 22': 1875.625413515666, 'Unnamed: 23': 1875.625413515666, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 7: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': '1.1.3', 'Unnamed: 2': '补贴收入', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 8: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': '1.1.4', 'Unnamed: 2': '其他流入', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan}
+Row 9: {'Unnamed: 0': nan, '表13-3  财务计划现金流量表  单位：万元': 1.2, 'Unnamed: 2': '现金流出', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 3180.5603116707553, 'Unnamed: 8': 5779.027356870697, 'Unnamed: 9': 5824.826087811987, 'Unnamed: 10': 7945.161087383805, 'Unnamed: 11': 3824.805833358518, 'Unnamed: 12': 3891.32610941893, 'Unnamed: 13': 4430.5350908704995, 'Unnamed: 14': 4486.794094831177, 'Unnamed: 15': 4545.415976958203, 'Unnamed: 16': 5140.2393545098475, 'Unnamed: 17': 5203.888883735615, 'Unnamed: 18': 5270.211693188865, 'Unnamed: 19': 5926.433374651962, 'Unnamed: 20': 5998.444293535162, 'Unnamed: 21': 6073.479671011455, 'Unnamed: 22': 6797.491179755843, 'Unnamed: 23': 6797.491179755843, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+
+================================================================================
+Sheet: 9资产负债
+================================================================================
+Shape: (41, 33)
+
+Columns (33):
+  0: Unnamed: 0
+  1: 表13-8  资产负债表 单位：万元
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '建设期', 'Unnamed: 4': nan, 'Unnamed: 5': '运营期', 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan}
+Row 1: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': nan, 'Unnamed: 2': nan, 'Unnamed: 3': 1, 'Unnamed: 4': 2, 'Unnamed: 5': 3, 'Unnamed: 6': 4.0, 'Unnamed: 7': 5, 'Unnamed: 8': 6.0, 'Unnamed: 9': 7.0, 'Unnamed: 10': 8.0, 'Unnamed: 11': 9.0, 'Unnamed: 12': 10.0, 'Unnamed: 13': 11.0, 'Unnamed: 14': 12.0, 'Unnamed: 15': 13.0, 'Unnamed: 16': 14.0, 'Unnamed: 17': 15.0, 'Unnamed: 18': 16.0, 'Unnamed: 19': 17.0, 'Unnamed: 20': 18.0, 'Unnamed: 21': 19.0, 'Unnamed: 22': 20.0, 'Unnamed: 23': 21.0, 'Unnamed: 24': 22.0, 'Unnamed: 25': 23.0, 'Unnamed: 26': 24.0, 'Unnamed: 27': 25.0, 'Unnamed: 28': 26.0, 'Unnamed: 29': 27.0, 'Unnamed: 30': 28.0, 'Unnamed: 31': 29.0, 'Unnamed: 32': 30.0}
+Row 2: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': 1, 'Unnamed: 2': '资产', 'Unnamed: 3': 48665.61030893217, 'Unnamed: 4': 85164.81804063129, 'Unnamed: 5': 121664.02577233041, 'Unnamed: 6': 123276.94644589216, 'Unnamed: 7': 128919.5688444827, 'Unnamed: 8': 134516.3925121319, 'Unnamed: 9': 140874.07549149994, 'Unnamed: 10': 141238.85362021212, 'Unnamed: 11': 141595.93205286394, 'Unnamed: 12': 142936.64150406414, 'Unnamed: 13': 144221.09195130365, 'Unnamed: 14': 145446.92051641617, 'Unnamed: 15': 147753.049703977, 'Unnamed: 16': 149995.52936231214, 'Unnamed: 17': 152171.68621119397, 'Unnamed: 18': 155534.25777861272, 'Unnamed: 19': 158824.8184271483, 'Unnamed: 20': 162040.34369820755, 'Unnamed: 21': 174317.87289006246, 'Unnamed: 22': 186595.40208191733, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0}
+Row 3: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': 1.1, 'Unnamed: 2': '流动资产', 'Unnamed: 3': 3373.910779819831, 'Unnamed: 4': 6083.078757978277, 'Unnamed: 5': 8806.8199, 'Unnamed: 6': 17168.518796259268, 'Unnamed: 7': 35188.074566163836, 'Unnamed: 8': 53161.83160512711, 'Unnamed: 9': 71896.4479558092, 'Unnamed: 10': 76195.92673291067, 'Unnamed: 11': 80428.88523395172, 'Unnamed: 12': 85645.4747535412, 'Unnamed: 13': 90805.80526917, 'Unnamed: 14': 95907.51390267178, 'Unnamed: 15': 102089.52315862192, 'Unnamed: 16': 108207.88288534629, 'Unnamed: 17': 114259.91980261741, 'Unnamed: 18': 121498.37143842544, 'Unnamed: 19': 128664.81215535027, 'Unnamed: 20': 135756.2174947988, 'Unnamed: 21': 151909.62675504296, 'Unnamed: 22': 168063.03601528713, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0}
+Row 4: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': '1.1.1', 'Unnamed: 2': '货币资金', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 90, 'Unnamed: 6': 10184.130734559876, 'Unnamed: 7': 31030.747295461115, 'Unnamed: 8': 51831.56512542107, 'Unnamed: 9': 71896.4479558092, 'Unnamed: 10': 76195.92673291067, 'Unnamed: 11': 80428.88523395172, 'Unnamed: 12': 85645.4747535412, 'Unnamed: 13': 90805.80526917, 'Unnamed: 14': 95907.51390267178, 'Unnamed: 15': 102089.52315862192, 'Unnamed: 16': 108207.88288534629, 'Unnamed: 17': 114259.91980261741, 'Unnamed: 18': 121498.37143842544, 'Unnamed: 19': 128664.81215535027, 'Unnamed: 20': 135756.2174947988, 'Unnamed: 21': 151909.62675504296, 'Unnamed: 22': 168063.03601528713, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0}
+Row 5: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': nan, 'Unnamed: 2': '流动资产中的现金', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 90, 'Unnamed: 6': 90.0, 'Unnamed: 7': 90, 'Unnamed: 8': 90.0, 'Unnamed: 9': 90.0, 'Unnamed: 10': 90.0, 'Unnamed: 11': 90.0, 'Unnamed: 12': 90.0, 'Unnamed: 13': 90.0, 'Unnamed: 14': 90.0, 'Unnamed: 15': 90.0, 'Unnamed: 16': 90.0, 'Unnamed: 17': 90.0, 'Unnamed: 18': 90.0, 'Unnamed: 19': 90.0, 'Unnamed: 20': 90.0, 'Unnamed: 21': 90.0, 'Unnamed: 22': 90.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0}
+Row 6: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': nan, 'Unnamed: 2': '累计盈余资金', 'Unnamed: 3': 0, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 10094.130734559876, 'Unnamed: 7': 30940.747295461115, 'Unnamed: 8': 51741.56512542107, 'Unnamed: 9': 71806.4479558092, 'Unnamed: 10': 76105.92673291067, 'Unnamed: 11': 80338.88523395172, 'Unnamed: 12': 85555.4747535412, 'Unnamed: 13': 90715.80526917, 'Unnamed: 14': 95817.51390267178, 'Unnamed: 15': 101999.52315862192, 'Unnamed: 16': 108117.88288534629, 'Unnamed: 17': 114169.91980261741, 'Unnamed: 18': 121408.37143842544, 'Unnamed: 19': 128574.81215535027, 'Unnamed: 20': 135666.2174947988, 'Unnamed: 21': 151819.62675504296, 'Unnamed: 22': 167973.03601528713, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0}
+Row 7: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': '1.1.2', 'Unnamed: 2': '应收账款', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan}
+Row 8: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': '1.1.3', 'Unnamed: 2': '预付账款', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan}
+Row 9: {'Unnamed: 0': nan, '表13-8  资产负债表 单位：万元': '1.1.4', 'Unnamed: 2': '存货', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan}
+
+================================================================================
+Sheet: 10项目现金
+================================================================================
+Shape: (34, 35)
+
+Columns (35):
+  0: Unnamed: 0
+  1: 13-2  项目投资现金流量表  单位：万元
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+  34: Unnamed: 34
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': nan, 'Unnamed: 4': '合计', 'Unnamed: 5': '建设期', 'Unnamed: 6': nan, 'Unnamed: 7': '运营期', 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan}
+Row 1: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 1, 'Unnamed: 6': 2.0, 'Unnamed: 7': 3, 'Unnamed: 8': 4.0, 'Unnamed: 9': 5.0, 'Unnamed: 10': 6.0, 'Unnamed: 11': 7.0, 'Unnamed: 12': 8.0, 'Unnamed: 13': 9.0, 'Unnamed: 14': 10.0, 'Unnamed: 15': 11.0, 'Unnamed: 16': 12.0, 'Unnamed: 17': 13.0, 'Unnamed: 18': 14.0, 'Unnamed: 19': 15.0, 'Unnamed: 20': 16.0, 'Unnamed: 21': 17.0, 'Unnamed: 22': 18.0, 'Unnamed: 23': 19.0, 'Unnamed: 24': 20.0, 'Unnamed: 25': 21.0, 'Unnamed: 26': 22.0, 'Unnamed: 27': 23.0, 'Unnamed: 28': 24.0, 'Unnamed: 29': 25.0, 'Unnamed: 30': 26.0, 'Unnamed: 31': 27.0, 'Unnamed: 32': 28.0, 'Unnamed: 33': 29.0, 'Unnamed: 34': 30.0}
+Row 2: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 1, 'Unnamed: 2': '现金流入', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 21127.586435770652, 'Unnamed: 9': 34384.75930731196, 'Unnamed: 10': 34384.75930731196, 'Unnamed: 11': 35769.15930731196, 'Unnamed: 12': 15883.400000000001, 'Unnamed: 13': 15883.400000000001, 'Unnamed: 14': 17406.24, 'Unnamed: 15': 17406.24, 'Unnamed: 16': 17406.24, 'Unnamed: 17': 19081.364000000005, 'Unnamed: 18': 19081.364000000005, 'Unnamed: 19': 19081.364000000005, 'Unnamed: 20': 20924.00040000001, 'Unnamed: 21': 20924.00040000001, 'Unnamed: 22': 20924.00040000001, 'Unnamed: 23': 22950.90044000001, 'Unnamed: 24': 22950.90044000001, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': 0.0}
+Row 3: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 1.1, 'Unnamed: 2': '营业收入', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 19395.154597470046, 'Unnamed: 9': 31557.69851631528, 'Unnamed: 10': 31557.69851631528, 'Unnamed: 11': 32828.99503700076, 'Unnamed: 12': 14585.179158732908, 'Unnamed: 13': 14585.179158732908, 'Unnamed: 14': 15983.605331486931, 'Unnamed: 15': 15983.605331486931, 'Unnamed: 16': 15983.605331486931, 'Unnamed: 17': 17521.874121516365, 'Unnamed: 18': 17521.874121516365, 'Unnamed: 19': 17521.874121516365, 'Unnamed: 20': 19213.969790548737, 'Unnamed: 21': 19213.969790548737, 'Unnamed: 22': 19213.969790548737, 'Unnamed: 23': 21075.27502648434, 'Unnamed: 24': 21075.27502648434, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': 0.0}
+Row 4: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 1.2, 'Unnamed: 2': '增值税销项税', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 1732.4318383006062, 'Unnamed: 9': 2827.0607909966766, 'Unnamed: 10': 2827.0607909966766, 'Unnamed: 11': 2940.1642703111993, 'Unnamed: 12': 1298.2208412670934, 'Unnamed: 13': 1298.2208412670934, 'Unnamed: 14': 1422.6346685130688, 'Unnamed: 15': 1422.6346685130688, 'Unnamed: 16': 1422.6346685130688, 'Unnamed: 17': 1559.489878483642, 'Unnamed: 18': 1559.489878483642, 'Unnamed: 19': 1559.489878483642, 'Unnamed: 20': 1710.0306094512728, 'Unnamed: 21': 1710.0306094512728, 'Unnamed: 22': 1710.0306094512728, 'Unnamed: 23': 1875.625413515666, 'Unnamed: 24': 1875.625413515666, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': 0.0}
+Row 5: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 1.3, 'Unnamed: 2': '补贴收入', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': 0.0}
+Row 6: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 1.4, 'Unnamed: 2': '回收固定资产及无形资产余值', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan}
+Row 7: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 1.5, 'Unnamed: 2': '回收流动资金', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan}
+Row 8: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 2, 'Unnamed: 2': '现金流出', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 47950.22583739087, 'Unnamed: 6': 34531.90043496054, 'Unnamed: 7': 33460.71372764859, 'Unnamed: 8': 1217.5957432056744, 'Unnamed: 9': 2444.225257617024, 'Unnamed: 10': 2444.225257617024, 'Unnamed: 11': 4247.310783094802, 'Unnamed: 12': 2058.2883282191447, 'Unnamed: 13': 2058.2883282191447, 'Unnamed: 14': 2197.6318147346374, 'Unnamed: 15': 2197.6318147346374, 'Unnamed: 16': 2197.6318147346374, 'Unnamed: 17': 2350.909649901679, 'Unnamed: 18': 2350.909649901679, 'Unnamed: 19': 2350.909649901679, 'Unnamed: 20': 2519.5152685854255, 'Unnamed: 21': 2519.5152685854255, 'Unnamed: 22': 2519.5152685854255, 'Unnamed: 23': 2704.981449137546, 'Unnamed: 24': 2704.981449137546, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0, 'Unnamed: 34': 0.0}
+Row 9: {'Unnamed: 0': nan, '13-2  项目投资现金流量表  单位：万元': 2.1, 'Unnamed: 2': '建设投资', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': 47950.22583739087, 'Unnamed: 6': 34531.90043496054, 'Unnamed: 7': 33370.71372764859, 'Unnamed: 8': 0.0, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan, 'Unnamed: 34': nan}
+
+================================================================================
+Sheet: 11资本金现金 
+================================================================================
+Shape: (28, 34)
+
+Columns (34):
+  0: Unnamed: 0
+  1: 表13-10  项目资本金现金流量表   单位：万元
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+  24: Unnamed: 24
+  25: Unnamed: 25
+  26: Unnamed: 26
+  27: Unnamed: 27
+  28: Unnamed: 28
+  29: Unnamed: 29
+  30: Unnamed: 30
+  31: Unnamed: 31
+  32: Unnamed: 32
+  33: Unnamed: 33
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan}
+Row 1: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2, 'Unnamed: 6': 3, 'Unnamed: 7': 4, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0, 'Unnamed: 24': 21.0, 'Unnamed: 25': 22.0, 'Unnamed: 26': 23.0, 'Unnamed: 27': 24.0, 'Unnamed: 28': 25.0, 'Unnamed: 29': 26.0, 'Unnamed: 30': 27.0, 'Unnamed: 31': 28.0, 'Unnamed: 32': 29.0, 'Unnamed: 33': 30.0}
+Row 2: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 1, 'Unnamed: 2': '现金流入', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 21127.586435770652, 'Unnamed: 8': 34384.75930731196, 'Unnamed: 9': 34384.75930731196, 'Unnamed: 10': 35769.15930731196, 'Unnamed: 11': 15883.400000000001, 'Unnamed: 12': 15883.400000000001, 'Unnamed: 13': 17406.24, 'Unnamed: 14': 17406.24, 'Unnamed: 15': 17406.24, 'Unnamed: 16': 19081.364000000005, 'Unnamed: 17': 19081.364000000005, 'Unnamed: 18': 19081.364000000005, 'Unnamed: 19': 20924.00040000001, 'Unnamed: 20': 20924.00040000001, 'Unnamed: 21': 20924.00040000001, 'Unnamed: 22': 22950.90044000001, 'Unnamed: 23': 22950.90044000001, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 3: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 1.1, 'Unnamed: 2': '营业收入', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 19395.154597470046, 'Unnamed: 8': 31557.69851631528, 'Unnamed: 9': 31557.69851631528, 'Unnamed: 10': 32828.99503700076, 'Unnamed: 11': 14585.179158732908, 'Unnamed: 12': 14585.179158732908, 'Unnamed: 13': 15983.605331486931, 'Unnamed: 14': 15983.605331486931, 'Unnamed: 15': 15983.605331486931, 'Unnamed: 16': 17521.874121516365, 'Unnamed: 17': 17521.874121516365, 'Unnamed: 18': 17521.874121516365, 'Unnamed: 19': 19213.969790548737, 'Unnamed: 20': 19213.969790548737, 'Unnamed: 21': 19213.969790548737, 'Unnamed: 22': 21075.27502648434, 'Unnamed: 23': 21075.27502648434, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 4: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 1.2, 'Unnamed: 2': '增值税销项税', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 1732.4318383006062, 'Unnamed: 8': 2827.0607909966766, 'Unnamed: 9': 2827.0607909966766, 'Unnamed: 10': 2940.1642703111993, 'Unnamed: 11': 1298.2208412670934, 'Unnamed: 12': 1298.2208412670934, 'Unnamed: 13': 1422.6346685130688, 'Unnamed: 14': 1422.6346685130688, 'Unnamed: 15': 1422.6346685130688, 'Unnamed: 16': 1559.489878483642, 'Unnamed: 17': 1559.489878483642, 'Unnamed: 18': 1559.489878483642, 'Unnamed: 19': 1710.0306094512728, 'Unnamed: 20': 1710.0306094512728, 'Unnamed: 21': 1710.0306094512728, 'Unnamed: 22': 1875.625413515666, 'Unnamed: 23': 1875.625413515666, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 5: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 1.3, 'Unnamed: 2': '补贴收入', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 6: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 1.4, 'Unnamed: 2': '回收固定资产及无形资产余值', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 7: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 1.5, 'Unnamed: 2': '回收流动资金', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0, 'Unnamed: 6': 0, 'Unnamed: 7': 0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': 0.0, 'Unnamed: 20': 0.0, 'Unnamed: 21': 0.0, 'Unnamed: 22': 0.0, 'Unnamed: 23': 0.0, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+Row 8: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 1.6, 'Unnamed: 2': '其他流入', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan, 'Unnamed: 24': nan, 'Unnamed: 25': nan, 'Unnamed: 26': nan, 'Unnamed: 27': nan, 'Unnamed: 28': nan, 'Unnamed: 29': nan, 'Unnamed: 30': nan, 'Unnamed: 31': nan, 'Unnamed: 32': nan, 'Unnamed: 33': nan}
+Row 9: {'Unnamed: 0': nan, '表13-10  项目资本金现金流量表   单位：万元': 2, 'Unnamed: 2': '现金流出', 'Unnamed: 3': nan, 'Unnamed: 4': 15315.067564220955, 'Unnamed: 5': 12917.069616248322, 'Unnamed: 6': 13988.256323560276, 'Unnamed: 7': 11033.455701210774, 'Unnamed: 8': 13538.142746410716, 'Unnamed: 9': 13583.941477352007, 'Unnamed: 10': 15704.276476923824, 'Unnamed: 11': 11583.921222898538, 'Unnamed: 12': 11650.441498958951, 'Unnamed: 13': 12189.650480410517, 'Unnamed: 14': 12245.909484371196, 'Unnamed: 15': 12304.53136649822, 'Unnamed: 16': 12899.354744049868, 'Unnamed: 17': 12963.004273275634, 'Unnamed: 18': 13029.327082728887, 'Unnamed: 19': 13685.548764191983, 'Unnamed: 20': 13757.559683075182, 'Unnamed: 21': 13832.595060551474, 'Unnamed: 22': 6797.491179755843, 'Unnamed: 23': 6797.491179755843, 'Unnamed: 24': 0.0, 'Unnamed: 25': 0.0, 'Unnamed: 26': 0.0, 'Unnamed: 27': 0.0, 'Unnamed: 28': 0.0, 'Unnamed: 29': 0.0, 'Unnamed: 30': 0.0, 'Unnamed: 31': 0.0, 'Unnamed: 32': 0.0, 'Unnamed: 33': 0.0}
+
+================================================================================
+Sheet: 12各方现金
+================================================================================
+Shape: (40, 24)
+
+Columns (24):
+  0: Unnamed: 0
+  1: 附表12-1 股东甲现金流量表
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+  15: Unnamed: 15
+  16: Unnamed: 16
+  17: Unnamed: 17
+  18: Unnamed: 18
+  19: Unnamed: 19
+  20: Unnamed: 20
+  21: Unnamed: 21
+  22: Unnamed: 22
+  23: Unnamed: 23
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '合计', 'Unnamed: 4': '建设期', 'Unnamed: 5': nan, 'Unnamed: 6': '运营期', 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 1: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': 2.0, 'Unnamed: 6': 3, 'Unnamed: 7': 4.0, 'Unnamed: 8': 5.0, 'Unnamed: 9': 6.0, 'Unnamed: 10': 7.0, 'Unnamed: 11': 8.0, 'Unnamed: 12': 9.0, 'Unnamed: 13': 10.0, 'Unnamed: 14': 11.0, 'Unnamed: 15': 12.0, 'Unnamed: 16': 13.0, 'Unnamed: 17': 14.0, 'Unnamed: 18': 15.0, 'Unnamed: 19': 16.0, 'Unnamed: 20': 17.0, 'Unnamed: 21': 18.0, 'Unnamed: 22': 19.0, 'Unnamed: 23': 20.0}
+Row 2: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': 1, 'Unnamed: 2': '现金流入', 'Unnamed: 3': nan, 'Unnamed: 4': 0, 'Unnamed: 5': 0.0, 'Unnamed: 6': 0, 'Unnamed: 7': 0.0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 91335.93584209394, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 3: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': 1.1, 'Unnamed: 2': '实分利润', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': 0, 'Unnamed: 7': 0.0, 'Unnamed: 8': 0.0, 'Unnamed: 9': 0.0, 'Unnamed: 10': 0.0, 'Unnamed: 11': 0.0, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0, 'Unnamed: 15': 0.0, 'Unnamed: 16': 0.0, 'Unnamed: 17': 0.0, 'Unnamed: 18': 0.0, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 4: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': 1.2, 'Unnamed: 2': '资产处置收益分配', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': 91335.93584209394, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 5: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': nan, 'Unnamed: 2': '回收固定资产及无形资产余值', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': 0.0, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 6: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': nan, 'Unnamed: 2': '回收流动资金', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': 0.0, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 7: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': nan, 'Unnamed: 2': '盈余资金', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': 91335.93584209394, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 8: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': 1.3, 'Unnamed: 2': '租赁费收入', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+Row 9: {'Unnamed: 0': nan, '附表12-1 股东甲现金流量表': 1.4, 'Unnamed: 2': '技术转让或使用收入', 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan, 'Unnamed: 15': nan, 'Unnamed: 16': nan, 'Unnamed: 17': nan, 'Unnamed: 18': nan, 'Unnamed: 19': nan, 'Unnamed: 20': nan, 'Unnamed: 21': nan, 'Unnamed: 22': nan, 'Unnamed: 23': nan}
+
+================================================================================
+Sheet: 财务分析结果汇总
+================================================================================
+Shape: (42, 7)
+
+Columns (7):
+  0: Unnamed: 0
+  1: Unnamed: 1
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': '财务评价指标汇总表', 'Unnamed: 5': nan, 'Unnamed: 6': '资金单位：万元人民币'}
+Row 1: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 2: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': '序号', 'Unnamed: 5': '项目名称', 'Unnamed: 6': '数据'}
+Row 3: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1, 'Unnamed: 5': '项目总投资', 'Unnamed: 6': 121664.02577233041}
+Row 4: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': '其中建设规模总投资', 'Unnamed: 6': 121664.02577233041}
+Row 5: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1.1, 'Unnamed: 5': '建设投资', 'Unnamed: 6': 115852.84}
+Row 6: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1.2, 'Unnamed: 5': '建设期利息', 'Unnamed: 6': 5721.185772330424}
+Row 7: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 1.3, 'Unnamed: 5': '流动资金', 'Unnamed: 6': 90}
+Row 8: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': '其中铺底流动资金', 'Unnamed: 6': 0}
+Row 9: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': 2, 'Unnamed: 5': '资金筹措', 'Unnamed: 6': 121664.02577233041}
+
+================================================================================
+Sheet: 土地增值税计算
+================================================================================
+Shape: (42, 7)
+
+Columns (7):
+  0: Unnamed: 0
+  1: Unnamed: 1
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 1: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 2: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 3: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 4: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 5: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 6: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 7: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 8: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+Row 9: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan}
+
+================================================================================
+Sheet: 房产销售及土增
+================================================================================
+Shape: (31, 15)
+
+Columns (15):
+  0: Unnamed: 0
+  1: Unnamed: 1
+  2: Unnamed: 2
+  3: Unnamed: 3
+  4: Unnamed: 4
+  5: Unnamed: 5
+  6: Unnamed: 6
+  7: Unnamed: 7
+  8: Unnamed: 8
+  9: Unnamed: 9
+  10: Unnamed: 10
+  11: Unnamed: 11
+  12: Unnamed: 12
+  13: Unnamed: 13
+  14: Unnamed: 14
+
+First 10 rows:
+Row 0: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan}
+Row 1: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan}
+Row 2: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': '房产销售比例', 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0.0, 'Unnamed: 8': 0.1, 'Unnamed: 9': 0.3, 'Unnamed: 10': 0.3, 'Unnamed: 11': 0.3, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0}
+Row 3: {'Unnamed: 0': nan, 'Unnamed: 1': '土地增值税计算表', 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': nan, 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan}
+Row 4: {'Unnamed: 0': nan, 'Unnamed: 1': nan, 'Unnamed: 2': nan, 'Unnamed: 3': nan, 'Unnamed: 4': nan, 'Unnamed: 5': '计算期', 'Unnamed: 6': nan, 'Unnamed: 7': nan, 'Unnamed: 8': nan, 'Unnamed: 9': nan, 'Unnamed: 10': nan, 'Unnamed: 11': nan, 'Unnamed: 12': nan, 'Unnamed: 13': nan, 'Unnamed: 14': nan}
+Row 5: {'Unnamed: 0': nan, 'Unnamed: 1': '序号', 'Unnamed: 2': '项目', 'Unnamed: 3': '计算依据', 'Unnamed: 4': '总金额', 'Unnamed: 5': 1, 'Unnamed: 6': 2.0, 'Unnamed: 7': 3.0, 'Unnamed: 8': 4.0, 'Unnamed: 9': 5.0, 'Unnamed: 10': 6.0, 'Unnamed: 11': 7.0, 'Unnamed: 12': 8.0, 'Unnamed: 13': 9.0, 'Unnamed: 14': 10.0}
+Row 6: {'Unnamed: 0': nan, 'Unnamed: 1': 1, 'Unnamed: 2': '销售房产含税收入', 'Unnamed: 3': ' 含税 ', 'Unnamed: 4': 66285.86435770652, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0.0, 'Unnamed: 8': 6628.586435770652, 'Unnamed: 9': 19885.759307311957, 'Unnamed: 10': 19885.759307311957, 'Unnamed: 11': 19885.759307311957, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0}
+Row 7: {'Unnamed: 0': nan, 'Unnamed: 1': 2, 'Unnamed: 2': '销售房产销项税', 'Unnamed: 3': 0.09, 'Unnamed: 4': 5473.1447634803535, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0.0, 'Unnamed: 8': 547.3144763480354, 'Unnamed: 9': 1641.943429044106, 'Unnamed: 10': 1641.943429044106, 'Unnamed: 11': 1641.943429044106, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0}
+Row 8: {'Unnamed: 0': nan, 'Unnamed: 1': 3, 'Unnamed: 2': '销售房产不含税收入', 'Unnamed: 3': '1/(1+9%)', 'Unnamed: 4': 60812.71959422617, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0.0, 'Unnamed: 8': 6081.271959422616, 'Unnamed: 9': 18243.81587826785, 'Unnamed: 10': 18243.81587826785, 'Unnamed: 11': 18243.81587826785, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0}
+Row 9: {'Unnamed: 0': nan, 'Unnamed: 1': 4, 'Unnamed: 2': '销售房产（成本）', 'Unnamed: 3': '按出售比例', 'Unnamed: 4': 26514.34574308261, 'Unnamed: 5': 0, 'Unnamed: 6': 0.0, 'Unnamed: 7': 0.0, 'Unnamed: 8': 2651.4345743082613, 'Unnamed: 9': 7954.303722924782, 'Unnamed: 10': 7954.303722924782, 'Unnamed: 11': 7954.303722924782, 'Unnamed: 12': 0.0, 'Unnamed: 13': 0.0, 'Unnamed: 14': 0.0}

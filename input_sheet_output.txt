@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "h:\GIT\JZGCCW-buddy\analyze_input_sheet.py", line 5, in <module>
+    wb = openpyxl.load_workbook('JZGCCW01.xls', read_only=False, data_only=False)
+  File "C:\Users\PC\AppData\Roaming\Python\Python314\site-packages\openpyxl\reader\excel.py", line 346, in load_workbook
+    reader = ExcelReader(filename, read_only, keep_vba,
+                         data_only, keep_links, rich_text)
+  File "C:\Users\PC\AppData\Roaming\Python\Python314\site-packages\openpyxl\reader\excel.py", line 123, in __init__
+    self.archive = _validate_archive(fn)
+                   ~~~~~~~~~~~~~~~~~^^^^
+  File "C:\Users\PC\AppData\Roaming\Python\Python314\site-packages\openpyxl\reader\excel.py", line 93, in _validate_archive
+    raise InvalidFileException(msg)
+openpyxl.utils.exceptions.InvalidFileException: openpyxl does not support the old .xls file format, please use xlrd to read this file, or convert it to the more recent .xlsx file format.
