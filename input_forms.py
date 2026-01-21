@@ -291,6 +291,138 @@ class InputForms:
                 "无形资产摊销年限": amortization_years
             }
 
+    def render_module_asset_sales(self, module_data, years):
+        """
+        渲染资产销售计划模块
+        
+        参照Excel"1 建筑工程财务模型参数"第48-55行
+        
+        Args:
+            module_data: 模块数据
+            years: 年份列表
+        """
+        with st.expander("💰 资产销售计划", expanded=True):
+            st.markdown("### 固定资产销售设置")
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                # 出售固定资产占比
+                building_sell_ratio = st.number_input(
+                    "出售固定资产占比（%）",
+                    min_value=0.0,
+                    max_value=100.0,
+                    value=module_data.get("building_sell_ratio", 25.0),
+                    format="%.2f",
+                    key="building_sell_ratio",
+                    help="基数是房屋建筑原值"
+                )
+                
+                # 计算出售和自持数值（需要先获取房屋建筑原值）
+                # 这里暂时显示占位符，实际数值在计算时填充
+                st.info(f"""
+                **出售固定资产占比**: {building_sell_ratio:.2f}% (基数: 房屋建筑原值)
+                """)
+                
+                st.markdown("#### 自持固定资产设置")
+                building_hold_ratio = 100.0 - building_sell_ratio
+                st.info(f"""
+                **自持固定资产占比**: {building_hold_ratio:.2f}%
+                """)
+            
+            with col2:
+                st.markdown("#### 土地使用权销售设置")
+                
+                # 出售土地使用权占比
+                land_sell_ratio = st.number_input(
+                    "出售土地使用权占比（%）",
+                    min_value=0.0,
+                    max_value=100.0,
+                    value=module_data.get("land_sell_ratio", 25.0),
+                    format="%.2f",
+                    key="land_sell_ratio",
+                    help="基数是土地使用权原值"
+                )
+                
+                st.info(f"""
+                **出售土地使用权占比**: {land_sell_ratio:.2f}% (基数: 土地使用权原值)
+                """)
+                
+                # 计算自持占比
+                land_hold_ratio = 100.0 - land_sell_ratio
+                st.info(f"""
+                **自持土地使用权占比**: {land_hold_ratio:.2f}%
+                """)
+            
+            st.divider()
+            st.markdown("### 年度资产销售计划")
+            st.info("""
+            **说明**: 横向布置年份，预留10年的位置，由用户填写每年的销售比例。
+            销售额将根据销售比例自动计算。
+            """)
+            
+            # 年度销售比例输入（横向布置，10年）
+            st.markdown("#### 年度销售比例")
+            cols = st.columns(10)
+            annual_sales_ratios = []
+            
+            for i, year in enumerate(years[:10]):  # 最多10年
+                with cols[i]:
+                    ratio = st.number_input(
+                        f"{year}",
+                        min_value=0.0,
+                        max_value=100.0,
+                        value=module_data.get(f"ratio_{i}", 0.0),
+                        format="%.1f",
+                        key=f"annual_ratio_{i}",
+                        help=f"{year}年销售比例(%)"
+                    )
+                    annual_sales_ratios.append(ratio)
+            
+            # 总销售价格输入
+            st.divider()
+            st.markdown("### 销售收入设置")
+            
+            total_sales_price = st.number_input(
+                "总销售价格（万元）",
+                min_value=0.0,
+                value=module_data.get("total_sales_price", 0.0),
+                format="%.2f",
+                key="total_sales_price",
+                help="所有销售房产的总价格，将按年度销售比例分摊到各年"
+            )
+            
+            # 显示年度销售额计算结果
+            st.markdown("#### 年度销售额（万元）")
+            sales_cols = st.columns(10)
+            annual_sales_revenue = {}
+            
+            for i, year in enumerate(years[:10]):
+                with sales_cols[i]:
+                    # 按销售比例计算销售额
+                    revenue = total_sales_price * (annual_sales_ratios[i] / 100.0) if i < len(annual_sales_ratios) else 0.0
+                    annual_sales_revenue[year] = revenue
+                    
+                    if revenue > 0:
+                        st.metric(
+                            f"{year}",
+                            f"{revenue:.2f}",
+                            help=f"总销售价格 × {annual_sales_ratios[i]:.1f}%"
+                        )
+                    else:
+                        st.metric(f"{year}", "0.00")
+            
+            # 保存输入数据
+            self.input_data["资产销售计划"] = {
+                "building_sell_ratio": building_sell_ratio,
+                "building_hold_ratio": building_hold_ratio,
+                "land_sell_ratio": land_sell_ratio,
+                "land_hold_ratio": land_hold_ratio,
+                "annual_sales_ratios": annual_sales_ratios,
+                "total_sales_price": total_sales_price,
+                "annual_sales_revenue": annual_sales_revenue
+            }
+
     def render_module_7_sales_revenue(self, module_data, years):
         """
         渲染模块7：产品销售收入（按年横向布置）
@@ -372,6 +504,9 @@ class InputForms:
         self.render_module_1_basic_info(input_values.get("1. 基础信息", {}))
         self.render_module_2_project_investment(input_values.get("2. 项目投资", {}), years)
         self.render_module_3_asset_formation(input_values.get("3. 资产形成", {}))
+        
+        # 渲染资产销售计划模块（新增）
+        self.render_module_asset_sales(input_values.get("资产销售计划", {}), years)
 
         # TODO: 实现其他模块
         # self.render_module_4_sales_plan(...)

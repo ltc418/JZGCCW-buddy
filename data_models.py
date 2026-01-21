@@ -155,22 +155,43 @@ class AssetFormation:
 
 @dataclass
 class AssetSalesPlan:
-    """资产销售计划"""
-    asset_sell_ratio: float = 0.25       # 出售固定资产占比（%）
-    land_sell_ratio: float = 0.25        # 出售土地使用权占比（%）
-    self_hold_ratio: float = 0.75       # 自持占比（%）
+    """
+    资产销售计划
 
-    # 销售固定资产成本（用于销售的建设投资部分）
-    sales_assets_cost: float = 0.0       # 销售固定资产成本（万元）
+    参照Excel"1 建筑工程财务模型参数"第48-55行
+    """
+    # 房屋建筑相关
+    building_sell_ratio: float = 25.0       # 出售固定资产占比（%），基数是房屋建筑原值
+    building_hold_ratio: float = 0.75        # 自持固定资产占比（%），基数是房屋建筑原值
+    sales_building_value: float = 0.0       # 出售固定资产数值（万元）= 房屋建筑原值 × building_sell_ratio
+    hold_building_value: float = 0.0        # 自持固定资产数值（万元）= 房屋建筑原值 × building_hold_ratio
 
-    # 年度销售数据
-    annual_sales_ratios: List[float] = field(default_factory=list)  # 年度销售比例 [0.1, 0.3, 0.3, 0.3]
-    annual_sales_revenue: Dict[str, float] = field(default_factory=dict)  # 年度销售收入
-    annual_sales_cost: Dict[str, float] = field(default_factory=dict)    # 年度销售成本
-    annual_land_amortization: Dict[str, float] = field(default_factory=dict)  # 年度土地摊销
+    # 土地使用权相关
+    land_sell_ratio: float = 25.0           # 出售土地使用权占比（%），基数是土地使用权原值
+    land_hold_ratio: float = 0.75           # 自持土地使用权占比（%），基数是土地使用权原值
+    sales_land_value: float = 0.0           # 出售土地使用权数值（万元）= 土地使用权原值 × land_sell_ratio
+    hold_land_value: float = 0.0             # 自持土地使用权数值（万元）= 土地使用权原值 × land_hold_ratio
 
-    # 总销售收入（保留向后兼容）
-    asset_sales_revenue: float = 0.0    # 固定资产销售收入（含税）
+    # 销售价格
+    total_sales_price: float = 0.0           # 总销售价格（万元），用户输入
+
+    # 年度销售比例（按年横向布置，预留10年位置）
+    # Excel中：第1年10%，第2-4年各30%
+    annual_sales_ratios: List[float] = field(default_factory=lambda: [10.0, 30.0, 30.0, 30.0])
+
+    # 年度销售额（按销售比例计算）
+    annual_sales_revenue: Dict[str, float] = field(default_factory=dict)
+
+    # 年度销售成本（用于销售的建设投资部分）
+    annual_sales_cost: Dict[str, float] = field(default_factory=dict)
+
+    # 年度土地摊销（出售固定资产对应的土地使用权摊销额）
+    annual_land_amortization: Dict[str, float] = field(default_factory=dict)
+
+    # 保留向后兼容的字段
+    self_hold_ratio: float = 0.75           # 自持占比（%）
+    sales_assets_cost: float = 0.0          # 销售固定资产成本（万元）
+    asset_sales_revenue: float = 0.0        # 固定资产销售收入（含税）
 
 
 @dataclass

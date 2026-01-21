@@ -404,6 +404,12 @@ class DepreciationCalculator:
         """
         获取详细的折旧摊销数据（按照5-4折旧表结构）
 
+        Excel逻辑说明：
+        1. 建筑物原值 = 自持固定资产（房屋建筑原值 × 自持占比）
+        2. 销售固定资产成本 = 出售固定资产（房屋建筑原值 × 出售占比）
+        3. 固定资产成本摊销额 = 销售固定资产成本 × 年度销售比例
+        4. 剩余待销售资产净值 = 销售固定资产成本 - 累计摊销
+
         Returns:
             dict: 包含建筑物、机器设备、销售固定资产和合计的详细数据
         """
@@ -411,12 +417,23 @@ class DepreciationCalculator:
         asset = self.input.asset_formation
         sales_plan = self.input.asset_sales_plan
 
-        # 资产原值
-        building_value = asset.building_fixed_asset.total  # 建筑物原值
-        equipment_value = asset.equipment_fixed_asset.total  # 机器设备原值
+        # 使用资产销售计算器获取正确的自持和销售数值
+        sales_calc = AssetSalesCalculator(self.yg, self.input)
+        sales_calc.calculate_annual_sales()
 
-        # 销售固定资产成本（直接使用指定的成本值）
-        sales_assets_cost = sales_plan.sales_assets_cost
+        # 用于折旧的建筑物原值 = 自持固定资产数值
+        # Excel中：79543.04 = 106057.38 × 75%
+        building_value = sales_calc.get_hold_building_value()
+
+        # 销售固定资产成本 = 出售固定资产数值
+        # Excel中：26514.35 = 106057.38 × 25%
+        sales_assets_cost = sales_calc.get_annual_sales_cost()
+
+        # 销售固定资产成本总额（用于摊销计算）
+        sales_assets_total = sales_plan.sales_building_value
+
+        # 机器设备原值（假设全部自持，不销售）
+        equipment_value = asset.equipment_fixed_asset.total
 
         # 初始化结果字典
         result = {
@@ -442,20 +459,15 @@ class DepreciationCalculator:
             }
         }
 
-        # 建筑物年折旧额
+        # 建筑物年折旧额（直线法）
         building_annual_depr = building_value / asset.building_fixed_asset.depreciation_years if asset.building_fixed_asset.depreciation_years > 0 else 0
 
         # 机器设备年折旧额
         equipment_annual_depr = equipment_value / asset.equipment_fixed_asset.depreciation_years if asset.equipment_fixed_asset.depreciation_years > 0 else 0
 
-        # 销售资产摊销规则：第1年10%，第2-3年各30%，剩余30%期末回收
-        sales_amortization = {
-            1: 0.10,
-            2: 0.30,
-            3: 0.30
-        }
-
         # 计算各年数据
+        cumulative_building_depr = 0.0
+        cumulative_equipment_depr = 0.0
         cumulative_sales_amortization = 0.0
 
         for year in years:
@@ -469,17 +481,17 @@ class DepreciationCalculator:
                 result["building"]["depreciation"].append(0.0)
                 result["building"]["net_value"].append(0.0)
             elif op_year == 1:
-                # 运营期第1年：原值计入
+                # 运营期第1年：原值计入（自持固定资产）
                 result["building"]["original_value"].append(building_value)
                 result["building"]["depreciation"].append(building_annual_depr)
-                result["building"]["net_value"].append(building_value - building_annual_depr)
+                cumulative_building_depr += building_annual_depr
+                result["building"]["net_value"].append(max(0, building_value - cumulative_building_depr))
             else:
                 # 运营期第2年及以后
                 result["building"]["original_value"].append(0.0)
                 result["building"]["depreciation"].append(building_annual_depr)
-                # 净值 = 原值 - 累计折旧
-                cumulative_depr = op_year * building_annual_depr
-                result["building"]["net_value"].append(max(0, building_value - cumulative_depr))
+                cumulative_building_depr += building_annual_depr
+                result["building"]["net_value"].append(max(0, building_value - cumulative_building_depr))
 
             # 机器设备数据
             if is_construction:
@@ -489,42 +501,41 @@ class DepreciationCalculator:
             elif op_year == 1:
                 result["equipment"]["original_value"].append(equipment_value)
                 result["equipment"]["depreciation"].append(equipment_annual_depr)
-                result["equipment"]["net_value"].append(equipment_value - equipment_annual_depr)
+                cumulative_equipment_depr += equipment_annual_depr
+                result["equipment"]["net_value"].append(max(0, equipment_value - cumulative_equipment_depr))
             else:
                 result["equipment"]["original_value"].append(0.0)
                 result["equipment"]["depreciation"].append(equipment_annual_depr)
-                cumulative_depr = op_year * equipment_annual_depr
-                result["equipment"]["net_value"].append(max(0, equipment_value - cumulative_depr))
+                cumulative_equipment_depr += equipment_annual_depr
+                result["equipment"]["net_value"].append(max(0, equipment_value - cumulative_equipment_depr))
 
             # 销售固定资产数据
+            # Excel中：成本计入在运营期第1年（第4年）
             if is_construction:
                 result["sales_assets"]["cost"].append(0.0)
                 result["sales_assets"]["amortization"].append(0.0)
                 result["sales_assets"]["remaining"].append(0.0)
             elif op_year == 1:
-                # 运营期第1年：成本计入，摊销10%
-                amort = sales_assets_cost * sales_amortization.get(1, 0)
-                result["sales_assets"]["cost"].append(sales_assets_cost)
-                result["sales_assets"]["amortization"].append(amort)
-                cumulative_sales_amortization += amort
-                result["sales_assets"]["remaining"].append(sales_assets_cost - cumulative_sales_amortization)
-            elif op_year in [2, 3]:
-                # 运营期第2-3年：摊销30%
-                amort = sales_assets_cost * sales_amortization.get(op_year, 0)
-                result["sales_assets"]["cost"].append(0.0)
-                result["sales_assets"]["amortization"].append(amort)
-                cumulative_sales_amortization += amort
-                result["sales_assets"]["remaining"].append(sales_assets_cost - cumulative_sales_amortization)
+                # 运营期第1年：成本计入
+                result["sales_assets"]["cost"].append(sales_assets_total)
+                # 摊销额 = 当年的销售成本
+                annual_amort = sales_assets_cost.get(year, 0.0)
+                result["sales_assets"]["amortization"].append(annual_amort)
+                cumulative_sales_amortization += annual_amort
+                result["sales_assets"]["remaining"].append(max(0, sales_assets_total - cumulative_sales_amortization))
             else:
-                # 运营期第4年及以后：摊销完成
+                # 运营期第2年及以后
                 result["sales_assets"]["cost"].append(0.0)
-                result["sales_assets"]["amortization"].append(0.0)
-                result["sales_assets"]["remaining"].append(0.0)
+                annual_amort = sales_assets_cost.get(year, 0.0)
+                result["sales_assets"]["amortization"].append(annual_amort)
+                cumulative_sales_amortization += annual_amort
+                result["sales_assets"]["remaining"].append(max(0, sales_assets_total - cumulative_sales_amortization))
 
             # 合计数据
             if op_year == 1:
                 # 运营期第1年：原值合计
-                result["total"]["original_value"].append(building_value + equipment_value + sales_assets_cost)
+                # 原值合计 = 建筑物原值 + 机器设备原值 + 销售固定资产成本
+                result["total"]["original_value"].append(building_value + equipment_value + sales_assets_total)
             else:
                 result["total"]["original_value"].append(0.0)
 
@@ -549,17 +560,41 @@ class DepreciationCalculator:
         """
         获取详细的摊销数据（按照5-5摊销表结构）
 
+        Excel逻辑说明：
+        1. 土地使用权原值 = 自持土地使用权（土地使用权总原值 × 自持占比）
+        2. 专利权原值 = 总原值（全部自持）
+        3. 其他资产原值 = 总原值（全部自持）
+        4. 销售地产土地权原值 = 出售土地使用权（土地使用权总原值 × 出售占比）
+        5. 销售地产土地权摊销 = 出售土地使用权数值 × 年度销售比例
+
         Returns:
             dict: 包含土地使用权、专利权、其他资产、销售地产土地权摊销和合计的详细数据
         """
         years = self.yg.generate_year_names()
         asset = self.input.asset_formation
+        sales_plan = self.input.asset_sales_plan
+
+        # 使用资产销售计算器获取正确的自持和销售数值
+        sales_calc = AssetSalesCalculator(self.yg, self.input)
+        sales_calc.calculate_annual_sales()
 
         # 各资产原值
-        land_value = asset.land_intangible_asset.total  # 土地使用权原值
-        patent_value = asset.patent_intangible_asset.total  # 专利权原值
-        other_asset_value = asset.other_asset.total  # 其他资产原值
-        sales_land_value = asset.sales_land_intangible_asset.total  # 销售地产土地权原值
+        # 土地使用权原值 = 自持土地使用权数值
+        # Excel中：4879.29 = 6505.72 × 75%
+        land_value = sales_calc.get_hold_land_value()
+
+        # 销售地产土地权原值 = 出售土地使用权数值
+        # Excel中：1626.43 = 6505.72 × 25%
+        sales_land_value = sales_plan.sales_land_value
+
+        # 专利权原值（全部自持）
+        patent_value = asset.patent_intangible_asset.total
+
+        # 其他资产原值（全部自持）
+        other_asset_value = asset.other_asset.total
+
+        # 销售地产土地权摊销额（按年度）
+        sales_land_amortization = sales_calc.get_annual_land_amortization()
 
         # 初始化结果字典
         result = {
@@ -590,18 +625,10 @@ class DepreciationCalculator:
             }
         }
 
-        # 计算各资产年摊销额
+        # 计算各资产年摊销额（直线法）
         land_annual_amort = land_value / asset.land_intangible_asset.amortization_years if asset.land_intangible_asset.amortization_years > 0 else 0
         patent_annual_amort = patent_value / asset.patent_intangible_asset.amortization_years if asset.patent_intangible_asset.amortization_years > 0 else 0
         other_asset_annual_amort = other_asset_value / asset.other_asset.amortization_years if asset.other_asset.amortization_years > 0 else 0
-
-        # 销售地产土地权摊销规则：第1年10%，第2-4年各30%
-        sales_land_amortization = {
-            1: 0.10,
-            2: 0.30,
-            3: 0.30,
-            4: 0.30
-        }
 
         # 计算各年数据
         cumulative_land_amort = 0.0
@@ -614,13 +641,13 @@ class DepreciationCalculator:
             is_construction = self.yg.is_construction_year(year_num)
             op_year = year_num - self.yg.construction_period if not is_construction else 0
 
-            # 土地使用权数据（50年摊销）
+            # 土地使用权数据（自持部分，50年摊销）
             if is_construction:
                 result["land"]["original_value"].append(0.0)
                 result["land"]["amortization"].append(0.0)
                 result["land"]["net_value"].append(0.0)
             elif op_year == 1:
-                # 运营期第1年：原值计入
+                # 运营期第1年：原值计入（自持土地使用权）
                 result["land"]["original_value"].append(land_value)
                 result["land"]["amortization"].append(land_annual_amort)
                 cumulative_land_amort += land_annual_amort
@@ -664,30 +691,26 @@ class DepreciationCalculator:
                 cumulative_other_amort += other_asset_annual_amort
                 result["other_asset"]["net_value"].append(max(0, other_asset_value - cumulative_other_amort))
 
-            # 销售地产土地权数据（4年摊销，第1年10%，第2-4年各30%）
+            # 销售地产土地权数据（按年度销售比例摊销）
+            # Excel中：第1年162.64，第2-4年各487.93
             if is_construction:
                 result["sales_land"]["original_value"].append(0.0)
                 result["sales_land"]["amortization"].append(0.0)
                 result["sales_land"]["net_value"].append(0.0)
             elif op_year == 1:
-                # 运营期第1年：成本计入，摊销10%
-                amort = sales_land_value * sales_land_amortization.get(1, 0)
+                # 运营期第1年：成本计入，按年度销售比例摊销
                 result["sales_land"]["original_value"].append(sales_land_value)
-                result["sales_land"]["amortization"].append(amort)
-                cumulative_sales_land_amort += amort
-                result["sales_land"]["net_value"].append(max(0, sales_land_value - cumulative_sales_land_amort))
-            elif 1 < op_year <= 4:
-                # 运营期第2-4年：摊销30%
-                amort = sales_land_value * sales_land_amortization.get(op_year, 0)
-                result["sales_land"]["original_value"].append(0.0)
-                result["sales_land"]["amortization"].append(amort)
-                cumulative_sales_land_amort += amort
+                annual_amort = sales_land_amortization.get(year, 0.0)
+                result["sales_land"]["amortization"].append(annual_amort)
+                cumulative_sales_land_amort += annual_amort
                 result["sales_land"]["net_value"].append(max(0, sales_land_value - cumulative_sales_land_amort))
             else:
-                # 运营期第5年及以后：摊销完成
+                # 运营期第2年及以后：按年度销售比例摊销
                 result["sales_land"]["original_value"].append(0.0)
-                result["sales_land"]["amortization"].append(0.0)
-                result["sales_land"]["net_value"].append(0.0)
+                annual_amort = sales_land_amortization.get(year, 0.0)
+                result["sales_land"]["amortization"].append(annual_amort)
+                cumulative_sales_land_amort += annual_amort
+                result["sales_land"]["net_value"].append(max(0, sales_land_value - cumulative_sales_land_amort))
 
             # 合计数据
             if op_year == 1:
@@ -1008,7 +1031,11 @@ class CashFlowCalculator:
 
 
 class AssetSalesCalculator:
-    """资产销售计算模块"""
+    """
+    资产销售计算模块
+    
+    参照Excel"1 建筑工程财务模型参数"第48-55行的逻辑
+    """
     
     def __init__(self, year_generator: YearGenerator, input_data: InputData):
         self.yg = year_generator
@@ -1017,38 +1044,83 @@ class AssetSalesCalculator:
     def calculate_annual_sales(self):
         """
         计算年度资产销售数据
+
+        逻辑说明：
+        1. 出售固定资产数值 = 房屋建筑原值 × 出售固定资产占比
+        2. 自持固定资产数值 = 房屋建筑原值 × 自持固定资产占比
+        3. 出售土地使用权数值 = 土地使用权原值 × 出售土地使用权占比
+        4. 自持土地使用权数值 = 土地使用权原值 × 自持土地使用权占比
+        5. 年度销售成本 = 出售固定资产数值 × 年度销售比例
+        6. 年度土地摊销 = 出售土地使用权数值 × 年度销售比例
+        7. 年度销售收入 = 总销售价格 × 年度销售比例
         """
         asset = self.input.asset_formation
         sales_plan = self.input.asset_sales_plan
+
+        # 检查是否已经计算过（通过检查sales_building_value是否已设置）
+        if sales_plan.sales_building_value > 0:
+            return
+
+        # 获取房屋建筑原值（折旧表中的建筑物原值）
+        building_original_value = asset.building_fixed_asset.total
+
+        # 获取土地使用权原值
+        land_original_value = asset.land_intangible_asset.total
+
+        # 转换百分比为小数（只在第一次时转换）
+        building_sell_ratio = sales_plan.building_sell_ratio / 100.0 if sales_plan.building_sell_ratio > 1.0 else sales_plan.building_sell_ratio
+        land_sell_ratio = sales_plan.land_sell_ratio / 100.0 if sales_plan.land_sell_ratio > 1.0 else sales_plan.land_sell_ratio
+
+        # 计算自持占比（1 - 出售占比）
+        building_hold_ratio = 1.0 - building_sell_ratio
+        land_hold_ratio = 1.0 - land_sell_ratio
+
+        # 保存回sales_plan（只保存一次）
+        sales_plan.building_sell_ratio = building_sell_ratio
+        sales_plan.building_hold_ratio = building_hold_ratio
+        sales_plan.land_sell_ratio = land_sell_ratio
+        sales_plan.land_hold_ratio = land_hold_ratio
+
+        # 房屋建筑相关
+        sales_plan.sales_building_value = building_original_value * building_sell_ratio
+        sales_plan.hold_building_value = building_original_value * building_hold_ratio
+
+        # 土地使用权相关
+        sales_plan.sales_land_value = land_original_value * land_sell_ratio
+        sales_plan.hold_land_value = land_original_value * land_hold_ratio
         
-        # 固定资产销售成本
-        fixed_asset_cost = (
-            asset.building_fixed_asset.total + 
-            asset.equipment_fixed_asset.total
-        ) * sales_plan.asset_sell_ratio
-        
-        # 固定资产销售收入（含税），假设增值率为2.5倍
-        sales_plan.asset_sales_revenue = fixed_asset_cost * 2.5
-        
-        # 土地摊销
-        land_amortization = (
-            asset.land_intangible_asset.total * 
-            sales_plan.land_sell_ratio
-        )
-        
-        # 按年度分配
+        # 年度销售数据
         years = self.yg.generate_year_names()
         operation_years = [y for y in years if self.yg.is_operation_year(self.yg.get_year_index(y))]
         
-        # 前4年的销售比例（如果没有设置，使用默认值）
-        ratios = sales_plan.annual_sales_ratios if sales_plan.annual_sales_ratios else [0.1, 0.3, 0.3, 0.3]
+        # 转换年度销售比例为小数
+        annual_ratios = [r / 100.0 for r in sales_plan.annual_sales_ratios]
         
+        # 清空旧的年度数据
+        sales_plan.annual_sales_revenue = {}
+        sales_plan.annual_sales_cost = {}
+        sales_plan.annual_land_amortization = {}
+        
+        # 按年度分配
         for i, year in enumerate(operation_years):
-            if i < len(ratios):
-                ratio = ratios[i]
-                sales_plan.annual_sales_revenue[year] = sales_plan.asset_sales_revenue * ratio
-                sales_plan.annual_sales_cost[year] = fixed_asset_cost * ratio
-                sales_plan.annual_land_amortization[year] = land_amortization * ratio
+            if i < len(annual_ratios):
+                ratio = annual_ratios[i]
+                
+                # 年度销售收入 = 总销售价格 × 年度销售比例
+                sales_plan.annual_sales_revenue[year] = sales_plan.total_sales_price * ratio
+                
+                # 年度销售成本 = 出售固定资产数值 × 年度销售比例
+                # Excel中：26514.35 × 年度销售比例
+                sales_plan.annual_sales_cost[year] = sales_plan.sales_building_value * ratio
+                
+                # 年度土地摊销 = 出售土地使用权数值 × 年度销售比例
+                # Excel中：1626.43 × 年度销售比例
+                sales_plan.annual_land_amortization[year] = sales_plan.sales_land_value * ratio
+        
+        # 保留向后兼容的字段
+        sales_plan.self_hold_ratio = sales_plan.building_hold_ratio
+        sales_plan.sales_assets_cost = sales_plan.sales_building_value
+        sales_plan.asset_sales_revenue = sales_plan.total_sales_price
     
     def get_annual_sales_revenue(self) -> Dict[str, float]:
         """
@@ -1069,3 +1141,33 @@ class AssetSalesCalculator:
         """
         self.calculate_annual_sales()
         return self.input.asset_sales_plan.annual_sales_cost
+    
+    def get_annual_land_amortization(self) -> Dict[str, float]:
+        """
+        获取年度土地摊销（出售固定资产对应的土地使用权摊销额）
+        
+        Returns:
+            dict: 各年土地摊销额
+        """
+        self.calculate_annual_sales()
+        return self.input.asset_sales_plan.annual_land_amortization
+    
+    def get_hold_building_value(self) -> float:
+        """
+        获取自持固定资产数值（用于折旧）
+        
+        Returns:
+            float: 自持固定资产数值
+        """
+        self.calculate_annual_sales()
+        return self.input.asset_sales_plan.hold_building_value
+    
+    def get_hold_land_value(self) -> float:
+        """
+        获取自持土地使用权数值（用于摊销）
+        
+        Returns:
+            float: 自持土地使用权数值
+        """
+        self.calculate_annual_sales()
+        return self.input.asset_sales_plan.hold_land_value
