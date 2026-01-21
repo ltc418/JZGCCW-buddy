@@ -6,6 +6,6 @@ echo.
 echo 正在启动 Streamlit 应用...
 echo.
 
-streamlit run app_v2.py
+streamlit run app_v3.py
 
 pause

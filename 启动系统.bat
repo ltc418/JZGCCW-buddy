@@ -38,7 +38,7 @@ echo 启动后浏览器会自动打开
 echo 按 Ctrl+C 可以停止服务
 echo.
 
-streamlit run app_v2.py
+streamlit run app_v3.py
 
 if %errorlevel% neq 0 (
     echo.

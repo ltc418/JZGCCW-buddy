@@ -184,6 +184,48 @@ class DataLoader:
                 if pd.notna(value) and pd.notna(label):
                     yellow_values[label] = value
 
+            # 特殊处理"4. 资产销售计划"模块，提取计算后的数值
+            if module_name == "4. 资产销售计划":
+                # 第51行（模块中索引3）：用于出售的固定资产（成本），第6列（索引6）
+                # 第54行（模块中索引6）：自持的固定资产，第6列（索引6）
+                # 第55行（模块中索引7）：自持固定资产对应的土地使用权，第6列（索引6）
+
+                # 注意：模块DataFrame的行索引从0开始
+                # Excel第51行（索引50）-> 模块中索引3
+                # Excel第54行（索引53）-> 模块中索引6
+                # Excel第55行（索引54）-> 模块中索引7
+
+                # 出售固定资产数值
+                if len(module_df) > 3:  # 确保有足够的行
+                    sales_building_value = module_df.iloc[3, 6]  # 第6列（索引6）
+                    building_sell_ratio = module_df.iloc[3, 5]   # 第5列（索引5）
+                    if pd.notna(sales_building_value):
+                        yellow_values["sales_building_value"] = sales_building_value
+                    if pd.notna(building_sell_ratio):
+                        yellow_values["building_sell_ratio"] = building_sell_ratio * 100  # 转换为百分比
+
+                # 自持固定资产数值
+                if len(module_df) > 6:
+                    hold_building_value = module_df.iloc[6, 6]
+                    if pd.notna(hold_building_value):
+                        yellow_values["hold_building_value"] = hold_building_value
+
+                # 自持土地使用权数值
+                if len(module_df) > 7:
+                    hold_land_value = module_df.iloc[7, 6]
+                    if pd.notna(hold_land_value):
+                        yellow_values["hold_land_value"] = hold_land_value
+
+                # 出售土地使用权数值（从出售固定资产对应土地使用权的数值推算）
+                # Excel第52行（索引51）-> 模块中索引4
+                if len(module_df) > 4:
+                    sales_land_value = module_df.iloc[4, 6]
+                    land_sell_ratio = module_df.iloc[4, 5]   # 第5列（索引5）
+                    if pd.notna(sales_land_value):
+                        yellow_values["sales_land_value"] = sales_land_value
+                    if pd.notna(land_sell_ratio):
+                        yellow_values["land_sell_ratio"] = land_sell_ratio * 100  # 转换为百分比
+
             input_data[module_name] = yellow_values
 
         return input_data

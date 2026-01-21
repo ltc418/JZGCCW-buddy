@@ -314,20 +314,44 @@ with st.sidebar:
     with st.expander("4️⃣ 资产销售计划"):
         st.markdown("### 固定资产销售设置")
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2 = st.columns(2)
 
         with col1:
-            asset_sell_ratio = st.number_input(
+            # 出售固定资产占比
+            building_sell_ratio = st.number_input(
                 "出售固定资产占比（%）",
                 min_value=0.0,
                 max_value=100.0,
                 value=25.0,
                 format="%.2f",
-                key="asset_sell_ratio",
-                help="出售固定资产占总资产的比例"
+                key="building_sell_ratio",
+                help="基数是房屋建筑原值"
+            )
+
+            # 计算出售和自持数值
+            building_original = 106057.38  # 房屋建筑原值
+            sales_building_value = building_original * (building_sell_ratio / 100)
+            hold_building_value = building_original * (1 - building_sell_ratio / 100)
+
+            st.markdown("#### 出售固定资产数值")
+            st.metric(
+                f"占比: {building_sell_ratio:.2f}%",
+                f"{sales_building_value:.2f}万元",
+                help=f"出售固定资产 = 房屋建筑原值 × {building_sell_ratio:.2f}%"
+            )
+
+            st.markdown("#### 自持固定资产设置")
+            building_hold_ratio = 100.0 - building_sell_ratio
+            st.metric(
+                f"自持占比: {building_hold_ratio:.2f}%",
+                f"{hold_building_value:.2f}万元",
+                help=f"自持固定资产 = 房屋建筑原值 × {building_hold_ratio:.2f}%"
             )
 
         with col2:
+            st.markdown("#### 土地使用权销售设置")
+
+            # 出售土地使用权占比
             land_sell_ratio = st.number_input(
                 "出售土地使用权占比（%）",
                 min_value=0.0,
@@ -335,69 +359,95 @@ with st.sidebar:
                 value=25.0,
                 format="%.2f",
                 key="land_sell_ratio",
-                help="出售土地使用权占总土地的比例"
+                help="基数是土地使用权原值"
             )
 
-        with col3:
-            self_hold_ratio = st.number_input(
-                "自持占比（%）",
-                min_value=0.0,
-                max_value=100.0,
-                value=75.0,
-                format="%.2f",
-                key="self_hold_ratio",
-                help="自持资产占总资产的比例"
+            # 计算出售和自持数值
+            land_original = 6505.72  # 土地使用权原值
+            sales_land_value = land_original * (land_sell_ratio / 100)
+            hold_land_value = land_original * (1 - land_sell_ratio / 100)
+
+            st.markdown("#### 出售土地使用权数值")
+            st.metric(
+                f"占比: {land_sell_ratio:.2f}%",
+                f"{sales_land_value:.2f}万元",
+                help=f"出售土地使用权 = 土地使用权原值 × {land_sell_ratio:.2f}%"
+            )
+
+            st.markdown("#### 自持土地使用权设置")
+            land_hold_ratio = 100.0 - land_sell_ratio
+            st.metric(
+                f"自持占比: {land_hold_ratio:.2f}%",
+                f"{hold_land_value:.2f}万元",
+                help=f"自持土地使用权 = 土地使用权原值 × {land_hold_ratio:.2f}%"
             )
 
         st.markdown("---")
-        st.markdown("### 年度销售比例")
+        st.markdown("### 年度资产销售计划")
+        st.info("""
+        **说明**: 横向布置年份，预留10年的位置，由用户填写每年的销售比例。
+        销售额将根据销售比例自动计算。
+        """)
 
-        # 年度销售比例输入
+        # 年度销售比例输入（横向布置，10年）
         year_generator = YearGenerator(new_construction, new_operation)
         years = year_generator.generate_year_names()
 
+        st.markdown("#### 年度销售比例（%）")
+        cols = st.columns(10)
         annual_sales_ratios = []
 
-        col1, col2, col3, col4 = st.columns(4)
-
-        cols = [col1, col2, col3, col4]
-        for i, col in enumerate(cols):
-            with col:
+        for i in range(10):  # 最多10年
+            with cols[i]:
                 if i < len(years) and year_generator.is_operation_year(year_generator.get_year_index(years[i])):
                     ratio = st.number_input(
-                        f"{years[i]} 销售比例",
+                        f"{years[i]}",
                         min_value=0.0,
-                        max_value=1.0,
-                        value=0.3 if i > 0 else 0.1,
-                        format="%.2f",
-                        key=f"sales_ratio_{i}",
-                        help="该年销售比例"
+                        max_value=100.0,
+                        value=0.1 if i == 0 else 0.3,
+                        format="%.1f",
+                        key=f"annual_ratio_{i}",
+                        help=f"{years[i]}年销售比例(%)"
                     )
-                    annual_sales_ratios.append(ratio)
+                    annual_sales_ratios.append((years[i], ratio))
+                else:
+                    st.markdown(f"**{i+1}**")
+                    st.text("-")
 
-        st.markdown("---")
-        st.markdown("### 资产销售预测")
+        # 总销售价格输入
+        st.divider()
+        st.markdown("### 销售收入设置")
 
-        # 显示销售预测表
-        if annual_sales_ratios:
-            st.write("年度销售分配（万元）：")
+        total_sales_price = st.number_input(
+            "总销售价格（万元）",
+            min_value=0.0,
+            value=66285.86,
+            format="%.2f",
+            key="total_sales_price",
+            help="所有销售房产的总价格，将按年度销售比例分摊到各年"
+        )
 
-            # 计算销售成本
-            fixed_asset_cost = 106057.38 * (asset_sell_ratio / 100)
-            sales_revenue = fixed_asset_cost * 2.5
+        # 显示年度销售额计算结果
+        st.markdown("#### 年度销售额（万元）")
+        sales_cols = st.columns(10)
 
-            # 显示年度分配
-            for i, (year, ratio) in enumerate(zip(years, annual_sales_ratios)):
-                if year_generator.is_operation_year(year_generator.get_year_index(year)):
-                    year_revenue = sales_revenue * ratio
-                    year_cost = fixed_asset_cost * ratio
-                    year_land_amort = 6505.72 * (land_sell_ratio / 100) * ratio
-
-                    col1, col2, col3, col4 = st.columns(4)
-                    col1.info(f"{year} 销售比例：{ratio*100:.1f}%")
-                    col2.info(f"销售收入：{year_revenue:.2f} 万")
-                    col3.info(f"销售成本：{year_cost:.2f} 万")
-                    col4.info(f"土地摊销：{year_land_amort:.2f} 万")
+        for i in range(10):
+            with sales_cols[i]:
+                if i < len(annual_sales_ratios):
+                    year, ratio = annual_sales_ratios[i]
+                    # 按销售比例计算销售额
+                    revenue = total_sales_price * (ratio / 100.0)
+                    if revenue > 0:
+                        st.metric(
+                            f"{year}",
+                            f"{revenue:.2f}",
+                            help=f"总销售价格 × {ratio:.1f}%"
+                        )
+                    else:
+                        st.metric(f"{year}", "0.00")
+                else:
+                    st.markdown(f"**{i+1}**")
+                    st.text("-")
 
     # 5. 产品销售收入（按年）
     with st.expander("5️⃣ 产品销售收入（万元）"):
