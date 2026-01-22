@@ -150,12 +150,45 @@ def render_data_input_page():
 
     st.divider()
 
+    # 使用标签页组织不同模块 - 重要提示
+    st.markdown("""
+    <style>
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .stTabs [data-baseweb="tab"] {
+        height: 60px;
+        padding: 10px 20px;
+        background-color: #f0f2f6;
+        border-radius: 8px;
+        border: 2px solid #ddd;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #ff6b6b;
+        color: white;
+        border: 2px solid #ff6b6b;
+        font-size: 26px;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.info("""
+    👆 **重要提示：请点击下方标签页切换不同的输入模块**
+    
+    - 🔹 **基础信息与投资**：项目名称、建设期、运营期、项目投资费用
+    - 🔹 **资产形成与销售**：固定资产折旧、无形资产摊销、资产销售计划
+    - 🔹 **收入成本**：产品销售、材料成本、燃料成本、人工成本、其他费用
+    - 🔹 **财务参数**：税收参数、投融资计划、银行借款计划、其他参数
+    """)
+
     # 使用标签页组织不同模块
     tab1, tab2, tab3, tab4 = st.tabs([
-        "基础信息与投资",
-        "资产形成与销售",
-        "收入成本",
-        "财务参数"
+        "📌 基础信息与投资",
+        "📌 资产形成与销售",
+        "📌 收入成本",
+        "📌 财务参数"
     ])
 
     # ===== 标签页1：基础信息与投资 =====
@@ -279,18 +312,49 @@ def render_data_input_page():
             price_reserve_fee = total_engineering * price_reserve_rate / 100
             total_reserve_fee = basic_reserve_fee + price_reserve_fee
 
+            st.divider()
+            st.markdown("### 其他费用")
+
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                construction_interest = st.number_input(
+                    "建设期利息（万元）",
+                    value=5721.19,
+                    format="%.2f",
+                    key="construction_interest",
+                    help="建设期借款利息"
+                )
+            with col2:
+                equipment_tax_rate = st.number_input(
+                    "设备费增值税率(%)",
+                    value=13.0,
+                    format="%.2f",
+                    key="equipment_tax_rate",
+                    help="设备采购增值税税率"
+                )
+            with col3:
+                construction_tax_rate = st.number_input(
+                    "建筑安装增值税率(%)",
+                    value=9.0,
+                    format="%.2f",
+                    key="construction_tax_rate",
+                    help="建筑工程增值税税率"
+                )
+
             # 项目投资总计
-            total_investment = total_engineering + total_reserve_fee
+            total_investment = total_engineering + total_reserve_fee + construction_interest
             st.divider()
             st.success(f"""
-            **项目静态总投资：{total_investment:.2f}万元**
+            **项目总投资：{total_investment:.2f}万元**
 
             计算公式：
             - 工程费合计 = {engineering_fee_total:.2f}万元（建筑工程费 + 设备费 + 安装费）
             - 工程建设其他费用 = {other_fee_total:.2f}万元
             - 工程费+其他费用 = {total_engineering:.2f}万元
             - 预备费合计 = {total_reserve_fee:.2f}万元
-            - 项目静态总投资 = {total_engineering:.2f} + {total_reserve_fee:.2f} = {total_investment:.2f}万元
+            - 建设期利息 = {construction_interest:.2f}万元
+            - **项目总投资 = {total_engineering:.2f} + {total_reserve_fee:.2f} + {construction_interest:.2f} = {total_investment:.2f}万元**
             """)
 
     # ===== 标签页2：资产形成与销售 =====
@@ -420,7 +484,27 @@ def render_data_input_page():
 
         # 4. 资产销售计划
         with st.expander("4️⃣ 资产销售计划", expanded=True):
+            # 数据流程说明
+            st.info("""
+            💡 **数据流程**: 基础信息与投资 → 资产形成 → 资产销售计划
+
+            - 房屋建筑原值和土地使用权原值来自上方"基础信息与投资"标签页的计算结果
+            - 如需修改原值，请先调整投资数据，系统会自动重新计算
+            """)
+
             st.markdown("### 固定资产销售设置")
+
+            # 🔧 优化1: 从session state获取资产原值（如果已计算）
+            if 'asset_formation_calculated' in st.session_state and st.session_state.asset_formation_calculated:
+                # 从已计算的资产形成数据中获取
+                building_original = st.session_state.get('building_fixed_asset_total', 106057.38)
+                land_original = st.session_state.get('land_intangible_asset_total', 6505.72)
+                st.success("✅ 资产原值已从投资数据自动计算")
+            else:
+                # 使用默认值（首次加载）
+                building_original = 106057.38
+                land_original = 6505.72
+                st.info("💡 提示：资产原值将根据'基础信息与投资'标签页的输入自动计算，当前使用默认值")
 
             col1, col2 = st.columns(2)
 
@@ -437,7 +521,6 @@ def render_data_input_page():
                 )
 
                 # 计算出售和自持数值
-                building_original = 106057.38  # 房屋建筑原值
                 sales_building_value = building_original * (building_sell_ratio / 100)
                 hold_building_value = building_original * (1 - building_sell_ratio / 100)
 
@@ -471,7 +554,6 @@ def render_data_input_page():
                 )
 
                 # 计算出售和自持数值
-                land_original = 6505.72  # 土地使用权原值
                 sales_land_value = land_original * (land_sell_ratio / 100)
                 hold_land_value = land_original * (1 - land_sell_ratio / 100)
 
@@ -490,37 +572,94 @@ def render_data_input_page():
                     help=f"自持土地使用权 = 土地使用权原值 × {land_hold_ratio:.2f}%"
                 )
 
-            st.markdown("---")
+            st.divider()
             st.markdown("### 年度资产销售计划")
+
+            # 🔧 优化3: 添加快捷预设按钮
+            st.markdown("#### 快捷预设")
+            st.info("💡 销售期固定为10年（从运营期第1年开始），如果运营期少于10年，超出年份保持0%")
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                if st.button("📊 均匀分布", key="preset_even"):
+                    # 10年平均分配
+                    avg_ratio = 100.0 / 10
+                    for i in range(10):
+                        st.session_state[f"annual_ratio_{i}"] = round(avg_ratio, 1)
+                    st.rerun()
+
+            with col2:
+                if st.button("📈 前期销售", key="preset_early"):
+                    # 第1年50%，其余9年平均分配
+                    st.session_state["annual_ratio_0"] = 50.0
+                    remaining = 50.0 / 9
+                    for i in range(1, 10):
+                        st.session_state[f"annual_ratio_{i}"] = round(remaining, 1)
+                    st.rerun()
+
+            with col3:
+                if st.button("📉 后期销售", key="preset_late"):
+                    # 最后1年50%，前面9年平均分配
+                    st.session_state["annual_ratio_9"] = 50.0
+                    remaining = 50.0 / 9
+                    for i in range(9):
+                        st.session_state[f"annual_ratio_{i}"] = round(remaining, 1)
+                    st.rerun()
+
+            with col4:
+                if st.button("🔄 自定义", key="preset_custom"):
+                    # 第1年10%，第2-4年各30%，其余0%（默认模式）
+                    st.session_state["annual_ratio_0"] = 10.0
+                    for i in range(1, 4):
+                        st.session_state[f"annual_ratio_{i}"] = 30.0
+                    for i in range(4, 10):
+                        st.session_state[f"annual_ratio_{i}"] = 0.0
+                    st.rerun()
+
+            # 🔧 优化2: 使用数据编辑器替代10个独立输入框
+            st.markdown("#### 年度销售比例（%）")
             st.info("""
-            **说明**: 横向布置年份，预留10年的位置，由用户填写每年的销售比例。
-            销售额将根据销售比例自动计算。
+            💡 **提示**: 直接编辑下方表格，修改各年的销售比例。销售期固定为10年（从运营期第1年开始）。
+            - 比例为0表示该年不销售
+            - 如果运营期少于10年，超出年份自动保持0%
             """)
 
-            # 年度销售比例输入（横向布置，10年）
-            year_generator = YearGenerator(st.session_state.construction_period, st.session_state.operation_period)
-            years = year_generator.generate_year_names()
+            # 固定10年销售期，使用"第1年"到"第10年"标签
+            # 构建年度销售比例数据
+            sales_data = []
+            default_ratios = [10.0, 30.0, 30.0, 30.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]  # 默认模式：前4年销售
+            for i in range(10):
+                # 从session state获取已有的值，或使用默认值
+                default_ratio = st.session_state.get(f"annual_ratio_{i}", default_ratios[i])
+                sales_data.append({
+                    '年份': f"第{i+1}年",
+                    '销售比例(%)': default_ratio
+                })
 
-            st.markdown("#### 年度销售比例（%）")
-            cols = st.columns(10)
-            annual_sales_ratios = []
+            import pandas as pd
+            df_sales = pd.DataFrame(sales_data)
 
-            for i in range(10):  # 最多10年
-                with cols[i]:
-                    if i < len(years) and year_generator.is_operation_year(year_generator.get_year_index(years[i])):
-                        ratio = st.number_input(
-                            f"{years[i]}",
-                            min_value=0.0,
-                            max_value=100.0,
-                            value=0.1 if i == 0 else 0.3,
-                            format="%.1f",
-                            key=f"annual_ratio_{i}",
-                            help=f"{years[i]}年销售比例(%)"
-                        )
-                        annual_sales_ratios.append((years[i], ratio))
-                    else:
-                        st.markdown(f"**{i+1}**")
-                        st.text("-")
+            # 使用data_editor让用户编辑
+            edited_df = st.data_editor(
+                df_sales,
+                num_rows="fixed",
+                hide_index=True,
+                column_config={
+                    '年份': st.column_config.TextColumn('年份', width='medium'),
+                    '销售比例(%)': st.column_config.NumberColumn(
+                        '销售比例(%)',
+                        min_value=0.0,
+                        max_value=100.0,
+                        step=1.0,
+                        format="%.1f"
+                    )
+                },
+                key="sales_ratio_editor"
+            )
+
+            # 将编辑后的值保存到session state
+            for i, row in edited_df.iterrows():
+                st.session_state[f"annual_ratio_{i}"] = row['销售比例(%)']
 
             # 总销售价格输入
             st.divider()
@@ -535,27 +674,140 @@ def render_data_input_page():
                 help="所有销售房产的总价格，将按年度销售比例分摊到各年"
             )
 
-            # 显示年度销售额计算结果
-            st.markdown("#### 年度销售额（万元）")
-            sales_cols = st.columns(10)
+            # 🔧 优化4: 添加汇总信息卡片和验证
+            st.markdown("### 📊 资产销售计划汇总")
 
+            # 计算汇总数据
+            annual_sales_ratios = [row['销售比例(%)'] for _, row in edited_df.iterrows()]
+            total_ratio = sum(annual_sales_ratios)
+
+            # 计算年度销售额（固定10年）
+            annual_revenues = {}
             for i in range(10):
-                with sales_cols[i]:
-                    if i < len(annual_sales_ratios):
-                        year, ratio = annual_sales_ratios[i]
-                        # 按销售比例计算销售额
-                        revenue = total_sales_price * (ratio / 100.0)
-                        if revenue > 0:
-                            st.metric(
-                                f"{year}",
-                                f"{revenue:.2f}",
-                                help=f"总销售价格 × {ratio:.1f}%"
-                            )
-                        else:
-                            st.metric(f"{year}", "0.00")
-                    else:
-                        st.markdown(f"**{i+1}**")
-                        st.text("-")
+                year_label = f"第{i+1}年"
+                ratio = annual_sales_ratios[i]
+                annual_revenues[year_label] = total_sales_price * (ratio / 100.0)
+
+            total_revenue = sum(annual_revenues.values())
+            total_cost = sales_building_value * (total_ratio / 100.0)  # 总销售成本
+            profit = total_revenue - total_cost
+            profit_margin = (profit / total_revenue * 100) if total_revenue > 0 else 0
+
+            col1, col2, col3, col4 = st.columns(4)
+
+            with col1:
+                st.metric(
+                    "销售比例合计",
+                    f"{total_ratio:.1f}%",
+                    help="所有年度销售比例之和"
+                )
+
+            with col2:
+                st.metric(
+                    "预计总收入",
+                    f"{total_revenue:,.2f}万元",
+                    help="各年销售收入之和"
+                )
+
+            with col3:
+                st.metric(
+                    "总销售成本",
+                    f"{total_cost:,.4f}万元",
+                    help="出售固定资产数值 × 销售比例合计"
+                )
+
+            with col4:
+                st.metric(
+                    "预计毛利率",
+                    f"{profit_margin:.2f}%",
+                    delta=f"{profit:,.2f}万元" if profit >= 0 else f"{profit:,.2f}万元",
+                    help="(总收入 - 总成本) / 总收入"
+                )
+
+            # 验证警告
+            if abs(total_ratio - 100.0) > 0.1:
+                st.warning(f"⚠️ 注意：年度销售比例合计为 {total_ratio:.1f}%，建议为100%以确保全部资产售出")
+            else:
+                st.success("✅ 年度销售比例合计为100%，数据合理")
+
+            # 显示年度销售额计算结果
+            st.markdown("#### 年度销售收入明细（万元）")
+            st.caption("Row 53: 固定资产销售收入（含税）→ 传递到'6收入'工作表")
+
+            # 使用更紧凑的布局显示10年数据（每行最多5列）
+            st.info("💡 以下显示10年销售期的各年销售收入，仅显示销售额大于0的年份")
+            sales_years = [f"第{i+1}年" for i in range(10)]
+            display_cols = st.columns(5)  # 每行5列
+            for i, year_label in enumerate(sales_years):
+                revenue = annual_revenues[year_label]
+                ratio = annual_sales_ratios[i]
+                if revenue > 0 or ratio > 0:  # 只显示有销售额或有销售比例的年份
+                    with display_cols[i % 5]:
+                        st.metric(
+                            year_label,
+                            f"{revenue:.2f}",
+                            help=f"总销售价格 {total_sales_price:,.2f} × {ratio:.1f}%"
+                        )
+
+            # 计算年度销售成本（Row 51）
+            st.markdown("#### 年度销售成本明细（万元）")
+            st.caption("Row 51: 用于出售的固定资产 → 传递到'5-4折旧'工作表")
+
+            annual_sales_costs = {}
+            for i in range(10):
+                year_label = f"第{i+1}年"
+                ratio = annual_sales_ratios[i]
+                annual_sales_costs[year_label] = sales_building_value * (ratio / 100.0)
+
+            cost_cols = st.columns(5)
+            for i, year_label in enumerate(sales_years):
+                cost = annual_sales_costs[year_label]
+                ratio = annual_sales_ratios[i]
+                if cost > 0 or ratio > 0:
+                    with cost_cols[i % 5]:
+                        st.metric(
+                            year_label,
+                            f"{cost:.4f}",
+                            help=f"出售固定资产 {sales_building_value:.4f} × {ratio:.1f}%"
+                        )
+
+            # 计算年度土地摊销（Row 52）
+            st.markdown("#### 年度土地摊销明细（万元）")
+            st.caption("Row 52: 出售固定资产对应的土地使用权摊销额")
+
+            annual_land_amortizations = {}
+            for i in range(10):
+                year_label = f"第{i+1}年"
+                ratio = annual_sales_ratios[i]
+                annual_land_amortizations[year_label] = sales_land_value * (ratio / 100.0)
+
+            land_cols = st.columns(5)
+            for i, year_label in enumerate(sales_years):
+                land_amort = annual_land_amortizations[year_label]
+                ratio = annual_sales_ratios[i]
+                if land_amort > 0 or ratio > 0:
+                    with land_cols[i % 5]:
+                        st.metric(
+                            year_label,
+                            f"{land_amort:.4f}",
+                            help=f"出售土地使用权 {sales_land_value:.4f} × {ratio:.1f}%"
+                        )
+
+            # 保存资产销售计划数据到session state（供后续计算使用）
+            st.session_state.sales_plan_building_sell_ratio = building_sell_ratio
+            st.session_state.sales_plan_land_sell_ratio = land_sell_ratio
+            st.session_state.sales_plan_sales_building_value = sales_building_value
+            st.session_state.sales_plan_hold_building_value = hold_building_value
+            st.session_state.sales_plan_sales_land_value = sales_land_value
+            st.session_state.sales_plan_hold_land_value = hold_land_value
+            st.session_state.sales_plan_total_sales_price = total_sales_price
+            st.session_state.sales_plan_annual_sales_ratios = annual_sales_ratios
+            st.session_state.sales_plan_annual_revenues = annual_revenues
+            st.session_state.sales_plan_annual_costs = annual_sales_costs
+            st.session_state.sales_plan_annual_land_amortizations = annual_land_amortizations
+            st.session_state.sales_plan_data_entered = True
+
+            st.success("✅ 资产销售计划数据已保存，可用于后续计算")
 
     # ===== 标签页3：收入成本 =====
     with tab3:
@@ -807,7 +1059,7 @@ def render_results_page():
                     # 下载按钮（使用格式化后的数据，也是2位小数）
                     csv = df_display.to_csv(index=False, encoding='utf-8-sig')
                     st.download_button(
-                        f"下载 {config.SHEET_MAPPING.get(sheet_name, sheet_name)}",
+                        label=f"下载 {config.SHEET_MAPPING.get(sheet_name, sheet_name)}",
                         data=csv,
                         file_name=f"{sheet_name}_result.csv",
                         mime="text/csv"
@@ -890,7 +1142,7 @@ st.divider()
 st.markdown(
     """
     <div style='text-align: center; color: gray; font-size: 12px;'>
-        JZGCCW 建设工程财务分析系统 v2.0 | 基于《建设项目经济评价方法与参数(第三版)》
+        JZGCCW 建设工程财务分析系统 v3.0 | 基于《建设项目经济评价方法与参数(第三版)》
     </div>
     """,
     unsafe_allow_html=True

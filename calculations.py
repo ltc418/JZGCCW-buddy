@@ -33,31 +33,33 @@ class InvestmentCalculator:
         """
         inv = self.input.project_investment
 
-        # 工程费合计
+        # 先计算不含税值（确保已计算）
+        inv.calculate_no_tax_values()
+
+        # 工程费合计（不含税）
         total_engineering = (
-            inv.building_cost +
-            inv.building_equipment_cost +
-            inv.building_installation_cost +
-            inv.production_equipment_cost +
-            inv.production_installation_cost
+            inv.building_cost_no_tax +
+            inv.building_equipment_cost_no_tax +
+            inv.building_installation_cost_no_tax +
+            (inv.production_equipment_cost / (1 + inv.equipment_tax_rate / 100) if inv.production_equipment_cost > 0 else 0) +
+            (inv.production_installation_cost / (1 + inv.construction_tax_rate / 100) if inv.production_installation_cost > 0 else 0)
         )
 
-        # 工程建设其他费合计
+        # 工程建设其他费合计（不含税）
         total_other = (
-            inv.management_fee +
-            inv.tech_service_fee +
-            inv.supporting_fee +
-            inv.land_use_fee +
-            inv.patent_fee +
-            inv.preparation_fee
+            inv.management_fee_no_tax +
+            inv.tech_service_fee_no_tax +
+            inv.supporting_fee_no_tax +
+            inv.land_use_fee_no_tax +
+            inv.patent_fee_no_tax +
+            inv.preparation_fee_no_tax
         )
 
-        # 基本预备费
-        basic_reserve = (total_engineering + total_other) * (inv.basic_reserve_rate / 100)
+        # 基本预备费（使用用户输入的值，不是计算的）
+        basic_reserve = inv.basic_reserve
 
-        # 涨价预备费（简化计算，假设按建设期每年投资的一定比例）
-        # 这里简化为0，实际应根据建设期投资计划计算
-        price_reserve = 0.0
+        # 涨价预备费（使用用户输入的值）
+        price_reserve = inv.price_reserve
 
         # 项目总投资（不含建设期利息和流动资金）
         total_investment = total_engineering + total_other + basic_reserve + price_reserve
@@ -167,9 +169,10 @@ class InvestmentCalculator:
         Excel计算逻辑：
         1. 工程费（不含税）= 各项工程费不含税之和
         2. 固定资产其他费用（不含税）= 管理咨询费(不含税) + 技术服务费(不含税) + 配套设施(不含税)
-        3. 预备费 = (工程费不含税 + 固定资产其他费用 + 开办费不含税) × 10%
-        4. 无形资产 = 土地使用费(不含税) + 专利费(不含税)
-        5. 其他资产 = 开办费不含税
+        3. 预备费 = 用户输入的值（不是计算的）
+        4. 建设期利息 = 用户输入的值（不是计算的）
+        5. 无形资产 = 土地使用费(不含税) + 专利费(不含税)
+        6. 其他资产 = 开办费不含税
         """
         inv = self.input.project_investment
 
@@ -184,8 +187,8 @@ class InvestmentCalculator:
             inv.building_cost_no_tax +
             inv.building_equipment_cost_no_tax +
             inv.building_installation_cost_no_tax +
-            inv.production_equipment_cost / (1 + inv.equipment_tax_rate) +
-            inv.production_installation_cost / (1 + inv.construction_tax_rate)
+            (inv.production_equipment_cost / (1 + inv.equipment_tax_rate / 100) if inv.production_equipment_cost > 0 else 0) +
+            (inv.production_installation_cost / (1 + inv.construction_tax_rate / 100) if inv.production_installation_cost > 0 else 0)
         )
 
         # 计算固定资产其他费用（不含税，不含开办费）
@@ -199,13 +202,13 @@ class InvestmentCalculator:
         # 计算开办费（不含税）
         preparation_fee_no_tax = inv.preparation_fee_no_tax
 
-        # 计算基本预备费（Excel中：10532.08）
-        # 预备费 = (工程费不含税 + 固定资产其他费用 + 开办费不含税) × 10%
-        # 注意：预备费计算基数不含土地使用费
-        basic_reserve = (engineering_no_tax + fixed_other_fees_no_tax + preparation_fee_no_tax) * (inv.basic_reserve_rate / 100)
+        # 基本预备费（使用用户输入的值）
+        # Excel中：10532.08（用户输入，不是计算的）
+        basic_reserve = inv.basic_reserve
 
-        # 计算建设期利息（Excel中：5721.19）
-        construction_interest = sum(self.calculate_construction_interest().values())
+        # 建设期利息（使用用户输入的值）
+        # Excel中：5721.19（用户输入，不是计算的）
+        construction_interest = inv.construction_interest
 
         # 固定资产形成计算
         # 房屋建筑固定资产
@@ -246,8 +249,8 @@ class InvestmentCalculator:
             (inv.building_cost - inv.building_cost_no_tax) +
             (inv.building_equipment_cost - inv.building_equipment_cost_no_tax) +
             (inv.building_installation_cost - inv.building_installation_cost_no_tax) +
-            (inv.production_equipment_cost - inv.production_equipment_cost / (1 + inv.equipment_tax_rate)) +
-            (inv.production_installation_cost - inv.production_installation_cost / (1 + inv.construction_tax_rate)) +
+            (inv.production_equipment_cost - inv.production_equipment_cost / (1 + inv.equipment_tax_rate / 100) if inv.production_equipment_cost > 0 else 0) +
+            (inv.production_installation_cost - inv.production_installation_cost / (1 + inv.construction_tax_rate / 100) if inv.production_installation_cost > 0 else 0) +
             # 工程建设其他费进项税
             (inv.management_fee - inv.management_fee_no_tax) +
             (inv.tech_service_fee - inv.tech_service_fee_no_tax) +
@@ -459,11 +462,20 @@ class DepreciationCalculator:
             }
         }
 
-        # 建筑物年折旧额（直线法）
-        building_annual_depr = building_value / asset.building_fixed_asset.depreciation_years if asset.building_fixed_asset.depreciation_years > 0 else 0
+        # 建筑物年折旧额（直线法，考虑残值率）
+        # Excel: 79543.04 * (1 - 5%) / 20 = 3778.29
+        building_annual_depr = (
+            building_value * (1 - asset.building_fixed_asset.salvage_rate / 100) /
+            asset.building_fixed_asset.depreciation_years
+            if asset.building_fixed_asset.depreciation_years > 0 else 0
+        )
 
-        # 机器设备年折旧额
-        equipment_annual_depr = equipment_value / asset.equipment_fixed_asset.depreciation_years if asset.equipment_fixed_asset.depreciation_years > 0 else 0
+        # 机器设备年折旧额（直线法，考虑残值率）
+        equipment_annual_depr = (
+            equipment_value * (1 - asset.equipment_fixed_asset.salvage_rate / 100) /
+            asset.equipment_fixed_asset.depreciation_years
+            if asset.equipment_fixed_asset.depreciation_years > 0 else 0
+        )
 
         # 计算各年数据
         cumulative_building_depr = 0.0
@@ -1092,29 +1104,31 @@ class AssetSalesCalculator:
         # 年度销售数据
         years = self.yg.generate_year_names()
         operation_years = [y for y in years if self.yg.is_operation_year(self.yg.get_year_index(y))]
-        
-        # 转换年度销售比例为小数
+
+        # 转换年度销售比例为小数（固定10年销售期）
         annual_ratios = [r / 100.0 for r in sales_plan.annual_sales_ratios]
-        
+
         # 清空旧的年度数据
         sales_plan.annual_sales_revenue = {}
         sales_plan.annual_sales_cost = {}
         sales_plan.annual_land_amortization = {}
-        
-        # 按年度分配
+
+        # 按年度分配（固定10年销售期，从运营期第1年开始）
+        # annual_ratios[0]对应运营期第1年，annual_ratios[9]对应运营期第10年
         for i, year in enumerate(operation_years):
-            if i < len(annual_ratios):
+            if i < 10:  # 最多处理10年销售期
                 ratio = annual_ratios[i]
-                
+
                 # 年度销售收入 = 总销售价格 × 年度销售比例
+                # Excel中 Row 53: 固定资产销售收入（含税）
                 sales_plan.annual_sales_revenue[year] = sales_plan.total_sales_price * ratio
-                
+
                 # 年度销售成本 = 出售固定资产数值 × 年度销售比例
-                # Excel中：26514.35 × 年度销售比例
+                # Excel中 Row 51: 用于出售的固定资产 → 传递到"5-4折旧"
                 sales_plan.annual_sales_cost[year] = sales_plan.sales_building_value * ratio
-                
+
                 # 年度土地摊销 = 出售土地使用权数值 × 年度销售比例
-                # Excel中：1626.43 × 年度销售比例
+                # Excel中 Row 52: 出售固定资产对应的土地使用权摊销额
                 sales_plan.annual_land_amortization[year] = sales_plan.sales_land_value * ratio
         
         # 保留向后兼容的字段

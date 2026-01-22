@@ -37,9 +37,13 @@ class ProjectInvestment:
     patent_fee: float = 0.0              # 专利及专有技术费（万元）
     preparation_fee: float = 0.0        # 生产准备及开办费（万元）
 
-    # 预备费
-    basic_reserve_rate: float = 0.0      # 基本预备费率（%）
-    price_reserve_rate: float = 0.0      # 涨价预备费率（%）
+    # 预备费（用户输入的值，不是计算的）
+    basic_reserve: float = 0.0           # 基本预备费（万元）- 用户直接输入
+    basic_reserve_rate: float = 0.0      # 基本预备费率（%）- 仅用于参考
+    price_reserve: float = 0.0           # 涨价预备费（万元）
+
+    # 建设期利息（用户输入的值，不是计算的）
+    construction_interest: float = 0.0   # 建设期利息（万元）- 用户直接输入
 
     # 税率（用于计算不含税金额）
     equipment_tax_rate: float = 0.13    # 设备增值税率（%）
@@ -60,16 +64,48 @@ class ProjectInvestment:
     preparation_fee_no_tax: float = 0.0        # 生产准备及开办费不含税（万元）
 
     def calculate_no_tax_values(self):
-        """根据含税值和税率计算不含税值"""
-        self.building_cost_no_tax = self.building_cost / (1 + self.construction_tax_rate)
-        self.building_equipment_cost_no_tax = self.building_equipment_cost / (1 + self.equipment_tax_rate)
-        self.building_installation_cost_no_tax = self.building_installation_cost / (1 + self.construction_tax_rate)
-        self.management_fee_no_tax = self.management_fee / (1 + self.service_tax_rate)
-        self.tech_service_fee_no_tax = self.tech_service_fee / (1 + self.service_tax_rate)
-        self.supporting_fee_no_tax = self.supporting_fee / (1 + self.construction_tax_rate)
-        self.land_use_fee_no_tax = self.land_use_fee / (1 + 0)  # 土地税率0
-        self.patent_fee_no_tax = self.patent_fee / (1 + self.service_tax_rate)
-        self.preparation_fee_no_tax = self.preparation_fee / (1 + self.construction_tax_rate)
+        """根据含税值和税率计算不含税值
+
+        Excel 计算方法：
+        1. 进项税 = 含税值 × 税率（直接乘税率）
+        2. 不含税值 = 含税值 - 进项税
+
+        注意：税率字段存储的是百分比值（如 9.0 表示 9%），计算时需要除以 100
+        """
+        # 建筑工程费（税率9%）
+        building_input_tax = self.building_cost * (self.construction_tax_rate / 100)
+        self.building_cost_no_tax = self.building_cost - building_input_tax
+
+        # 建筑设备费（税率13%）
+        equipment_input_tax = self.building_equipment_cost * (self.equipment_tax_rate / 100)
+        self.building_equipment_cost_no_tax = self.building_equipment_cost - equipment_input_tax
+
+        # 建筑设备安装费（税率9%）
+        installation_input_tax = self.building_installation_cost * (self.construction_tax_rate / 100)
+        self.building_installation_cost_no_tax = self.building_installation_cost - installation_input_tax
+
+        # 管理咨询费（税率6%）
+        management_input_tax = self.management_fee * (self.service_tax_rate / 100)
+        self.management_fee_no_tax = self.management_fee - management_input_tax
+
+        # 技术服务费（税率6%）
+        tech_input_tax = self.tech_service_fee * (self.service_tax_rate / 100)
+        self.tech_service_fee_no_tax = self.tech_service_fee - tech_input_tax
+
+        # 配套设施（税率9%）
+        supporting_input_tax = self.supporting_fee * (self.construction_tax_rate / 100)
+        self.supporting_fee_no_tax = self.supporting_fee - supporting_input_tax
+
+        # 土地使用费（无税率）
+        self.land_use_fee_no_tax = self.land_use_fee
+
+        # 专利费（税率6%）
+        patent_input_tax = self.patent_fee * (self.service_tax_rate / 100)
+        self.patent_fee_no_tax = self.patent_fee - patent_input_tax
+
+        # 开办费（税率9%）
+        preparation_input_tax = self.preparation_fee * (self.construction_tax_rate / 100)
+        self.preparation_fee_no_tax = self.preparation_fee - preparation_input_tax
 
 
 @dataclass
@@ -175,9 +211,9 @@ class AssetSalesPlan:
     # 销售价格
     total_sales_price: float = 0.0           # 总销售价格（万元），用户输入
 
-    # 年度销售比例（按年横向布置，预留10年位置）
-    # Excel中：第1年10%，第2-4年各30%
-    annual_sales_ratios: List[float] = field(default_factory=lambda: [10.0, 30.0, 30.0, 30.0])
+    # 年度销售比例（固定10年销售期，从运营期第1年开始）
+    # 默认值：第1年10%，第2-4年各30%，第5-10年0%
+    annual_sales_ratios: List[float] = field(default_factory=lambda: [10.0, 30.0, 30.0, 30.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 
     # 年度销售额（按销售比例计算）
     annual_sales_revenue: Dict[str, float] = field(default_factory=dict)
@@ -215,6 +251,7 @@ class BankLoanPlan:
     interest_rate: float = 0.0588                           # 年利率
     repayment_period: int = 15                              # 还款期限（年）
     repayment_method: str = "等额本金"  # 还款方式
+    grace_period: int = 2                                    # 宽限期（年）
 
 
 @dataclass

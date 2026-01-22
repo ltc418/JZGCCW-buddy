@@ -41,6 +41,10 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
     inv.preparation_fee = st.session_state.get("preparation_fee", 0.0)
     inv.basic_reserve_rate = st.session_state.get("basic_reserve_rate", 0.0)
     inv.price_reserve_rate = st.session_state.get("price_reserve_rate", 0.0)
+    inv.construction_interest = st.session_state.get("construction_interest", 0.0)  # 建设期利息
+    inv.equipment_tax_rate = st.session_state.get("equipment_tax_rate", 13.0)  # 默认13%
+    inv.construction_tax_rate = st.session_state.get("construction_tax_rate", 9.0)  # 默认9%
+    inv.service_tax_rate = st.session_state.get("service_tax_rate", 6.0)  # 默认6%
 
     # 3. 资产形成（根据Excel Row 32-45）
     asset_form = input_data.asset_formation
@@ -67,22 +71,22 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
     sales_plan.asset_sell_ratio = st.session_state.get("building_sell_ratio", 25.0) / 100
     sales_plan.land_sell_ratio = st.session_state.get("land_sell_ratio", 25.0) / 100
     sales_plan.self_hold_ratio = st.session_state.get("self_hold_ratio", 75.0) / 100
+    sales_plan.asset_sales_revenue = st.session_state.get("total_sales_price", 66285.86)
     
-    # 收集年度销售比例
-    yg = YearGenerator(construction_period, operation_period)
-    years = yg.generate_year_names()
+    # 收集年度销售比例（固定10年销售期）
+    # annual_ratio_0 ~ annual_ratio_9 对应运营期第1-10年
     annual_sales_ratios = []
-    
-    for i, year in enumerate(years):
-        year_num = yg.get_year_index(year)
-        if yg.is_operation_year(year_num):
-            ratio = st.session_state.get(f"annual_ratio_{i}", 0.0)
-            annual_sales_ratios.append(ratio)
-    
+    for i in range(10):
+        ratio = st.session_state.get(f"annual_ratio_{i}", 0.0)
+        annual_sales_ratios.append(ratio)
+
     sales_plan.annual_sales_ratios = annual_sales_ratios
 
     # 5. 销售收入
     sales_rev = input_data.sales_revenue
+    # 需要创建 year_generator 来获取年份列表
+    yg = YearGenerator(construction_period, operation_period)
+    years = yg.generate_year_names()
     sales_rev.annual_revenue = {}
     for year in years:
         year_num = yg.get_year_index(year)
@@ -99,12 +103,13 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
         year_num = yg.get_year_index(year)
         if yg.is_construction_year(year_num):
             # 建设期自动设为0
-            mat_cost.material_1[year] = 0.0
-            mat_cost.material_2[year] = 0.0
+            for i in range(1, 9):
+                getattr(mat_cost, f"material_{i}", {}).__setitem__(year, 0.0)
         else:
-            # 简化：只使用前几种材料
-            mat_cost.material_1[year] = st.session_state.get(f"mat1_{year}", 0.0)
-            mat_cost.material_2[year] = st.session_state.get(f"mat2_{year}", 0.0)
+            # 收集所有8种材料
+            for i in range(1, 9):
+                key = f"mat{i}_{year}"
+                getattr(mat_cost, f"material_{i}", {}).__setitem__(year, st.session_state.get(key, 0.0))
 
     # 7. 燃料成本
     fuel_cost = input_data.fuel_cost
@@ -112,9 +117,13 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
         year_num = yg.get_year_index(year)
         if yg.is_construction_year(year_num):
             # 建设期自动设为0
-            fuel_cost.fuel_1[year] = 0.0
+            for i in range(1, 9):
+                getattr(fuel_cost, f"fuel_{i}", {}).__setitem__(year, 0.0)
         else:
-            fuel_cost.fuel_1[year] = st.session_state.get(f"fuel1_{year}", 0.0)
+            # 收集所有8种燃料
+            for i in range(1, 9):
+                key = f"fuel{i}_{year}"
+                getattr(fuel_cost, f"fuel_{i}", {}).__setitem__(year, st.session_state.get(key, 0.0))
 
     # 8. 人工成本
     labor = input_data.labor_cost
@@ -145,11 +154,32 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
     # 11. 银行借款
     loan = input_data.bank_loan_plan
     loan.interest_rate = st.session_state.get("loan_interest_rate", 5.88)
-    loan.repayment_years = st.session_state.get("repayment_years", 15)
+    loan.repayment_period = st.session_state.get("repayment_years", 15)
     loan.repayment_method = st.session_state.get("repayment_method", "等额本金")
+    loan.grace_period = st.session_state.get("grace_period", 2)
+
+    # 收集建设期年度借款金额
+    investment_years = years[:construction_period]  # 只显示建设期年份
+    loan.loan_years = [i + 1 for i in range(construction_period)]  # 借款年份 (1, 2, 3...)
+    loan.loan_amounts = []
+    for year in investment_years:
+        yearly_loan = st.session_state.get(f"yearly_loan_{year}", 5000.0)
+        loan.loan_amounts.append(yearly_loan)
+
+    # 10.1 投融资计划
+    inv_plan = input_data.investment_plan
+    inv_plan.equity_fund = []
+    inv_plan.loan_fund = []
+    for year in investment_years:
+        equity = st.session_state.get(f"equity_{year}", 10000.0)
+        loan_fund = st.session_state.get(f"loan_{year}", 5000.0)
+        inv_plan.equity_fund.append(equity)
+        inv_plan.loan_fund.append(loan_fund)
 
     # 12. 其他参数
     tax.reserve_fund_rate = st.session_state.get("reserve_fund_rate", 10.0) / 100
     tax.loss_carryforward_years = st.session_state.get("loss_carryforward_years", 5)
+    tax.tax_benefit_coefficient = st.session_state.get("tax_benefit_coeff", 1.0)
+    tax.subsidy_income = {}  # 目前暂无补贴收入输入
 
     return input_data

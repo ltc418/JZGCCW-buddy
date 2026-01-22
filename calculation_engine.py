@@ -48,6 +48,10 @@ class CalculationEngine:
         """
         results = {}
 
+        # ⚠️ 关键：必须先完成资产形成计算，其他计算才能正常工作
+        self.investment_calc.calculate_asset_formation()
+        self.asset_sales_calc.calculate_annual_sales()
+
         # 1. 投资估算表
         results["1建设投资"] = self._create_investment_table()
 
