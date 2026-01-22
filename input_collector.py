@@ -64,7 +64,7 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
 
     # 4. 资产销售计划
     sales_plan = input_data.asset_sales_plan
-    sales_plan.asset_sell_ratio = st.session_state.get("asset_sell_ratio", 25.0) / 100
+    sales_plan.asset_sell_ratio = st.session_state.get("building_sell_ratio", 25.0) / 100
     sales_plan.land_sell_ratio = st.session_state.get("land_sell_ratio", 25.0) / 100
     sales_plan.self_hold_ratio = st.session_state.get("self_hold_ratio", 75.0) / 100
     
@@ -76,7 +76,7 @@ def collect_input_data(construction_period: int, operation_period: int) -> Input
     for i, year in enumerate(years):
         year_num = yg.get_year_index(year)
         if yg.is_operation_year(year_num):
-            ratio = st.session_state.get(f"sales_ratio_{i}", 0.0)
+            ratio = st.session_state.get(f"annual_ratio_{i}", 0.0)
             annual_sales_ratios.append(ratio)
     
     sales_plan.annual_sales_ratios = annual_sales_ratios
